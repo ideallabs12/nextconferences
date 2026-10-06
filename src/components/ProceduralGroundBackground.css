@@ -1,0 +1,17 @@
+.procedural-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #09090b; /* Fallback dark zinc color */
+  z-index: -10; /* Ensures it stays behind everything */
+  overflow: hidden;
+}
+
+.procedural-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}

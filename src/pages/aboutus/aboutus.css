@@ -1,0 +1,127 @@
+.aboutus-container {
+    min-height: 100vh;
+    background-color: rgba(10, 15, 26, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+}
+
+.about-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 6rem 2rem 5rem;
+    min-height: calc(100vh - 100px);
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeDown 0.8s ease-out forwards;
+}
+
+.about-eyebrow {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    color: var(--accent-cyan);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.about-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-family: 'Outfit', sans-serif;
+    color: #ffffff;
+}
+
+.about-desc {
+    color: #94a3b8;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.about-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 210, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 210, 255, 0.15);
+    background: rgba(15, 23, 42, 0.75);
+}
+
+.about-icon-wrapper {
+    width: 65px;
+    height: 65px;
+    border-radius: 16px;
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-cyan);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.about-card:hover .about-icon-wrapper {
+    background: var(--accent-cyan);
+    color: #0f172a;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.about-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+}
+
+.about-card-content {
+    color: #94a3b8;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}

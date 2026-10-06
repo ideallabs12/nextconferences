@@ -1,0 +1,291 @@
+.conference-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #ffffff;
+    background-color: var(--bg-primary);
+}
+
+/* Background & Image */
+.hero-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: #05070b;
+    z-index: 0;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    animation: imageZoomIn 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes imageZoomIn {
+    0% { opacity: 0; transform: scale(1.08); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Large layered shapes */
+.hero-overlay {
+    position: absolute;
+    pointer-events: none;
+}
+
+@keyframes overlaySlide {
+    0% { opacity: 0; transform: translateX(-15vw) rotate(45deg); }
+    100% { opacity: 1; transform: translateX(0) rotate(45deg); }
+}
+
+/* Rear blue/black layer */
+.hero-overlay-back {
+    width: 110vw;
+    height: 110vw;
+    left: -65vw;
+    top: calc(45vh - 55vw);
+    border-radius: 6vw;
+    transform: rotate(45deg); /* Fallback */
+    background: rgba(4, 10, 22, 0.85);
+    opacity: 0;
+    animation: overlaySlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+/* Main dark editorial panel */
+.hero-overlay-main {
+    width: 100vw;
+    height: 100vw;
+    left: -60vw;
+    top: calc(45vh - 50vw);
+    border-radius: 5vw;
+    transform: rotate(45deg);
+    background: rgba(3, 7, 15, 0.96);
+    /* Shadow adjusted to cast globally RIGHT despite the 45deg local rotation */
+    box-shadow:
+        40px -40px 120px rgba(0, 0, 0, 0.8),
+        inset -1px 1px 0 rgba(255, 255, 255, 0.05);
+    opacity: 0;
+    animation: overlaySlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+/* Subtle front layer */
+.hero-overlay-front {
+    width: 90vw;
+    height: 90vw;
+    left: -55vw;
+    top: calc(45vh - 45vw);
+    border-radius: 4vw;
+    transform: rotate(45deg);
+    background: rgba(7, 15, 30, 0.5);
+    opacity: 0;
+    animation: overlaySlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.hero-content-wrapper {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: flex-start;
+}
+
+.hero-text-content {
+    max-width: 750px;
+    margin-top: 10vh;
+    opacity: 0;
+    animation: fadeSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+}
+
+@keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.hero-eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.hero-main-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.hero-highlight {
+    color: #38bdf8; /* The specific bright cyan from the reference image */
+}
+
+.hero-main-description {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: #cbd5e1;
+    max-width: 550px;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+}
+
+/* Minimal Editorial CTA Button */
+.hero-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 2rem;
+    background-color: rgba(4, 9, 20, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100px; /* Pill shape */
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.hero-cta-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-arrow {
+    transition: transform 0.3s ease;
+}
+
+.hero-cta-button:hover .cta-arrow {
+    transform: translateX(4px);
+}
+
+/* RESPONSIVE DESIGN - Mobile */
+@media (max-width: 1024px) {
+    .hero-bottom-meta {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        margin-top: 4rem;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+    
+    .hero-dark-mask {
+        background: linear-gradient(
+            135deg, 
+            rgba(4, 9, 20, 1) 0%, 
+            rgba(4, 9, 20, 0.95) 50%, 
+            rgba(4, 9, 20, 0.6) 80%, 
+            transparent 100%
+        );
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content-wrapper {
+        padding: 0 2rem;
+    }
+
+    .hero-main-title {
+        font-size: 2.75rem;
+    }
+
+    .meta-divider {
+        display: none;
+    }
+    
+    .hero-bottom-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-top: 3rem;
+    }
+    
+    /* Ensure the speaker remains somewhat visible on small screens by shifting the position */
+    .conference-hero {
+        background-position: 70% center;
+    }
+}
+
+/* Floating Editorial Card */
+.hero-floating-card {
+    position: absolute;
+    bottom: 12%;
+    right: 8%;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    z-index: 3;
+    animation: fadeUp 1s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    max-width: 380px;
+}
+
+.card-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.card-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+.card-value {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Make the mask cover more of the screen on mobile to ensure readability */
+@media (max-width: 768px) {    
+    /* Make the mask cover more of the screen on mobile to ensure readability */
+    .hero-dark-mask {
+        background: linear-gradient(
+            to bottom, 
+            rgba(4, 9, 20, 0.95) 0%, 
+            rgba(4, 9, 20, 0.85) 60%, 
+            rgba(4, 9, 20, 0.4) 100%
+        );
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-floating-card {
+        display: none; /* Hide on very small screens to preserve the image */
+    }
+}

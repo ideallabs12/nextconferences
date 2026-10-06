@@ -1,0 +1,254 @@
+.upcoming-section {
+    padding: 3rem 2rem;
+    position: relative;
+    color: #ffffff;
+    /* Subtle semi-transparent gradient so the WebGL background shines through */
+    background: linear-gradient(180deg, rgba(3, 7, 18, 0.2) 0%, rgba(5, 11, 26, 0.4) 100%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.upcoming-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+.upcoming-eyebrow {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    color: var(--accent-cyan);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.upcoming-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.upcoming-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.upcoming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.upcoming-card {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.upcoming-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 210, 255, 0.3);
+    box-shadow: 0 25px 45px rgba(0, 210, 255, 0.15);
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.upcoming-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #05070b;
+}
+
+.upcoming-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    opacity: 0.8;
+}
+
+.upcoming-card:hover .upcoming-image {
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+.upcoming-date-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.upcoming-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1rem;
+}
+
+.upcoming-location {
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.upcoming-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #ffffff;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.upcoming-card-theme {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.upcoming-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.btn-details {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-details:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+.btn-register-small {
+    color: #05070b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent-cyan), #3a7bd5);
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+}
+
+.btn-register-small:hover {
+    background: linear-gradient(135deg, #00e5ff, #4a8ce5);
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.upcoming-footer {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.btn-view-all {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    background: rgba(0, 210, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.btn-view-all:hover {
+    background: rgba(0, 210, 255, 0.15);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .upcoming-section {
+        padding: 4rem 1.5rem;
+    }
+    .upcoming-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-details, .btn-register-small {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Sticky Stacking Cards Effect for Mobile */
+    .upcoming-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0; /* Remove gap to control stacking via margin */
+        padding-bottom: 2rem; /* Extra space at bottom */
+    }
+
+    .upcoming-card {
+        position: sticky;
+        top: 100px; /* Distance from top of screen when it sticks (adjust for navbar) */
+        margin-bottom: 2rem; /* Space before the next card scrolls up */
+        /* Make the background more opaque on mobile so the card underneath is hidden when stacked */
+        background: rgba(15, 23, 42, 0.95);
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5); /* Shadow on top to distinguish from card below */
+    }
+}

@@ -1,0 +1,219 @@
+.conference-detail-container {
+  padding: 8rem 3.5rem 5rem;
+  animation: fadeIn 0.5s ease-in-out;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: rgba(10, 15, 26, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #ffffff;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #2563eb;
+}
+
+.conference-not-found {
+  text-align: left;
+  padding: 5rem 2rem;
+}
+
+.conference-not-found h2 {
+  font-size: 2rem;
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
+/* Header Styling */
+.conference-detail-header {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.conference-detail-hero {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  background: #ffffff;
+  padding: 2.25rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e2e8f0;
+}
+
+.conference-detail-image-wrapper {
+  flex-shrink: 0;
+  width: 360px;
+  max-width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conference-detail-image {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+}
+
+.conference-detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.conference-detail-meta {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.conference-detail-date, .conference-detail-location {
+  font-size: 1.125rem;
+  color: #475569;
+  background-color: #f1f5f9;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.conference-detail-title {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.conference-detail-theme {
+  font-size: 1.25rem;
+  color: #3b82f6;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* Content Styling */
+.conference-description {
+  font-size: 1.05rem;
+  color: #334155;
+  line-height: 1.55;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.conference-description p {
+  margin-bottom: 0.65rem;
+}
+
+/* Insight Sessions Styling */
+.insight-sessions-section h2 {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 2rem;
+  text-align: left;
+  position: relative;
+}
+
+.insight-sessions-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  margin: 0.5rem 0 0 0;
+  border-radius: 2px;
+}
+
+.insight-sessions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.insight-session-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid #3b82f6;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.insight-session-card:hover {
+  transform: translateY(-5px);
+}
+
+.insight-session-card h3 {
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.insight-topics-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.insight-topic-badge {
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.insight-topic-badge:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+@media (max-width: 868px) {
+  .conference-detail-container {
+    padding: 1.5rem 1rem;
+  }
+  .conference-detail-hero {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  .conference-detail-image-wrapper {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .conference-detail-title {
+    font-size: 1.75rem;
+  }
+  .conference-detail-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .insight-sessions-grid {
+    grid-template-columns: 1fr;
+  }
+}
