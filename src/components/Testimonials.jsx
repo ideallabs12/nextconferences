@@ -29,6 +29,18 @@ const StarRating = () => (
     </div>
 );
 
+const TestimonialCard = ({ testimonial }) => (
+    <div className="testimonial-card">
+        <div className="testimonial-content">
+            <StarRating />
+            <p className="testimonial-quote">"{testimonial.quote}"</p>
+        </div>
+        <div className="testimonial-author">
+            <h4 className="testimonial-name">— {testimonial.name}</h4>
+        </div>
+    </div>
+);
+
 const Testimonials = () => {
     return (
         <section className="testimonials-section">
@@ -41,18 +53,21 @@ const Testimonials = () => {
                     </p>
                 </div>
                 
-                <div className="testimonials-grid">
-                    {testimonialsData.map((testimonial) => (
-                        <div key={testimonial.id} className="testimonial-card">
-                            <div className="testimonial-content">
-                                <StarRating />
-                                <p className="testimonial-quote">"{testimonial.quote}"</p>
-                            </div>
-                            <div className="testimonial-author">
-                                <h4 className="testimonial-name">— {testimonial.name}</h4>
-                            </div>
+                <div className="testimonials-scroll-wrapper">
+                    <div className="testimonials-scroll-track">
+                        {/* Group 1 */}
+                        <div className="testimonials-scroll-group">
+                            {testimonialsData.map((testimonial) => (
+                                <TestimonialCard key={`g1-${testimonial.id}`} testimonial={testimonial} />
+                            ))}
                         </div>
-                    ))}
+                        {/* Group 2 (Duplicate for seamless loop) */}
+                        <div className="testimonials-scroll-group">
+                            {testimonialsData.map((testimonial) => (
+                                <TestimonialCard key={`g2-${testimonial.id}`} testimonial={testimonial} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
