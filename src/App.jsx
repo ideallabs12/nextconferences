@@ -6,15 +6,15 @@ import Home from './pages/home/Home.jsx';
 import Conferences from './pages/conferences/Conferences.jsx';
 import Speakers from './pages/speakers/Speakers.jsx';
 import Gallery from './pages/gallery/Gallery.jsx';
-import ContactUs from './pages/contactus/ContactUs.jsx';
-import AboutUs from './pages/aboutus/AboutUs.jsx';
+import ContactUs from './pages/contactus/Contactus.jsx';
+import AboutUs from './pages/aboutus/Aboutus.jsx';
 
 import ConferenceDetail from './pages/conferences/ConferenceDetail.jsx';
 
 import Committee from './pages/committee/Committee.jsx';
 import FAQs from './pages/faqs/Faqs.jsx';
-import PrivacyPolicy from './pages/privacypolicy/PrivacyPolicy.jsx';
-import TermsAndConditions from './pages/termsandconditions/TermsAndConditions.jsx';
+import PrivacyPolicy from './pages/privacypolicy/Privacypolicy.jsx';
+import TermsAndConditions from './pages/termsandconditions/Termsandconditions.jsx';
 
 import logoImage from './assets/logo.png';
 import Navbar from './components/Navbar.jsx';
