@@ -23,7 +23,7 @@ const UpcomingConferences = () => {
                     <Link to={`/conference/${conf.slug}`} key={index} className="upcoming-card" style={{ animationDelay: `${index * 0.15}s`, textDecoration: 'none' }}>
                         <div className="upcoming-image-container">
                             <img 
-                                src={`/src/pages/conferences/conferences_imgs/${conf.image}`} 
+                                src={`/conferences_imgs/${conf.image}`} 
                                 alt={conf.title} 
                                 className="upcoming-image"
                                 onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80'; }}
