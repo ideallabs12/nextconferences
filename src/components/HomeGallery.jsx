@@ -2,8 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomeGallery.css';
 
-const imageModules = import.meta.glob('../pages/gallery/gallery_imgs/*.(png|jpg|jpeg|webp)', { eager: true, import: 'default' });
-const allImages = Object.values(imageModules);
+const allImages = [
+  '/gallery_imgs/next_gallery_2.jpg',
+  '/gallery_imgs/next_gallery_3.jpg',
+  '/gallery_imgs/next_gallery_4.jpg',
+  '/gallery_imgs/next_gallery_5.jpg',
+  '/gallery_imgs/next_gallery_6.jpg',
+  '/gallery_imgs/next_gallery_7.jpg',
+  '/gallery_imgs/next_gallery_8.jpg',
+  '/gallery_imgs/next_gallery_9.jpg',
+  '/gallery_imgs/next_gallery_10.jpg',
+  '/gallery_imgs/next_gallery_11.jpg',
+  '/gallery_imgs/next_gallery_12.jpg',
+  '/gallery_imgs/next_gallery_13.jpg'
+];
 
 const HomeGallery = () => {
   // Use up to 6 images for the accordion gallery

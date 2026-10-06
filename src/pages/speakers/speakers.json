@@ -3,132 +3,132 @@
     "id": 1,
     "name": "Safyra Bakshani",
     "description": "International Clairvoyant Hypnotherapist, CHt. & Somatic Healer.",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_safyra_bakshani_1.jpeg"
+    "image": "/speakers_imgs/speaker_safyra_bakshani_1.jpeg"
   },
   {
     "id": 2,
     "name": "Venessa Hariparsad",
     "description": "Keynote Speaker",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_venessa_hariparsad_2.jpeg"
+    "image": "/speakers_imgs/speaker_venessa_hariparsad_2.jpeg"
   },
   {
     "id": 3,
     "name": "Mr. Dwayne Meeks",
     "description": "Keynote Speaker.",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_mr__dwayne_meeks_3.jpeg"
+    "image": "/speakers_imgs/speaker_mr__dwayne_meeks_3.jpeg"
   },
   {
     "id": 4,
     "name": "Jamaal  Cottrell",
     "description": "Speaker | Author | TV Host.",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_jamaal__cottrell_4.jpeg"
+    "image": "/speakers_imgs/speaker_jamaal__cottrell_4.jpeg"
   },
   {
     "id": 5,
     "name": "Dr Ruchi Mishra Sharma",
     "description": "Doctor who helps high-achieving women heal childhood wounds, reclaim their worth, and finally stop settling for less than they deserve—in love, life, and themselves , Healer, Speaker ,RTT clinical hypnotherapist , Author",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_dr_ruchi_mishra_sharma_5.jpeg"
+    "image": "/speakers_imgs/speaker_dr_ruchi_mishra_sharma_5.jpeg"
   },
   {
     "id": 6,
     "name": "Jonas Adoro",
     "description": "Helping Businesses Strategically Grow Through People-Centric Leadership and CX Excellence | Keynote Speaker",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_jonas_adoro_6.jpg"
+    "image": "/speakers_imgs/speaker_jonas_adoro_6.jpg"
   },
   {
     "id": 7,
     "name": "Dr. Rasimah Jar",
     "description": "Global Thought Leader in Emotional Resilience & Leadership | Relationship Coach | Global Speaker | Book Author | Founding National Convenor — S’pore Int’l Business Network (IBNF) | Dy. President, Muslim Coaches Assoc SG",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_dr__rasimah_jar_7.jpeg"
+    "image": "/speakers_imgs/speaker_dr__rasimah_jar_7.jpeg"
   },
   {
     "id": 8,
     "name": "Felicia A. Gokool, EdD, MS, MA",
     "description": "Founder and CEO @ Together in Unity, LLC | Building Health Communication in  Environmental Sustainability",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_felicia_a__gokool__edd__ms__ma_8.jpeg"
+    "image": "/speakers_imgs/speaker_felicia_a__gokool__edd__ms__ma_8.jpeg"
   },
   {
     "id": 9,
     "name": "Anael Milena Oda",
     "description": "Spiritual Director at LARIMARITA brand for Larimar jewelry, mentor, motivational speaker, light worker, environmentalist, filmmaker, and writer",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_anael_milena_oda_9.jpeg"
+    "image": "/speakers_imgs/speaker_anael_milena_oda_9.jpeg"
   },
   {
     "id": 10,
     "name": "Kimly Hoang-Nakata",
     "description": "Helping Young Minds Thrive | Award-Winning Educator & Author | Instructional Coach | Founder/CEO, Achieve Education | Glow Circle | MindSmart Learning Specialist | Keynote Speaker.",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_kimly_hoang_nakata_10.jpg"
+    "image": "/speakers_imgs/speaker_kimly_hoang_nakata_10.jpg"
   },
   {
     "id": 11,
     "name": "Dr. Gina Piombino",
     "description": "Mental Health Specialist and Speaker/Social Work Instructor/Social Justice Advocate/Culturally Humble Therapist and Practitioner.",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_dr__gina_piombino_11.jpeg"
+    "image": "/speakers_imgs/speaker_dr__gina_piombino_11.jpeg"
   },
   {
     "id": 12,
     "name": "Claudette Milner",
     "description": "Award-Winning Author and Featured Christian Speaker, Book Author.",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_claudette_milner_12.jpeg"
+    "image": "/speakers_imgs/speaker_claudette_milner_12.jpeg"
   },
   {
     "id": 13,
     "name": "Krista Fee",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_krista_fee_13.jpeg"
+    "image": "/speakers_imgs/speaker_krista_fee_13.jpeg"
   },
   {
     "id": 14,
     "name": "Michelle Burkhard",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_michelle_burkhard_14.jpeg"
+    "image": "/speakers_imgs/speaker_michelle_burkhard_14.jpeg"
   },
   {
     "id": 15,
     "name": "Laura Denktash",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_laura_denktash_15.png"
+    "image": "/speakers_imgs/speaker_laura_denktash_15.png"
   },
   {
     "id": 16,
     "name": "Alexandra (Sorensen) Macare",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_alexandra__sorensen__macare_16.jpeg"
+    "image": "/speakers_imgs/speaker_alexandra__sorensen__macare_16.jpeg"
   },
   {
     "id": 17,
     "name": "Kate Castro",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_kate_castro_17.jpeg"
+    "image": "/speakers_imgs/speaker_kate_castro_17.jpeg"
   },
   {
     "id": 18,
     "name": "Cynthia Concordia",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_cynthia_concordia_18.jpg"
+    "image": "/speakers_imgs/speaker_cynthia_concordia_18.jpg"
   },
   {
     "id": 19,
     "name": "Erika Hacker",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_erika_hacker_19.jpg"
+    "image": "/speakers_imgs/speaker_erika_hacker_19.jpg"
   },
   {
     "id": 20,
     "name": "Ewa J. Kleczyk, PhD",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_ewa_j__kleczyk__phd_20.jpg"
+    "image": "/speakers_imgs/speaker_ewa_j__kleczyk__phd_20.jpg"
   },
   {
     "id": 21,
     "name": "Ellen Mannaert",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_ellen_mannaert_21.jpg"
+    "image": "/speakers_imgs/speaker_ellen_mannaert_21.jpg"
   },
   {
     "id": 22,
     "name": "Shannon Wallis",
     "description": "",
-    "image": "/src/pages/speakers/speakers_imgs/speaker_shannon_wallis_22.jpg"
+    "image": "/speakers_imgs/speaker_shannon_wallis_22.jpg"
   }
 ]

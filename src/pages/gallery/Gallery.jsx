@@ -2,8 +2,20 @@ import React, { useState } from 'react';
 import './gallery.css';
 
 // Dynamically import all images in the gallery_imgs directory
-const imageModules = import.meta.glob('./gallery_imgs/*.(png|jpg|jpeg|webp)', { eager: true, import: 'default' });
-const images = Object.values(imageModules);
+const images = [
+  '/gallery_imgs/next_gallery_2.jpg',
+  '/gallery_imgs/next_gallery_3.jpg',
+  '/gallery_imgs/next_gallery_4.jpg',
+  '/gallery_imgs/next_gallery_5.jpg',
+  '/gallery_imgs/next_gallery_6.jpg',
+  '/gallery_imgs/next_gallery_7.jpg',
+  '/gallery_imgs/next_gallery_8.jpg',
+  '/gallery_imgs/next_gallery_9.jpg',
+  '/gallery_imgs/next_gallery_10.jpg',
+  '/gallery_imgs/next_gallery_11.jpg',
+  '/gallery_imgs/next_gallery_12.jpg',
+  '/gallery_imgs/next_gallery_13.jpg'
+];
 
 const Gallery = () => {
     const [selectedImg, setSelectedImg] = useState(null);

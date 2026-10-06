@@ -111,7 +111,7 @@ const Conferences = () => {
                         <div key={conf.slug} className="conf-card" style={{ animationDelay: `${idx * 0.04}s` }}>
                             <div className="conf-card-image-side">
                                 <img
-                                    src={`/src/pages/conferences/conferences_imgs/${conf.image}`}
+                                    src={`/conferences_imgs/${conf.image}`}
                                     alt={conf.title}
                                     className="conf-card-image"
                                 />

@@ -35,7 +35,7 @@ const ConferenceDetail = () => {
                 <div className="conference-detail-hero">
                     <div className="conference-detail-image-wrapper">
                         <img 
-                            src={`/src/pages/conferences/conferences_imgs/${conference.image}`} 
+                            src={`/conferences_imgs/${conference.image}`} 
                             alt={conference.title} 
                             className="conference-detail-image"
                         />
