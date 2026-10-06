@@ -1,5 +1,6 @@
 import React from 'react';
 import ConferenceHero from '../../components/ConferenceHero';
+import StatBar from '../../components/StatBar';
 import ConferenceFeatures from '../../components/ConferenceFeatures';
 import UpcomingConferences from '../../components/UpcomingConferences';
 import AboutBento from '../../components/AboutBento';
@@ -13,9 +14,11 @@ const Home = () => {
         <div className="home-page">
             <ConferenceHero />
             
-            <ConferenceFeatures />
+            <StatBar />
             
             <UpcomingConferences />
+            
+            <ConferenceFeatures />
             
             <AboutBento />
             

@@ -1,20 +1,7 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './ConferenceFeatures.css';
 
 const ConferenceFeatures = () => {
-  const containerRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
-    const cards = containerRef.current.getElementsByClassName('feature-card');
-    for (const card of cards) {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    }
-  };
   const features = [
     {
       id: 1,
@@ -60,6 +47,28 @@ const ConferenceFeatures = () => {
           <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
         </svg>
       )
+    },
+    {
+      id: 5,
+      title: "Exclusive Industry Insights",
+      description: "Access private keynotes and expert panels not available online.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+      )
+    },
+    {
+      id: 6,
+      title: "Accelerated Career Growth",
+      description: "Connect with industry leaders and discover new opportunities.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+          <polyline points="17 6 23 6 23 12"></polyline>
+        </svg>
+      )
     }
   ];
 
@@ -79,17 +88,16 @@ const ConferenceFeatures = () => {
           </p>
         </div>
 
-        <div className="features-grid bento-grid" ref={containerRef} onMouseMove={handleMouseMove}>
-          {features.map((feature, index) => (
-            <div key={feature.id} className={`feature-card bento-card-${index}`}>
+        <div className="features-grid">
+          {features.map((feature) => (
+            <div key={feature.id} className="feature-card">
               <div className="feature-icon-wrapper">
                 {feature.icon}
               </div>
-              <h3 className="feature-card-title">{feature.title}</h3>
-              <p className="feature-card-desc">{feature.description}</p>
-              
-              {/* Interactive Spotlight background glow */}
-              <div className="feature-card-border"></div>
+              <div className="feature-content">
+                <h3 className="feature-card-title">{feature.title}</h3>
+                <p className="feature-card-desc">{feature.description}</p>
+              </div>
             </div>
           ))}
         </div>
