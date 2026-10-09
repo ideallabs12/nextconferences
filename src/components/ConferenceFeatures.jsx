@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './ConferenceFeatures.css';
 
 const ConferenceFeatures = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (sectionRef.current) {
+            observer.unobserve(sectionRef.current);
+          }
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const features = [
     {
       id: 1,
@@ -73,7 +100,7 @@ const ConferenceFeatures = () => {
   ];
 
   return (
-    <section className="features-section">
+    <section className="features-section" ref={sectionRef}>
       <div className="features-container">
         
         <div className="features-header">
@@ -89,8 +116,12 @@ const ConferenceFeatures = () => {
         </div>
 
         <div className="features-grid">
-          {features.map((feature) => (
-            <div key={feature.id} className="feature-card">
+          {features.map((feature, index) => (
+            <div 
+              key={feature.id} 
+              className={`feature-card ${isVisible ? 'animate-in' : ''}`}
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               <div className="feature-icon-wrapper">
                 {feature.icon}
               </div>

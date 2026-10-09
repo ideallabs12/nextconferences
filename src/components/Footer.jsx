@@ -45,10 +45,11 @@ const Footer = () => {
               Join the world's most visionary thinkers and leaders at our upcoming premier league conferences.
             </p>
             <div className="footer-socials">
-              <a href="#" className="social-icon">IN</a>
-              <a href="#" className="social-icon">TW</a>
-              <a href="#" className="social-icon">IG</a>
-              <a href="#" className="social-icon">YT</a>
+              <a href="https://www.instagram.com/next.conferences/" target="_blank" rel="noopener noreferrer" className="social-icon">IG</a>
+              <a href="https://www.facebook.com/profile.php?id=61586080764495" target="_blank" rel="noopener noreferrer" className="social-icon">FB</a>
+              <a href="https://x.com/NextConferences" target="_blank" rel="noopener noreferrer" className="social-icon">X</a>
+              <a href="https://www.linkedin.com/company/next-premier-conferences/" target="_blank" rel="noopener noreferrer" className="social-icon">IN</a>
+              <a href="https://www.youtube.com/@NEXTConferences" target="_blank" rel="noopener noreferrer" className="social-icon">YT</a>
             </div>
           </div>
 

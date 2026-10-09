@@ -42,70 +42,119 @@
     line-height: 1.6;
 }
 
-/* Accordion Gallery Implementation */
-.home-gallery-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    height: 400px;
+/* 3D Coverflow Container */
+.coverflow-container {
+    position: relative;
     width: 100%;
     max-width: 1200px;
+    height: 450px;
     margin: 0 auto;
-}
-
-.home-gallery-item {
-    position: relative;
-    display: flex;
-    flex-grow: 1;
-    width: 200px;
-    height: 100%;
-    border-radius: 12px;
+    perspective: 1200px;
+    padding: 2rem 0;
+    /* Optional: overflow hidden to prevent horizontal scroll bars */
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    /* Optional glass styling for borders */
-    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.home-gallery-item:hover {
-    width: 100%;
-    border-color: rgba(0, 210, 255, 0.4);
-    box-shadow: 0 0 30px rgba(0, 210, 255, 0.15);
-}
-
-.home-gallery-img {
+.coverflow-track {
+    position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.7;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
 }
 
-.home-gallery-item:hover .home-gallery-img {
+.coverflow-item {
+    position: absolute;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease, z-index 0.6s;
+    cursor: pointer;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(15, 23, 42, 0.4);
+}
+
+.coverflow-img {
+    height: 380px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Coverflow States */
+.coverflow-active {
+    transform: translateX(0) translateZ(0) rotateY(0deg);
     opacity: 1;
-    transform: scale(1.02); /* Slight zoom on image */
+    z-index: 10;
+}
+
+.coverflow-prev {
+    transform: translateX(-45%) translateZ(-150px) rotateY(20deg);
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.coverflow-next {
+    transform: translateX(45%) translateZ(-150px) rotateY(-20deg);
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.coverflow-prev-outer {
+    transform: translateX(-85%) translateZ(-300px) rotateY(30deg);
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.coverflow-next-outer {
+    transform: translateX(85%) translateZ(-300px) rotateY(-30deg);
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.coverflow-hidden {
+    transform: translateX(0) translateZ(-500px);
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* Footer & Button */
 .home-gallery-footer {
     text-align: center;
-    margin-top: 3.5rem;
+    margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
-    .home-gallery-section {
-        padding: 4rem 1.5rem;
+@media (max-width: 900px) {
+    .coverflow-item {
+        height: 280px;
     }
-    
-    .home-gallery-container {
-        /* On mobile, either keep it as horizontal accordion (looks cool but small) 
-           or stack it vertically. Horizontal is fine if height is reduced. */
+    .coverflow-img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .coverflow-container {
         height: 300px;
-        flex-direction: row; 
     }
     
-    .home-gallery-item {
-        width: 40px; /* smaller default width on mobile */
+    .coverflow-item {
+        height: 200px;
+    }
+
+    .coverflow-img {
+        height: 200px;
+    }
+    
+    .coverflow-prev { transform: translateX(-40%) translateZ(-150px) rotateY(25deg); }
+    .coverflow-next { transform: translateX(40%) translateZ(-150px) rotateY(-25deg); }
+    
+    .coverflow-prev-outer, .coverflow-next-outer {
+        opacity: 0;
+        pointer-events: none;
     }
 }

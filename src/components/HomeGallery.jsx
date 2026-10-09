@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './HomeGallery.css';
 
@@ -18,8 +18,17 @@ const allImages = [
 ];
 
 const HomeGallery = () => {
-  // Use up to 6 images for the accordion gallery
-  const images = allImages.slice(0, 6);
+  // Use a smaller sample of images for the home page 3D slider (e.g. 5 images)
+  const sampleImages = allImages.slice(0, 5);
+  const [activeIndex, setActiveIndex] = useState(2);
+
+  // Auto-play interval
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % sampleImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [sampleImages.length]);
 
   return (
     <section className="home-gallery-section">
@@ -32,16 +41,37 @@ const HomeGallery = () => {
         </p>
       </div>
 
-      <div className="home-gallery-container">
-        {images.map((src, idx) => (
-          <div key={idx} className="home-gallery-item">
-            <img
-              className="home-gallery-img"
-              src={src}
-              alt={`gallery-${idx}`}
-            />
-          </div>
-        ))}
+      <div className="coverflow-container">
+        <div className="coverflow-track">
+          {sampleImages.map((src, idx) => {
+            let offset = idx - activeIndex;
+            // Handle wrapping for infinite feel
+            if (offset < -2) offset += sampleImages.length;
+            if (offset > 2) offset -= sampleImages.length;
+
+            let className = "coverflow-item";
+            if (offset === 0) className += " coverflow-active";
+            else if (offset === -1) className += " coverflow-prev";
+            else if (offset === 1) className += " coverflow-next";
+            else if (offset === -2) className += " coverflow-prev-outer";
+            else if (offset === 2) className += " coverflow-next-outer";
+            else className += " coverflow-hidden";
+
+            return (
+              <div 
+                key={idx} 
+                className={className} 
+                onClick={() => setActiveIndex(idx)}
+              >
+                <img
+                  className="coverflow-img"
+                  src={src}
+                  alt={`gallery-${idx}`}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
       
       <div className="home-gallery-footer">
