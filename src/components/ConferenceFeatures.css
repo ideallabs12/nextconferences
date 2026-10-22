@@ -1,77 +1,157 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   CINEMATIC "WHY JOIN US" SECTION — NEXT PREMIER LEAGUE CONFERENCES
+   Aesthetics: Deep Navy & Obsidian, Cyan Accents, Visual Panels
+   ═══════════════════════════════════════════════════════════════════════ */
+
 .features-section {
-  padding: 4rem 2rem;
-  background: transparent;
   position: relative;
-  z-index: 10;
+  padding: 6rem 2rem;
+  background: transparent;
   color: #ffffff;
+  overflow: hidden;
+  z-index: 10;
 }
 
-.features-container {
+/* ─── Central Global Network Motif (SVG Backdrop) ─── */
+.network-globe-backdrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.45;
 }
 
+.network-globe-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.node-pulse {
+  animation: nodeGlowPulse 3s infinite ease-in-out;
+}
+
+@keyframes nodeGlowPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+/* ─── Container ─── */
+.features-container {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* ─── Header: Eyebrow + Gradient Title + Description ─── */
 .features-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.features-eyebrow-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow-line {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00d2ff);
+}
+
+.features-eyebrow-wrapper .eyebrow-line:last-child {
+  background: linear-gradient(90deg, #00d2ff, transparent);
+}
+
 .section-eyebrow {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.25em;
   color: #38bdf8;
-  margin-bottom: 1rem;
   text-transform: uppercase;
 }
 
 .features-title {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem 0;
   color: #ffffff;
 }
 
-.features-description {
-  max-width: 600px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #94a3b8;
-  margin: 0;
+.title-gradient {
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
+.features-description {
+  max-width: 660px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ─── 3-Column, 2-Row Features Grid ─── */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
+/* ─── Feature Card: Visual Panel ─── */
 .feature-card {
+  position: relative;
   display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: rgba(15, 23, 42, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 330px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+  background: #060b18;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-top: 1px solid rgba(0, 210, 255, 0.38);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
 }
 
 .feature-card.animate-in {
-  animation: fadeUpCard 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cardFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes fadeUpCard {
+@keyframes cardFadeUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -79,60 +159,193 @@
   }
 }
 
-.feature-card.animate-in:hover {
-  background: rgba(15, 23, 42, 0.7);
-  border-color: rgba(56, 189, 248, 0.3);
-  transform: translateY(-4px); /* Hover effect is relative to its final position */
+/* ─── Photographic Media Layer & Directional Dark Overlay ─── */
+.card-media-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  background: #040814;
 }
 
-.feature-icon-wrapper {
+.card-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(0.9) contrast(1.05);
+}
+
+.card-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 12, 26, 0.3) 0%,
+    rgba(6, 12, 26, 0.72) 42%,
+    rgba(4, 8, 20, 0.97) 100%
+  );
+  pointer-events: none;
+}
+
+.card-glow-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  transition: box-shadow 0.35s ease;
+}
+
+/* ─── Card Content Layer ─── */
+.card-inner-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.75rem 1.6rem 1.6rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ─── Translucent Glowing Icon Container ─── */
+.feature-icon-wrapper {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(56, 189, 248, 0.1);
+  background: rgba(8, 14, 28, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
   flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 210, 255, 0.2);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
 }
 
-.feature-content {
+.card-text-block {
   display: flex;
   flex-direction: column;
 }
 
 .feature-card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #ffffff;
-  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Decorative Accent Line ─── */
+.feature-accent-line {
+  width: 34px;
+  height: 3px;
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+  border-radius: 3px;
+  margin: 0.75rem 0 0.85rem 0;
+  box-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
+  transition: width 0.35s ease;
 }
 
 .feature-card-desc {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #94a3b8;
+  font-size: 0.92rem;
+  line-height: 1.58;
+  color: #cbd5e1;
   margin: 0;
+  font-weight: 400;
 }
 
-@media (max-width: 900px) {
+/* ─── Hover Interactions (Apple-Caliber Polish) ─── */
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 210, 255, 0.55);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 210, 255, 0.18);
+}
+
+.feature-card:hover .card-bg-image {
+  transform: scale(1.05);
+}
+
+.feature-card:hover .feature-icon-wrapper {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+  color: #00d2ff;
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.55);
+}
+
+.feature-card:hover .feature-accent-line {
+  width: 48px;
+}
+
+/* ─── Responsive Breakpoints ─── */
+@media (max-width: 1024px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+
+  .network-globe-backdrop {
+    opacity: 0.3;
   }
 }
 
 @media (max-width: 768px) {
   .features-section {
-    padding: 3rem 1rem;
+    padding: 4.5rem 1.25rem;
   }
-  
+
+  .features-header {
+    margin-bottom: 3rem;
+  }
+
   .features-grid {
     grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
     gap: 1.5rem;
   }
-  
+
   .feature-card {
-    padding: 1.25rem;
+    min-height: 300px;
+  }
+
+  /* Simplify background globe on mobile for clean focus */
+  .network-globe-backdrop {
+    display: none;
+  }
+
+  .features-title {
+    font-size: 2.1rem;
+  }
+
+  .features-description {
+    font-size: 0.98rem;
+  }
+}
+
+/* ─── Accessibility: Respect Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .feature-card.animate-in,
+  .card-bg-image,
+  .node-pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .feature-card:hover {
+    transform: none !important;
+  }
+  
+  .feature-card:hover .card-bg-image {
+    transform: none !important;
   }
 }

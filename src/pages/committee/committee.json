@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "sailaja-manacha",
+    "name": "Sailaja Manacha",
+    "image": "/commitee_members/sailaja_manacha_1.avif",
+    "details": "Women’s Leadership Coach | C-Suite Executive Coach | Relational Intelligence Coach | Psychology for Leading | Psychotherapist | Bestselling Author."
+  },
+  {
+    "id": "sean-douglas",
+    "name": "Sean Douglas",
+    "image": "/commitee_members/sean_douglas_1.avif",
+    "details": "Retired Air Force, 3X TEDx Speaker, Podcaster,  Keynote Speaker on Resilience, Leadership, and Business Positioning."
+  }
+]

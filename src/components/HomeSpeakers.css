@@ -153,7 +153,8 @@
     }
     
     .home-speakers-header {
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
+        padding: 0 1.5rem;
     }
     
     .marquee-track {
@@ -163,5 +164,47 @@
     .speaker-card-marquee {
         width: 250px;
         height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-speakers-section {
+        padding: 3rem 0;
+    }
+
+    .home-speakers-header {
+        padding: 0 1.15rem;
+        margin-bottom: 2rem;
+    }
+
+    .speakers-title {
+        font-size: clamp(2rem, 7vw, 2.5rem);
+    }
+
+    .speakers-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .speaker-card-marquee {
+        width: 220px;
+        height: 310px;
+        border-radius: 16px;
+    }
+
+    .speaker-name-marquee {
+        font-size: 1.15rem;
+    }
+
+    .speaker-title-marquee {
+        font-size: 0.8rem;
+    }
+
+    .speaker-info-marquee {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .home-speakers-footer {
+        margin-top: 2.5rem;
+        padding: 0 1.25rem;
     }
 }

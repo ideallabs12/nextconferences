@@ -4,23 +4,27 @@
   width: 100%;
   box-sizing: border-box;
   min-height: 100vh;
-  background-color: rgba(10, 15, 26, 0.5);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(10, 15, 26, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
 }
 
 .back-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   margin-bottom: 1.5rem;
-  color: #3b82f6;
+  color: #00d2ff;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
 }
 
 .back-link:hover {
-  color: #2563eb;
+  color: #38bdf8;
+  transform: translateX(-3px);
 }
 
 .conference-not-found {
@@ -46,18 +50,18 @@
   align-items: flex-start;
   background: #ffffff;
   padding: 2.25rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
 .conference-detail-image-wrapper {
   flex-shrink: 0;
   width: 360px;
   max-width: 100%;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
   background: #f8fafc;
   display: flex;
   align-items: center;
@@ -80,66 +84,144 @@
 
 .conference-detail-meta {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.conference-detail-date, .conference-detail-location {
-  font-size: 1.125rem;
-  color: #475569;
+.conference-detail-date,
+.conference-detail-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #334155;
   background-color: #f1f5f9;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-weight: 500;
-}
-
-.conference-detail-title {
-  font-size: 2.5rem;
-  color: #0f172a;
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-}
-
-.conference-detail-theme {
-  font-size: 1.25rem;
-  color: #3b82f6;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  border-radius: 10px;
   font-weight: 600;
 }
 
-/* Content Styling */
-.conference-description {
-  font-size: 1.05rem;
-  color: #334155;
-  line-height: 1.55;
-  margin-bottom: 2.5rem;
-  width: 100%;
+.conference-detail-title {
+  font-size: 2.35rem;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+  font-weight: 800;
 }
 
-.conference-description p {
-  margin-bottom: 0.65rem;
+.conference-detail-theme {
+  font-size: 1.15rem;
+  color: #2563eb;
+  line-height: 1.45;
+  margin-bottom: 1.75rem;
 }
 
-/* Insight Sessions Styling */
-.insight-sessions-section h2 {
-  font-size: 2rem;
+.conference-detail-theme strong {
+  color: #0f172a;
+}
+
+/* Hero Actions */
+.conference-hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  color: #040914;
+  padding: 0.85rem 1.6rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.35);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5);
+  background: linear-gradient(135deg, #26dcff 0%, #4a8bf5 100%);
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f1f5f9;
   color: #1e293b;
-  margin-bottom: 2rem;
+  border: 1px solid #cbd5e1;
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.hero-btn-secondary:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+/* Content Section Titles */
+.conference-section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
   text-align: left;
   position: relative;
 }
 
-.insight-sessions-section h2::after {
+.conference-section-title::after {
   content: '';
   display: block;
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
   margin: 0.5rem 0 0 0;
   border-radius: 2px;
+}
+
+/* Description Card with Excellent Contrast */
+.conference-description-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.25rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.conference-description {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.conference-description p {
+  margin-bottom: 1rem;
+}
+
+.conference-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Insight Sessions Styling */
+.insight-sessions-section {
+  margin-bottom: 4rem;
 }
 
 .insight-sessions-grid {
@@ -151,17 +233,18 @@
 
 .insight-session-card {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border-top: 4px solid #3b82f6;
-  transition: transform 0.3s ease;
+  border-radius: 18px;
+  padding: 1.6rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+  border-top: 4px solid #00d2ff;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
 .insight-session-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.25), 0 0 20px rgba(0, 210, 255, 0.2);
 }
 
 .insight-session-card h3 {
@@ -169,6 +252,7 @@
   color: #0f172a;
   margin-bottom: 1.25rem;
   line-height: 1.4;
+  font-weight: 700;
 }
 
 .insight-topics-list {
@@ -179,7 +263,7 @@
 
 .insight-topic-badge {
   background-color: #f1f5f9;
-  color: #475569;
+  color: #334155;
   font-size: 0.85rem;
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
@@ -192,9 +276,14 @@
   color: #0f172a;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 868px) {
   .conference-detail-container {
-    padding: 1.5rem 1rem;
+    padding: 5.5rem 1.25rem 3rem;
   }
   .conference-detail-hero {
     flex-direction: column;
@@ -213,7 +302,50 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+  .conference-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+  }
   .insight-sessions-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .conference-detail-container {
+    padding: 4.5rem 0.85rem 2.5rem;
+  }
+  .conference-detail-hero {
+    padding: 1.15rem 0.95rem;
+    border-radius: 16px;
+    gap: 1.25rem;
+  }
+  .conference-detail-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.65rem);
+    word-break: break-word;
+  }
+  .conference-detail-theme {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+  .conference-detail-date,
+  .conference-detail-location {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.75rem;
+  }
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    min-height: 48px;
+    font-size: 0.9rem;
+  }
+  .insight-session-card {
+    padding: 1.25rem 1rem;
+    border-radius: 16px;
   }
 }

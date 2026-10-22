@@ -10,6 +10,7 @@ import ContactUs from './pages/contactus/Contactus.jsx';
 import AboutUs from './pages/aboutus/Aboutus.jsx';
 
 import ConferenceDetail from './pages/conferences/ConferenceDetail.jsx';
+import Register from './pages/register/Register.jsx';
 
 import Committee from './pages/committee/Committee.jsx';
 import FAQs from './pages/faqs/Faqs.jsx';
@@ -35,6 +36,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/conferences" element={<Conferences />} />
             <Route path="/conference/:slug" element={<ConferenceDetail />} />
+            <Route path="/conference/:slug/register" element={<Register />} />
+            <Route path="/register/:slug" element={<Register />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/speakers" element={<Speakers />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contactus" element={<ContactUs />} />

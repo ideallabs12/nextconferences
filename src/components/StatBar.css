@@ -54,3 +54,20 @@
     font-size: 2rem;
   }
 }
+
+@media (max-width: 480px) {
+  .stat-bar-container {
+    padding: 1.5rem 0;
+  }
+  .stat-bar {
+    gap: 1.5rem 0.75rem;
+    padding: 0 1rem;
+  }
+  .stat-value {
+    font-size: 1.7rem;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+}

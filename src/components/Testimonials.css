@@ -97,8 +97,56 @@
 }
 
 @media (max-width: 768px) {
+    .testimonials-section {
+        padding: 3rem 1.25rem 0 1.25rem;
+    }
+
+    .testimonials-header {
+        margin-bottom: 2rem;
+    }
+
     .testimonial-card {
         width: 320px;
+    }
+
+    .testimonial-content {
+        padding: 1.75rem 1.5rem 1rem;
+    }
+
+    .testimonial-author {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section {
+        padding: 2.5rem 0.75rem 0 0.75rem;
+    }
+
+    .testimonial-card {
+        width: min(290px, 85vw);
+        border-radius: 14px;
+    }
+
+    .testimonial-content {
+        padding: 1.4rem 1.15rem 0.85rem;
+    }
+
+    .testimonial-author {
+        padding: 0.85rem 1.15rem;
+    }
+
+    .testimonial-quote {
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+
+    .testimonials-title {
+        font-size: clamp(2rem, 7vw, 2.5rem);
+    }
+
+    .testimonials-subtitle {
+        font-size: 0.95rem;
     }
 }
 

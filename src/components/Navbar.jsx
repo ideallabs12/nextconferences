@@ -13,26 +13,41 @@ function Navbar() {
       setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const isActive = (path) => {
     return location.pathname === path ? 'active' : '';
   };
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar dynamic-island ${scrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-expanded' : ''}`}>
       <div className="navbar-container">
-        <div className="navbar-logo">
-          <Link to="/">
-            <img src={logoImage} alt="NEXT Conferences" className="navbar-logo-img" />
-          </Link>
-        </div>
-        <div className="navbar-mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
-          <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
-          <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
+        <div className="navbar-top-row">
+          <div className="navbar-logo">
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+              <img src={logoImage} alt="NEXT Conferences" className="navbar-logo-img" />
+            </Link>
+          </div>
+
+          <div 
+            className="navbar-mobile-toggle" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation"
+            role="button"
+            tabIndex={0}
+          >
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
+          </div>
         </div>
 
         <ul className={`navbar-links ${isMobileMenuOpen ? 'active-mobile' : ''}`}>
@@ -44,8 +59,11 @@ function Navbar() {
           <li><Link to="/contactus" className={isActive('/contactus')} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link></li>
         </ul>
 
-        <div className="navbar-actions">
-            <Link to="/conferences" className="btn-primary-nav" onClick={() => setIsMobileMenuOpen(false)}>Get Tickets</Link>
+        <div className={`navbar-actions ${isMobileMenuOpen ? 'active-mobile' : ''}`}>
+            <Link to="/register" className="btn-primary-nav" onClick={() => setIsMobileMenuOpen(false)}>
+              <span className="btn-dot"></span>
+              <span>Get Tickets</span>
+            </Link>
         </div>
       </div>
     </nav>

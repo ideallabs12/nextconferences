@@ -137,14 +137,12 @@ const Conferences = () => {
                                 </div>
 
                                 <div className="conf-card-actions">
-                                    <a
-                                        href="https://www.nextconferences.org/register"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <Link
+                                        to={`/register/${conf.slug}`}
                                         className="conf-btn conf-btn-register"
                                     >
                                         Register Now
-                                    </a>
+                                    </Link>
                                     <Link
                                         to={`/conference/${conf.slug}`}
                                         className="conf-btn conf-btn-details"

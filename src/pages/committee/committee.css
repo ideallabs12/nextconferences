@@ -1,10 +1,225 @@
-.committee-container {
-    padding: 8rem 2rem 5rem;
+/* ═══════════════════════════════════════════════════════════════════════
+   COMMITTEE PAGE STYLES
+   Executive 2-Member Showcase Layout (Circular Avatar + 2 Columns)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.committee-page {
+    padding: 6.5rem 2rem 5rem;
     min-height: 100vh;
     background-color: rgba(10, 15, 26, 0.5);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     color: #ffffff;
+    box-sizing: border-box;
+    width: 100%;
 }
 
+/* ─── Header ─── */
+.committee-header {
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+}
 
+.committee-eyebrow {
+    display: inline-block;
+    padding: 0.35rem 1.1rem;
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.25);
+    color: #38bdf8;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+.committee-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.committee-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    max-width: 640px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* ─── 2-Column Showcase (Bespoke 2 Members Layout) ─── */
+.committee-showcase {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    max-width: 1040px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/* ─── Member Card ─── */
+.committee-member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 3.25rem 2.25rem 3rem;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.committee-member-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 210, 255, 0.15);
+}
+
+/* ─── Circular Avatar Frame & Ring ─── */
+.member-avatar-wrapper {
+    margin-bottom: 2rem;
+}
+
+.member-avatar-ring {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.5), rgba(58, 123, 213, 0.2));
+    padding: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 210, 255, 0.2);
+    transition: box-shadow 0.4s ease;
+}
+
+.committee-member-card:hover .member-avatar-ring {
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 210, 255, 0.35);
+}
+
+.member-avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    background: #05070b;
+}
+
+/* ─── Member Meta ─── */
+.member-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.member-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+.member-divider {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    border-radius: 3px;
+    margin: 1.1rem auto;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+.member-details {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ─── Responsive Breakpoints ─── */
+@media (max-width: 860px) {
+    .committee-page {
+        padding: 5rem 1.25rem 3.5rem;
+    }
+
+    .committee-showcase {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        gap: 2rem;
+    }
+
+    .committee-member-card {
+        padding: 2.5rem 1.75rem;
+    }
+
+    .member-avatar-ring {
+        width: 160px;
+        height: 160px;
+    }
+
+    .member-name {
+        font-size: 1.6rem;
+    }
+
+    .member-details {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .committee-page {
+        padding: 4.5rem 1rem 3rem;
+    }
+
+    .committee-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .committee-title {
+        font-size: clamp(1.85rem, 7.5vw, 2.5rem);
+    }
+
+    .committee-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .committee-member-card {
+        padding: 2rem 1.15rem;
+        border-radius: 20px;
+    }
+
+    .member-avatar-ring {
+        width: 140px;
+        height: 140px;
+    }
+
+    .member-avatar-wrapper {
+        margin-bottom: 1.5rem;
+    }
+
+    .member-name {
+        font-size: 1.4rem;
+    }
+
+    .member-details {
+        font-size: 0.88rem;
+    }
+}

@@ -204,11 +204,23 @@
 
 @media (max-width: 768px) {
     .hero-content-wrapper {
-        padding: 0 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .hero-text-content {
+        margin-top: 5rem;
+        max-width: 100%;
     }
 
     .hero-main-title {
-        font-size: 2.75rem;
+        font-size: clamp(2.1rem, 7vw, 2.75rem);
+        word-break: break-word;
+    }
+
+    .hero-main-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        max-width: 100%;
     }
 
     .meta-divider {
@@ -219,12 +231,40 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
     
     /* Ensure the speaker remains somewhat visible on small screens by shifting the position */
     .conference-hero {
         background-position: 70% center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content-wrapper {
+        padding: 0 1.15rem;
+    }
+
+    .hero-text-content {
+        margin-top: 4.5rem;
+    }
+
+    .hero-main-title {
+        font-size: clamp(1.85rem, 8vw, 2.3rem);
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-eyebrow {
+        margin-bottom: 1rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+    }
+
+    .hero-cta-button {
+        width: 100%;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0.85rem 1.5rem;
     }
 }
 

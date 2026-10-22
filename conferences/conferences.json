@@ -150,6 +150,89 @@
           "Innovation Leadership"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -240,6 +323,89 @@
           "Growth mindset leadership",
           "Collective intelligence",
           "Leadership psychology"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -352,6 +518,89 @@
           "Research Ethics",
           "Global Mental Health Innovation",
           "The Future of Mental Health & Well-Being"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -490,6 +739,89 @@
           "Leadership presence mastery"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -602,6 +934,89 @@
           "The Future of Mental Health & Well-Being"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -711,6 +1126,89 @@
           "Women Evidence-Based Leadership",
           "Women Academic Influence",
           "Women Research Visibility"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -825,6 +1323,89 @@
           "The Future of Mental Health & Well-Being"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -915,6 +1496,89 @@
           "Growth mindset leadership",
           "Collective intelligence",
           "Leadership psychology"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -1029,6 +1693,89 @@
           "The Future of Mental Health & Well-Being"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -1139,6 +1886,89 @@
           "Research Ethics",
           "Global Mental Health Innovation",
           "The Future of Mental Health & Well-Being"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -1252,6 +2082,89 @@
           "Women Research Visibility"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -1342,6 +2255,89 @@
           "Growth mindset leadership",
           "Collective intelligence",
           "Leadership psychology"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -1455,6 +2451,89 @@
           "Women Research Visibility"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -1545,6 +2624,89 @@
           "Growth mindset leadership",
           "Collective intelligence",
           "Leadership psychology"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -1658,6 +2820,89 @@
           "Women Research Visibility"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -1769,6 +3014,89 @@
           "Women Research Visibility"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -1861,6 +3189,89 @@
           "Leadership psychology"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -1951,6 +3362,89 @@
           "Growth mindset leadership",
           "Collective intelligence",
           "Leadership psychology"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -2089,6 +3583,89 @@
           "Leadership presence mastery"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -2198,6 +3775,89 @@
           "Women Evidence-Based Leadership",
           "Women Academic Influence",
           "Women Research Visibility"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -2336,6 +3996,89 @@
           "Leadership presence mastery"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -2426,6 +4169,89 @@
           "Growth mindset leadership",
           "Collective intelligence",
           "Leadership psychology"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]
@@ -2564,6 +4390,89 @@
           "Leadership presence mastery"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -2700,6 +4609,89 @@
           "Leadership presence mastery"
         ]
       }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
+        ]
+      }
     ]
   },
   {
@@ -2810,6 +4802,89 @@
           "Research Ethics",
           "Global Mental Health Innovation",
           "The Future of Mental Health & Well-Being"
+        ]
+      }
+    ],
+    "packages": [
+      {
+        "price": 899,
+        "packageName": "Speaker Enrollment",
+        "offers": [
+          "Presentation at the conference",
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Lunch during the conference",
+          "Coffee during the conference"
+        ]
+      },
+      {
+        "price": 1099,
+        "packageName": "Suite - A",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Two nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1299,
+        "packageName": "Suite - B",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Presentation",
+          "Coffee during the conference",
+          "Lunch during the conference",
+          "Three nights of accommodation with all available facilities in the hotel"
+        ]
+      },
+      {
+        "price": 1599,
+        "packageName": "Exhibitor Enrollment",
+        "offers": [
+          "Logo recognition on conference website sponsorship page",
+          "Advertisement in Conference Proceedings",
+          "Inclusion of your company’s flyer/logo in the conference bags",
+          "Exclusive online promotion on all our social networking sites for one year",
+          "Brand briefing at the opening and closing ceremonies",
+          "Exhibition booth approximately 3 × 3 sq. m"
+        ]
+      },
+      {
+        "price": 499,
+        "packageName": "Virtual Keynote Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Keynote speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Virtual Speaker Enrollment",
+        "offers": [
+          "Online presentation at the conference",
+          "Soft copy of conference proceedings",
+          "Soft copy of the certificate of presentation",
+          "Access to all sessions for two days",
+          "Speaker certificates will be mailed"
+        ]
+      },
+      {
+        "price": 399,
+        "packageName": "Delegate Registration",
+        "offers": [
+          "Entry to all speaker presentation and poster presentation",
+          "Proceedings & Conference Kit",
+          "Certificate of Participation",
+          "Coffee during the conference",
+          "Lunch during the conference"
         ]
       }
     ]

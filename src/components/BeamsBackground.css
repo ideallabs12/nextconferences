@@ -1,0 +1,47 @@
+.beams-bg-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #030712;
+}
+
+.beams-canvas-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  display: block;
+}
+
+.beams-ambient-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-color: rgba(3, 7, 18, 0.25);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  z-index: 1;
+  animation: beamsPulse 10s ease-in-out infinite;
+}
+
+.beams-content-relative {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+@keyframes beamsPulse {
+  0%, 100% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.18;
+  }
+}

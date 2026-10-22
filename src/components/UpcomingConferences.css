@@ -224,7 +224,7 @@
 
 @media (max-width: 768px) {
     .upcoming-section {
-        padding: 4rem 1.5rem;
+        padding: 3.5rem 1.25rem;
     }
     .upcoming-actions {
         flex-direction: column;
@@ -233,6 +233,10 @@
     .btn-details, .btn-register-small {
         width: 100%;
         text-align: center;
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
     
     /* Sticky Stacking Cards Effect for Mobile */
@@ -245,10 +249,41 @@
 
     .upcoming-card {
         position: sticky;
-        top: 100px; /* Distance from top of screen when it sticks (adjust for navbar) */
+        top: 70px; /* Distance from top of screen when it sticks (adjust for navbar) */
         margin-bottom: 2rem; /* Space before the next card scrolls up */
         /* Make the background more opaque on mobile so the card underneath is hidden when stacked */
         background: rgba(15, 23, 42, 0.95);
         box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5); /* Shadow on top to distinguish from card below */
+    }
+}
+
+@media (max-width: 480px) {
+    .upcoming-section {
+        padding: 3rem 1rem;
+    }
+    .upcoming-header {
+        margin-bottom: 1.5rem;
+    }
+    .upcoming-title {
+        font-size: clamp(2rem, 7vw, 2.5rem);
+    }
+    .upcoming-subtitle {
+        font-size: 0.95rem;
+    }
+    .upcoming-card {
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+    }
+    .upcoming-content {
+        padding: 1.25rem 1rem;
+    }
+    .btn-details, .btn-register-small {
+        min-height: 44px;
+    }
+    .btn-view-all {
+        padding: 0.75rem 1.75rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
     }
 }

@@ -260,3 +260,59 @@
     from { opacity: 0; transform: translateX(20px); }
     to { opacity: 1; transform: translateX(0); }
 }
+
+@media (max-width: 768px) {
+    .contactus-container {
+        padding: 5rem 1.25rem 2.5rem;
+    }
+
+    .contact-header {
+        margin-bottom: 2rem;
+    }
+
+    .contact-title {
+        font-size: clamp(1.85rem, 6.5vw, 2.5rem);
+    }
+
+    .contact-desc {
+        font-size: 0.95rem;
+    }
+
+    .contact-form-col {
+        padding: 1.35rem 1.15rem;
+        border-radius: 18px;
+    }
+
+    .globe-container {
+        margin-top: -6rem;
+        margin-bottom: -6rem;
+        max-height: 260px;
+    }
+
+    .contact-link-item {
+        min-height: 44px;
+    }
+
+    .form-input, .form-textarea {
+        font-size: 16px; /* Prevents iOS auto-zoom */
+        min-height: 44px;
+        padding: 0.65rem 0.85rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactus-container {
+        padding: 4.5rem 1rem 2rem;
+    }
+
+    .contact-form-col {
+        padding: 1.25rem 0.95rem;
+    }
+}
