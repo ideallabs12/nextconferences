@@ -1,8 +1,19 @@
-import React from 'react';
-import committeeData from './committee.json';
+import React, { useState, useEffect } from 'react';
+import localCommitteeData from './committee.json';
+import { fetchCommitteeFromSupabase, getCommitteeImageUrl } from '../../lib/supabase.js';
 import './committee.css';
 
 const Committee = () => {
+    const [committeeData, setCommitteeData] = useState(localCommitteeData);
+
+    useEffect(() => {
+        fetchCommitteeFromSupabase()
+            .then(data => {
+                if (data && data.length > 0) setCommitteeData(data);
+            })
+            .catch(() => {});
+    }, []);
+
     return (
         <div className="committee-page">
             <header className="committee-header">
@@ -19,9 +30,14 @@ const Committee = () => {
                         <div className="member-avatar-wrapper">
                             <div className="member-avatar-ring">
                                 <img 
-                                    src={member.image} 
+                                    src={getCommitteeImageUrl(member)} 
                                     alt={member.name} 
                                     className="member-avatar-img" 
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        const filename = (member.image || '').split('/').pop();
+                                        if (filename) e.target.src = `/commitee_members/${filename}`;
+                                    }}
                                 />
                             </div>
                         </div>

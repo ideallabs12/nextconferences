@@ -1,0 +1,697 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+@property --tw {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 7deg;
+}
+
+.second-hero {
+  --paper: #ffffff;
+  --ink: #03050a;
+  --blue: #1f3bff;
+  --radiant: #2f7bff;
+  --cyan: #2ee6ff;
+  --u: min(1vw, 14.5px);
+  --display: 'Bricolage Grotesque', 'Arial Narrow', Impact, sans-serif;
+  --text: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  position: relative;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 max(20px, 4vw) 1.5rem;
+  overflow: visible;
+  isolation: isolate;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--text);
+  box-sizing: border-box;
+}
+
+.second-hero>* {
+  width: 100%;
+  max-width: 1480px;
+  margin-inline: auto;
+}
+
+/* Background: soft colour mesh + fine grid that fades out seamlessly */
+.second-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  max-width: none;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+}
+
+.second-hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(38% 42% at 82% 28%, rgba(46, 230, 255, 0.38), transparent 70%),
+    radial-gradient(40% 45% at 68% 78%, rgba(31, 59, 255, 0.20), transparent 70%),
+    radial-gradient(34% 40% at 6% 100%, rgba(47, 123, 255, 0.14), transparent 70%);
+  animation: secondHeroDrift 22s ease-in-out infinite alternate;
+}
+
+.second-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(3, 5, 10, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 5, 10, 0.055) 1px, transparent 1px);
+  background-size: calc(var(--u) * 4.2) calc(var(--u) * 4.2);
+  -webkit-mask: radial-gradient(70% 70% at 75% 45%, #000, transparent 85%);
+  mask: radial-gradient(70% 70% at 75% 45%, #000, transparent 85%);
+}
+
+@keyframes secondHeroDrift {
+  to {
+    transform: translate3d(-4%, 3%, 0) scale(1.06);
+  }
+}
+
+/* Dedicated Second Home Nav */
+.sh-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0 4px;
+  position: relative;
+  z-index: 20;
+}
+
+.sh-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+  font: 700 15px/1.1 var(--display);
+}
+
+.sh-brand svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.sh-links {
+  display: flex;
+  gap: clamp(14px, 2.2vw, 36px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.sh-links a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+.sh-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sh-links a:hover::after,
+.sh-links a.sh-link-active::after {
+  transform: scaleX(1);
+}
+
+.sh-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  padding: 8px;
+  position: relative;
+  z-index: 50;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.sh-burger-line {
+  display: block;
+  width: 22px;
+  height: 2.2px;
+  background-color: var(--ink);
+  border-radius: 99px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.25s ease;
+}
+
+.sh-menu-btn[aria-expanded="true"] .sh-burger-line:nth-child(1) {
+  transform: translateY(7.2px) rotate(45deg);
+  background-color: #ffffff;
+}
+
+.sh-menu-btn[aria-expanded="true"] .sh-burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.sh-menu-btn[aria-expanded="true"] .sh-burger-line:nth-child(3) {
+  transform: translateY(-7.2px) rotate(-45deg);
+  background-color: #ffffff;
+}
+
+.sh-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sh-nav-theme-btn {
+  position: relative;
+  z-index: 50;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6.5px 14px;
+  border-radius: 999px;
+  background: rgba(3, 5, 10, 0.05);
+  border: 1px solid rgba(3, 5, 10, 0.12);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  user-select: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sh-nav-theme-btn:hover {
+  transform: translateY(-1.5px);
+  border-color: rgba(31, 59, 255, 0.4);
+  background: rgba(31, 59, 255, 0.08);
+  color: var(--blue);
+  box-shadow: 0 4px 14px rgba(31, 59, 255, 0.15);
+}
+
+.sh-nav-theme-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.sh-nav-theme-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  pointer-events: none;
+}
+
+.sh-nav-theme-label {
+  pointer-events: none;
+}
+
+/* Main Layout */
+.second-hero-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: calc(var(--u) * 2.5);
+  padding: 12px 0 12px;
+  margin-top: 0;
+}
+
+.second-hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+}
+
+.second-hero-title {
+  margin: 0;
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 100%;
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 90%;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 0.82;
+}
+
+.sh-m {
+  display: block;
+  overflow: hidden;
+  padding: 0.05em 0.02em;
+  margin: -0.05em -0.02em;
+  width: 100%;
+}
+
+.sh-text-glyph {
+  display: inline-block;
+  width: max-content;
+  white-space: nowrap;
+}
+
+.sh-m > span {
+  display: block;
+  transform: translateY(108%);
+  animation: secondHeroRise 1.1s var(--d, 0s) cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes secondHeroRise {
+  to {
+    transform: none;
+  }
+}
+
+/* ─── NEXT: High-Impact Typography matching CONFERENCES ─── */
+.sh-l1 {
+  font-size: calc(var(--u) * 21.2);
+  --d: 0.1s;
+  letter-spacing: -0.02em;
+  line-height: 0.82;
+}
+
+.sh-l1 .sh-text-glyph {
+  background: linear-gradient(95deg, var(--ink) 0%, var(--ink) 44%, #0d259c 58%, var(--blue) 76%, #22b8f8 94%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: secondHeroRise 1.1s var(--d, 0s) cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* ─── PREMIER LEAGUE: Balanced & Refined, Centered in Between ─── */
+.sh-l2 {
+  font-size: calc(var(--u) * 2.5);
+  --d: 0.22s;
+  font-weight: 700;
+  font-stretch: 90%;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  color: var(--ink);
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  margin: calc(var(--u) * 0.48) 0 calc(var(--u) * 0.38);
+  padding: 0;
+}
+
+.sh-l2 .sh-text-glyph {
+  color: var(--ink);
+  letter-spacing: 0.22em;
+  text-align: center;
+  margin-right: -0.22em;
+  animation: secondHeroRise 1.1s var(--d, 0s) cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* ─── CONFERENCES: Scaled & Geometrically Aligned with NEXT ─── */
+.sh-l3 {
+  font-size: calc(var(--u) * 7.85);
+  --d: 0.25s;
+  line-height: 0.82;
+  color: var(--ink);
+  letter-spacing: 0;
+  width: 100%;
+}
+
+.sh-l3 .sh-text-glyph {
+  color: var(--ink);
+  animation: secondHeroRise 1.1s var(--d, 0s) cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* CTAs & Description */
+.second-hero-foot {
+  margin-top: calc(var(--u) * 1.6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.35rem;
+}
+
+.second-hero-desc {
+  margin: 0;
+  max-width: fit-content;
+  font-size: clamp(14.5px, 1.08vw, 17px);
+  line-height: 1.55;
+  font-weight: 500;
+  color: #475569;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  animation: secondHeroFade 0.9s 0.65s ease forwards;
+}
+
+.sh-desc-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.second-hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: secondHeroFade 0.9s 0.85s ease forwards;
+}
+
+@keyframes secondHeroFade {
+  to {
+    opacity: 1;
+  }
+}
+
+.sh-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 30px;
+  border-radius: 99px;
+  font: 600 16px var(--text);
+  text-decoration: none;
+  color: #fff;
+  background: var(--ink);
+  isolation: isolate;
+  transition: color 0.3s, box-shadow 0.4s;
+}
+
+.sh-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, var(--blue), var(--radiant) 55%, var(--cyan));
+  transform: translateY(101%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sh-btn:hover::before,
+.sh-btn:focus-visible::before {
+  transform: none;
+}
+
+.sh-btn:hover {
+  box-shadow: 0 10px 30px -8px rgba(31, 59, 255, 0.6);
+  color: #fff;
+}
+
+.sh-btn.ghost {
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+
+.sh-btn.ghost:hover {
+  color: #fff;
+  box-shadow: inset 0 0 0 1.5px transparent;
+}
+
+/* ─── Right Showcase: Interactive 3D Glass Conference Stack ─── */
+.second-hero-showcase {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  padding-top: 6px;
+  transform: translateY(4px);
+}
+
+/* Mobile responsive */
+/* Mobile responsive: Rebuilt Hero section matching reference design */
+@media (max-width: 960px) {
+  .second-hero {
+    --u: 1vw;
+    padding: 0 16px 1.5rem;
+  }
+
+  .sh-nav {
+    padding: 12px 0 6px;
+  }
+
+  .sh-nav-right .sh-nav-theme-btn {
+    display: none;
+  }
+
+  .sh-menu-btn {
+    display: flex;
+  }
+
+  .sh-links {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: #060b19;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 28px;
+    clip-path: circle(0 at calc(100% - 50px) 40px);
+    transition: clip-path 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    visibility: hidden;
+  }
+
+  .sh-links.open {
+    clip-path: circle(150% at calc(100% - 50px) 40px);
+    visibility: visible;
+  }
+
+  .sh-links a {
+    color: #fff;
+    font: 700 clamp(30px, 9vw, 48px) / 1.15 var(--display);
+    letter-spacing: -0.03em;
+    display: block;
+    padding: 8px 0;
+  }
+
+  .sh-links a::after {
+    display: none;
+  }
+
+  .second-hero-main {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 1.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 4rem;
+    margin-top: 0;
+  }
+
+  .second-hero-copy {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .second-hero-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-stretch: normal;
+  }
+
+  /* Monumental NEXT Typography matching reference photo */
+  .sh-l1 {
+    font-size: clamp(134px, 37vw, 175px);
+    line-height: 0.8;
+    display: block;
+    width: 100%;
+    text-align: center;
+    letter-spacing: -0.04em;
+    font-weight: 900;
+  }
+
+  .sh-l1 .sh-text-glyph {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(
+      95deg,
+      #03050a 0%,
+      #03050a 38%,
+      #122b9c 54%,
+      #1f4fff 68%,
+      #00b4d8 84%,
+      #00d2ff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.04em;
+  }
+
+  /* Wide-tracked PREMIER LEAGUE — visibly bigger & bolder */
+  .sh-l2 {
+    font-size: clamp(16.5px, 4.6vw, 22px);
+    font-weight: 900;
+    letter-spacing: clamp(0.24em, 3.2vw, 0.4em);
+    margin: 10px 0 8px;
+    text-align: center;
+    width: 100%;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .sh-l2 .sh-text-glyph {
+    display: inline-block;
+    margin-right: -0.24em;
+    text-align: center;
+  }
+
+  /* Bold, prominent CONFERENCES anchoring the hero lockup */
+  .sh-l3 {
+    font-size: clamp(45px, 12.8vw, 62px);
+    font-weight: 900;
+    letter-spacing: -0.015em;
+    line-height: 0.92;
+    text-align: center;
+    width: 100%;
+    color: var(--ink);
+  }
+
+  .sh-l3 .sh-text-glyph {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .second-hero-foot {
+    margin-top: 1.15rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .second-hero-desc {
+    font-size: 15px;
+    line-height: 1.52;
+    color: #475569;
+    margin: 0 0 1.25rem;
+    text-align: left;
+    width: 100%;
+  }
+
+  /* Two CTA buttons side-by-side in one row (Never wrap) */
+  .second-hero-ctas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .second-hero-ctas .sh-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 48px;
+    height: 48px;
+    padding: 0 14px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    background: #03050a;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 22px -4px rgba(3, 5, 10, 0.28);
+    text-overflow: ellipsis;
+  }
+
+  .second-hero-ctas .liquid-glass-btn,
+  .second-hero-ctas .sh-btn-speaker {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 14px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    background: #ffffff !important;
+    border: 2px solid #00d2ff !important;
+    color: #03050a !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 18px rgba(0, 210, 255, 0.2);
+    text-overflow: ellipsis;
+  }
+
+  .second-hero-ctas .liquid-glass-btn .liquid-glass-btn__tank,
+  .second-hero-ctas .liquid-glass-btn .liquid-glass-btn__refraction,
+  .second-hero-ctas .liquid-glass-btn .liquid-glass-btn__rim,
+  .second-hero-ctas .liquid-glass-btn .liquid-glass-btn__fill,
+  .second-hero-ctas .liquid-glass-btn .liquid-glass-btn__blobs,
+  .second-hero-ctas .liquid-glass-btn .liquid-glass-svg-defs {
+    display: none !important;
+  }
+
+  .second-hero-showcase {
+    justify-content: center;
+    padding-top: 0.25rem;
+    margin-top: 0.5rem;
+    transform: none;
+    width: 100%;
+    overflow: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sh-m>span {
+    transform: none;
+    animation: none;
+  }
+
+  .second-hero-frames,
+  .second-hero-bg::before {
+    animation: none;
+  }
+
+  .second-hero-ctas {
+    opacity: 1;
+    animation: none;
+  }
+
+  .sh-btn::before,
+  .sh-links,
+  .sh-links a::after {
+    transition: none;
+  }
+}

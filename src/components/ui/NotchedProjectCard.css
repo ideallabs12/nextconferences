@@ -1,0 +1,271 @@
+.notched-project-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 28px;
+  outline: none;
+  text-decoration: none;
+  color: #f8fafc;
+  position: relative;
+  cursor: pointer;
+}
+
+.notched-project-card:focus-visible {
+  box-shadow: 0 0 0 2px #00d2ff, 0 0 0 6px #060b16;
+}
+
+.notched-card-media-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.notched-card-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 28px;
+  background-color: #0f172a;
+}
+
+.notched-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.notched-project-card.is-monochrome .notched-card-img,
+.notched-project-card.is-monochrome .notched-card-screen {
+  filter: grayscale(100%);
+}
+
+.notched-project-card.is-monochrome:hover .notched-card-img,
+.notched-project-card.is-monochrome:focus-visible .notched-card-img,
+.notched-project-card.is-monochrome:hover .notched-card-screen,
+.notched-project-card.is-monochrome:focus-visible .notched-card-screen {
+  filter: grayscale(0%);
+}
+
+.notched-project-card:hover .notched-card-img.zoom-on-hover {
+  transform: scale(1.04);
+}
+
+.notched-card-dim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.notched-card-screen {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 82%;
+  transform-origin: bottom right;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.5));
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.notched-project-card:hover .notched-card-screen {
+  transform: scale(1.07);
+}
+
+.notched-card-badge-wrap {
+  pointer-events: none;
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+}
+
+.notched-card-badge {
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(6, 11, 22, 0.72);
+  padding: 0.32rem 0.8rem;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  letter-spacing: 0.03em;
+}
+
+.notched-card-location-wrap {
+  pointer-events: none;
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  display: flex;
+  justify-content: flex-start;
+  z-index: 2;
+  max-width: calc(55% - 1rem);
+}
+
+.notched-card-location-badge {
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 210, 255, 0.4);
+  background: rgba(6, 11, 22, 0.75);
+  padding: 0.32rem 0.8rem;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f8fafc;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notched-card-block {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.notched-card-fillet {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.notched-card-disc {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #162032;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notched-project-card:hover .notched-card-disc,
+.notched-project-card:focus-visible .notched-card-disc {
+  background-color: var(--card-accent, #00d2ff);
+  border-color: var(--card-accent, #00d2ff);
+  color: var(--card-accent-fg, #0a0a0a);
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 210, 255, 0.35);
+}
+
+.notched-card-arrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.notched-project-card:hover .notched-card-arrow,
+.notched-project-card:focus-visible .notched-card-arrow {
+  transform: translate(2px, -2px);
+}
+
+.notched-card-title {
+  margin: 1rem 0 0 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #f8fafc;
+  transition: color 0.25s ease;
+}
+
+.notched-project-card:hover .notched-card-title {
+  color: #00d2ff;
+}
+
+.notched-card-desc {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.notched-card-tags {
+  margin: 1rem 0 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.notched-card-tag {
+  border-radius: 6px;
+  background-color: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.28rem 0.55rem;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #cbd5e1;
+}
+
+/* ─── Light Theme Variant (for Second Home) ─── */
+.notched-project-card.is-light-theme {
+  color: #03050a;
+}
+
+.notched-project-card.is-light-theme .notched-card-cover {
+  background-color: #f1f5f9;
+  box-shadow: 0 12px 30px rgba(3, 5, 10, 0.08);
+}
+
+.notched-project-card.is-light-theme .notched-card-disc {
+  background-color: #03050a;
+  border: 1px solid rgba(3, 5, 10, 0.1);
+  color: #ffffff;
+}
+
+.notched-project-card.is-light-theme:hover .notched-card-disc,
+.notched-project-card.is-light-theme:focus-visible .notched-card-disc {
+  background-color: #1f3bff;
+  border-color: #1f3bff;
+  color: #ffffff;
+  transform: scale(1.06);
+  box-shadow: 0 10px 25px -4px rgba(31, 59, 255, 0.5);
+}
+
+.notched-project-card.is-light-theme .notched-card-title {
+  color: #03050a;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.notched-project-card.is-light-theme:hover .notched-card-title {
+  color: #1f3bff;
+}
+
+.notched-project-card.is-light-theme .notched-card-badge {
+  background: rgba(3, 5, 10, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.notched-project-card.is-light-theme .notched-card-location-badge {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(3, 5, 10, 0.12);
+  color: #03050a;
+  box-shadow: 0 4px 14px rgba(3, 5, 10, 0.08);
+}
+

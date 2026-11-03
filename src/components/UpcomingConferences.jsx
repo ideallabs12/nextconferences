@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import conferencesData from '../../conferences/conferences.json';
+import localConferencesData from '../../conferences/conferences.json';
+import { fetchConferencesFromSupabase, getConferenceImageUrl } from '../lib/supabase.js';
+import { NotchedProjectCard } from './ui/NotchedProjectCard.jsx';
 import './UpcomingConferences.css';
 
 const UpcomingConferences = () => {
-    // Get the first 6 conferences to display in a 2-row grid on the home page
-    const upcoming = conferencesData.slice(0, 6);
+    const [conferencesData, setConferencesData] = useState(localConferencesData);
+
+    useEffect(() => {
+        fetchConferencesFromSupabase()
+            .then(data => {
+                if (data && data.length > 0) setConferencesData(data);
+            })
+            .catch(() => {});
+    }, []);
+
+    // Get the top 6 conferences based on displayOrder to display on the home page
+    const upcoming = [...conferencesData]
+        .sort((a, b) => {
+            const orderA = typeof a.displayOrder === 'number' ? a.displayOrder : (typeof a.order === 'number' ? a.order : 999999);
+            const orderB = typeof b.displayOrder === 'number' ? b.displayOrder : (typeof b.order === 'number' ? b.order : 999999);
+            return orderA - orderB;
+        })
+        .slice(0, 6);
 
     return (
         <section className="upcoming-section">
@@ -18,28 +36,30 @@ const UpcomingConferences = () => {
                 </p>
             </div>
             
-            <div className="upcoming-grid">
-                {upcoming.map((conf, index) => (
-                    <Link to={`/conference/${conf.slug}`} key={index} className="upcoming-card" style={{ animationDelay: `${index * 0.15}s`, textDecoration: 'none' }}>
-                        <div className="upcoming-image-container">
-                            <img 
-                                src={`/conferences_imgs/${conf.image}`} 
-                                alt={conf.title} 
-                                className="upcoming-image"
-                                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80'; }}
-                            />
-                            <div className="upcoming-date-badge">
-                                {conf.date.split(',')[0]}
-                            </div>
-                        </div>
-                        <div className="upcoming-content">
-                            <div className="upcoming-meta">
-                                <span className="upcoming-location">📍 {conf.location}</span>
-                            </div>
-                            <h3 className="upcoming-card-title">{conf.title}</h3>
-                        </div>
-                    </Link>
-                ))}
+            <div className="upcoming-notched-grid">
+                {upcoming.map((conf, index) => {
+                    const cleanLocation = (conf.location || '').replace(/\.$/, '');
+                    const cleanDate = (conf.date || '').replace(/\.$/, '');
+
+                    return (
+                        <NotchedProjectCard
+                            key={conf.slug || index}
+                            href={`/conference/${conf.slug}`}
+                            title={conf.title}
+                            image={getConferenceImageUrl(conf)}
+                            imageAlt={conf.title}
+                            onImageError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = `/conferences_imgs/${conf.image}`;
+                            }}
+                            badge={cleanDate}
+                            locationBadge={`📍 ${cleanLocation}`}
+                            surface="var(--notched-card-surface, #050a15)"
+                            accent="#00d2ff"
+                            accentForeground="#040914"
+                        />
+                    );
+                })}
             </div>
             
             <div className="upcoming-footer">

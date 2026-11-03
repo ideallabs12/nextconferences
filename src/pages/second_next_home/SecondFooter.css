@@ -1,0 +1,447 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SECOND HOME — MODERN APPLE VISIONOS FOOTER
+   Seamless full-page integration with glowing interactive massive typography
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.second-footer {
+  --paper: #ffffff;
+  --ink: #03050a;
+  --ink-secondary: #475569;
+  --blue: #1f3bff;
+  --radiant: #2f7bff;
+  --cyan: #2ee6ff;
+  --display: 'Bricolage Grotesque', 'Arial Narrow', Impact, sans-serif;
+  --text: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --card-glass: rgba(255, 255, 255, 0.72);
+  --card-border: rgba(3, 5, 10, 0.08);
+
+  position: relative;
+  width: 100%;
+  padding: 3.5rem max(20px, 4vw) 2rem;
+  background-color: transparent;
+  color: var(--ink);
+  font-family: var(--text);
+  overflow: hidden;
+  isolation: isolate;
+  border-top: none;
+  box-sizing: border-box;
+}
+
+/* ─── Ambient Glow Backdrop (seamless continuation) ─── */
+.second-footer-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 25%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 25%, #000 100%);
+}
+
+.second-footer-bg::before {
+  content: "";
+  position: absolute;
+  inset: -15%;
+  background:
+    radial-gradient(45% 45% at 75% 35%, rgba(46, 230, 255, 0.22), transparent 70%),
+    radial-gradient(42% 45% at 20% 70%, rgba(31, 59, 255, 0.14), transparent 70%);
+}
+
+.second-footer-container {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* ─── Top Section: Brand + Links Grid ─── */
+.sf-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3.5rem 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.sf-brand-col {
+  flex: 1 1 380px;
+  max-width: 480px;
+}
+
+.sf-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 1.5rem;
+}
+
+.sf-brand-badge {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.sf-brand-badge svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sf-badge-bg {
+  color: #03050a;
+}
+
+.sf-brand-title {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: inherit;
+}
+
+.sf-cta-heading {
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 0 0 1rem;
+  color: inherit;
+}
+
+.sf-gradient-text {
+  background: linear-gradient(100deg, var(--blue) 0%, var(--radiant) 45%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.sf-brand-desc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  margin: 0 0 1.8rem;
+  max-width: 420px;
+}
+
+/* ─── Apple Glass Social Pills ─── */
+.sf-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sf-social-pill {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--text);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(3, 5, 10, 0.09);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 12px rgba(3, 5, 10, 0.04);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sf-social-pill:hover {
+  transform: translateY(-3px) scale(1.08);
+  background: rgba(31, 59, 255, 0.1);
+  border-color: rgba(31, 59, 255, 0.4);
+  color: var(--blue);
+  box-shadow: 0 8px 22px rgba(31, 59, 255, 0.22);
+}
+
+/* ─── Links Grid ─── */
+.sf-links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem 4rem;
+}
+
+.sf-links-col {
+  min-width: 140px;
+}
+
+.sf-col-heading {
+  font-family: var(--display);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--blue);
+  font-weight: 700;
+  margin: 0 0 1.3rem;
+}
+
+.sf-links-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sf-links-col a {
+  color: var(--ink-secondary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+  padding: 2px 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.sf-links-col a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transition: width 0.3s ease;
+}
+
+.sf-links-col a:hover {
+  color: var(--ink);
+  transform: translateX(2px);
+}
+
+.sf-links-col a:hover::after {
+  width: 100%;
+}
+
+/* ─── Massive Glowing Typography ─── */
+.sf-massive-typography {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  font-family: var(--display);
+  user-select: none;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--card-border);
+  color: rgba(3, 5, 10, 0.08);
+  transition: all 0.4s ease;
+}
+
+.sf-massive-word {
+  display: flex;
+  font-size: clamp(6.5rem, 18vw, 17rem);
+  font-weight: 900;
+  line-height: 0.78;
+  letter-spacing: -0.05em;
+}
+
+.sf-massive-subtext {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: clamp(1.4rem, 4.2vw, 4.2rem);
+  font-weight: 800;
+  text-align: right;
+  line-height: 0.9;
+  margin-bottom: 0.15em;
+  letter-spacing: 0.04em;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sf-letter {
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+  position: relative;
+  display: inline-block;
+}
+
+.sf-letter:hover,
+.sf-letter.sf-active-glow {
+  color: transparent;
+  -webkit-text-stroke: 2px #1f3bff;
+  text-shadow: 0 0 40px rgba(31, 59, 255, 0.55);
+  transform: translateY(-12px) scale(1.04);
+}
+
+.sf-massive-subtext:hover,
+.sf-massive-subtext.sf-active-sub-glow {
+  color: transparent;
+  -webkit-text-stroke: 1px #1f3bff;
+  text-shadow: 0 0 28px rgba(46, 230, 255, 0.5);
+  transform: translateY(-6px);
+}
+
+/* ─── Bottom Meta (Copyright & Credits) ─── */
+.sf-bottom-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--card-border);
+  color: var(--ink-secondary);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.sf-copyright,
+.sf-credits {
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DARK MODE SYSTEM FOR SECOND FOOTER
+   ═══════════════════════════════════════════════════════════════════════ */
+.second-home-page.dark-mode .second-footer {
+  --paper: #050814;
+  --ink: #f8fafc;
+  --ink-secondary: #94a3b8;
+  --card-glass: rgba(11, 18, 35, 0.82);
+  --card-border: rgba(255, 255, 255, 0.09);
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-footer-bg::before {
+  background:
+    radial-gradient(45% 45% at 75% 35%, rgba(46, 230, 255, 0.26), transparent 70%),
+    radial-gradient(42% 45% at 20% 70%, rgba(31, 59, 255, 0.32), transparent 70%);
+}
+
+.second-home-page.dark-mode .sf-badge-bg {
+  color: #060b19;
+  stroke: rgba(255, 255, 255, 0.16);
+}
+
+.second-home-page.dark-mode .sf-social-pill {
+  background: rgba(11, 18, 35, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.second-home-page.dark-mode .sf-social-pill:hover {
+  background: rgba(46, 230, 255, 0.12);
+  border-color: rgba(46, 230, 255, 0.45);
+  color: #2ee6ff;
+  box-shadow: 0 8px 24px rgba(46, 230, 255, 0.3);
+}
+
+.second-home-page.dark-mode .sf-col-heading {
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .sf-links-col a:hover {
+  color: #ffffff;
+}
+
+.second-home-page.dark-mode .sf-massive-typography {
+  color: rgba(255, 255, 255, 0.07);
+}
+
+.second-home-page.dark-mode .sf-letter:hover,
+.second-home-page.dark-mode .sf-letter.sf-active-glow {
+  color: transparent;
+  -webkit-text-stroke: 2px #2ee6ff;
+  text-shadow: 0 0 45px rgba(46, 230, 255, 0.85);
+}
+
+.second-home-page.dark-mode .sf-massive-subtext:hover,
+.second-home-page.dark-mode .sf-massive-subtext.sf-active-sub-glow {
+  color: transparent;
+  -webkit-text-stroke: 1px #2ee6ff;
+  text-shadow: 0 0 35px rgba(46, 230, 255, 0.7);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN (TABLET & MOBILE)
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .sf-top {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .sf-brand-col {
+    max-width: 100%;
+  }
+
+  .sf-links-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .second-footer {
+    padding: 2.5rem 1.25rem 1.75rem;
+  }
+
+  .sf-massive-typography {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding-top: 1.5rem;
+  }
+
+  .sf-massive-word {
+    font-size: clamp(3.2rem, 15vw, 6rem);
+    line-height: 0.85;
+    gap: 0.15em;
+  }
+
+  .sf-letter:hover,
+  .sf-letter.sf-active-glow {
+    transform: none; /* Prevent overflow crop on mobile */
+    -webkit-text-stroke: 1.5px #1f3bff;
+    text-shadow: 0 0 25px rgba(31, 59, 255, 0.6);
+  }
+
+  .sf-massive-subtext {
+    font-size: clamp(0.85rem, 3.6vw, 1.25rem);
+    text-align: left;
+    line-height: 1.35;
+    flex-direction: row;
+    gap: 0.4rem 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+  .sf-massive-subtext:hover,
+  .sf-massive-subtext.sf-active-sub-glow {
+    transform: none;
+  }
+
+  .sf-bottom-meta {
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .sf-links-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8rem 1rem;
+  }
+
+  .sf-cta-heading {
+    font-size: 1.85rem;
+  }
+}
+

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchGalleryFromSupabase, getGalleryImageUrl } from '../lib/supabase.js';
 import './HomeGallery.css';
 
-const allImages = [
+const defaultImages = [
   '/gallery_imgs/next_gallery_2.jpg',
   '/gallery_imgs/next_gallery_3.jpg',
   '/gallery_imgs/next_gallery_4.jpg',
@@ -18,6 +19,18 @@ const allImages = [
 ];
 
 const HomeGallery = () => {
+  const [allImages, setAllImages] = useState(() => defaultImages.map(getGalleryImageUrl));
+
+  useEffect(() => {
+    fetchGalleryFromSupabase()
+      .then(data => {
+        if (data && data.length > 0) {
+          setAllImages(data.map(item => getGalleryImageUrl(item)));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   // Use a smaller sample of images for the home page 3D slider (e.g. 5 images)
   const sampleImages = allImages.slice(0, 5);
   const [activeIndex, setActiveIndex] = useState(2);
@@ -67,6 +80,11 @@ const HomeGallery = () => {
                   className="coverflow-img"
                   src={src}
                   alt={`gallery-${idx}`}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    const filename = src.split('/').pop();
+                    if (filename) e.target.src = `/gallery_imgs/${filename}`;
+                  }}
                 />
               </div>
             );

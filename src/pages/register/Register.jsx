@@ -23,9 +23,10 @@ import {
     Sparkles,
     Ticket
 } from 'lucide-react';
-import conferencesData from '../conferences/conferences.json';
+import localConferencesData from '../conferences/conferences.json';
 import defaultPackages from '../conferences/packages.json';
 import BeamsBackground from '../../components/BeamsBackground.jsx';
+import { fetchConferencesFromSupabase, submitRegistration } from '../../lib/supabase.js';
 import './register.css';
 
 const COUNTRY_CODES = [
@@ -236,6 +237,15 @@ export default function Register() {
     const { slug } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
+    const [conferencesData, setConferencesData] = useState(localConferencesData);
+
+    useEffect(() => {
+        fetchConferencesFromSupabase()
+            .then(data => {
+                if (data && data.length > 0) setConferencesData(data);
+            })
+            .catch(() => {});
+    }, []);
 
     const searchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);
     const confQuery = searchParams.get('conf');
@@ -343,7 +353,7 @@ export default function Register() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validateStep1()) {
             setMobileStep(1);
@@ -351,14 +361,30 @@ export default function Register() {
         }
         setIsSubmitting(true);
 
-        setTimeout(() => {
-            const randomCode = Math.floor(100000 + Math.random() * 900000);
-            const prefix = conf?.slug ? conf.slug.toUpperCase().slice(0, 4) : 'NEXT';
-            setRegistrationId(`NEXT-${prefix}-${randomCode}`);
-            setIsSubmitting(false);
-            setIsSuccess(true);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 850);
+        const randomCode = Math.floor(100000 + Math.random() * 900000);
+        const prefix = conf?.slug ? conf.slug.toUpperCase().slice(0, 4) : 'NEXT';
+        const generatedId = `NEXT-${prefix}-${randomCode}`;
+
+        try {
+            await submitRegistration({
+                registrationId: generatedId,
+                conferenceSlug: conf?.slug || '',
+                conferenceTitle: conf?.title || '',
+                packageName: currentPackage?.packageName || selectedPackageName,
+                packagePrice: currentPackage?.price ?? null,
+                fullName: formData.name.trim(),
+                email: formData.email.trim(),
+                phone: `${formData.countryCode} ${formData.phone.trim()}`.trim(),
+                country: formData.country,
+            });
+        } catch (err) {
+            console.error('Supabase registration save warning:', err);
+        }
+
+        setRegistrationId(generatedId);
+        setIsSubmitting(false);
+        setIsSuccess(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
 

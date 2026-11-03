@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Check, ShieldCheck, Mail, Phone, Globe, User, Calendar, MapPin, ArrowRight } from 'lucide-react';
+import { submitRegistration } from '../../lib/supabase.js';
 import './registrationModal.css';
 
 const RegistrationModal = ({ isOpen, onClose, selectedPackage, conference }) => {
@@ -23,17 +24,33 @@ const RegistrationModal = ({ isOpen, onClose, selectedPackage, conference }) => 
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        setTimeout(() => {
-            const randomCode = Math.floor(100000 + Math.random() * 900000);
-            const prefix = conference.slug ? conference.slug.toUpperCase().slice(0, 4) : 'CONF';
-            setRegistrationId(`NEXT-${prefix}-${randomCode}`);
-            setIsSubmitting(false);
-            setIsSuccess(true);
-        }, 800);
+        const randomCode = Math.floor(100000 + Math.random() * 900000);
+        const prefix = conference.slug ? conference.slug.toUpperCase().slice(0, 4) : 'CONF';
+        const generatedId = `NEXT-${prefix}-${randomCode}`;
+
+        try {
+            await submitRegistration({
+                registrationId: generatedId,
+                conferenceSlug: conference.slug || '',
+                conferenceTitle: conference.title || '',
+                packageName: selectedPackage.packageName || '',
+                packagePrice: selectedPackage.price ?? null,
+                fullName: formData.fullName.trim(),
+                email: formData.email.trim(),
+                phone: formData.phone.trim(),
+                country: formData.country.trim(),
+            });
+        } catch (err) {
+            console.error('Supabase registration save warning:', err);
+        }
+
+        setRegistrationId(generatedId);
+        setIsSubmitting(false);
+        setIsSuccess(true);
     };
 
     const handleResetAndClose = () => {

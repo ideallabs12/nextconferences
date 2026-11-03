@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './gallery.css';
+import { fetchGalleryFromSupabase, getGalleryImageUrl } from '../../lib/supabase.js';
 
 // Dynamically import all images in the gallery_imgs directory
-const images = [
+const defaultImages = [
   '/gallery_imgs/next_gallery_2.jpg',
   '/gallery_imgs/next_gallery_3.jpg',
   '/gallery_imgs/next_gallery_4.jpg',
@@ -18,7 +19,18 @@ const images = [
 ];
 
 const Gallery = () => {
+    const [images, setImages] = useState(() => defaultImages.map(getGalleryImageUrl));
     const [selectedImg, setSelectedImg] = useState(null);
+
+    useEffect(() => {
+        fetchGalleryFromSupabase()
+            .then(data => {
+                if (data && data.length > 0) {
+                    setImages(data.map(item => getGalleryImageUrl(item)));
+                }
+            })
+            .catch(() => {});
+    }, []);
 
     return (
         <div className="gallery-page">
@@ -42,6 +54,11 @@ const Gallery = () => {
                             src={src} 
                             alt={`Gallery moment ${index + 1}`} 
                             loading="lazy" 
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                const filename = src.split('/').pop();
+                                if (filename) e.target.src = `/gallery_imgs/${filename}`;
+                            }}
                         />
                         <div className="gallery-item-overlay">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import logoImage from '../assets/logo.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -38,6 +39,9 @@ const Footer = () => {
         {/* Top Section: CTA & Links */}
         <div className="footer-top">
           <div className="footer-brand-section">
+            <Link to="/" className="footer-logo-link">
+              <img src={logoImage} alt="NEXT Conferences" className="footer-logo-img" />
+            </Link>
             <h3 className="footer-cta-text">
               Ready for what's <span className="text-gradient">NEXT?</span>
             </h3>
@@ -58,8 +62,10 @@ const Footer = () => {
               <h4 className="footer-col-title">Navigation</h4>
               <ul>
                 <li><Link to="/">Home</Link></li>
+                <li><Link to="/second-home">2H</Link></li>
                 <li><Link to="/conferences">Conferences</Link></li>
                 <li><Link to="/speakers">Speakers</Link></li>
+                <li><Link to="/magazines">Magazines</Link></li>
                 <li><Link to="/gallery">Gallery</Link></li>
               </ul>
             </div>

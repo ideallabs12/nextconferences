@@ -1,0 +1,311 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SECOND HOME — "PREVIOUS SPEAKERS" (APPLE GLASS PORTRAIT MARQUEE)
+   Seamless full-page integration with zero divider lines
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.second-speakers-section {
+  --paper: #ffffff;
+  --ink: #03050a;
+  --blue: #1f3bff;
+  --radiant: #2f7bff;
+  --cyan: #2ee6ff;
+  --u: min(1vw, 14.5px);
+  --display: 'Bricolage Grotesque', 'Arial Narrow', Impact, sans-serif;
+  --text: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  position: relative;
+  padding: 2rem 0 2.25rem;
+  color: var(--ink);
+  background-color: transparent;
+  font-family: var(--text);
+  overflow: visible;
+  isolation: isolate;
+  border-top: none;
+  box-sizing: border-box;
+}
+
+.second-speakers-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+}
+
+.second-speakers-bg::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(40% 44% at 20% 45%, rgba(46, 230, 255, 0.26), transparent 72%),
+    radial-gradient(42% 46% at 80% 55%, rgba(31, 59, 255, 0.16), transparent 72%);
+}
+
+/* ─── Compact Apple Header ─── */
+.second-speakers-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 1.65rem;
+  padding: 0 max(20px, 4vw);
+}
+
+.second-speakers-eyebrow {
+  display: inline-block;
+  padding: 0.28rem 0.9rem;
+  background: rgba(46, 230, 255, 0.12);
+  border: 1px solid rgba(31, 59, 255, 0.22);
+  color: var(--blue);
+  border-radius: 99px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.second-speakers-title {
+  font-family: var(--display);
+  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+  font-weight: 800;
+  font-stretch: 90%;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  color: var(--ink);
+  margin: 0 0 0.55rem;
+}
+
+.sh-speakers-gradient {
+  background: linear-gradient(100deg, var(--blue) 0%, var(--radiant) 45%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.second-speakers-subtitle {
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: #475569;
+  font-weight: 400;
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+/* ─── Infinite Apple Marquee ─── */
+.second-speakers-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0.85rem 0 1.25rem;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.second-speakers-track {
+  display: flex;
+  gap: 1.35rem;
+  width: max-content;
+  animation: secondSpeakersScroll 115s linear infinite;
+  padding-left: 1.35rem;
+}
+
+.second-speakers-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes secondSpeakersScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.675rem));
+  }
+}
+
+/* ─── Apple Frosted Glass Portrait Card ─── */
+.sspk-card {
+  width: 248px;
+  height: 334px;
+  padding: 6px;
+  border-radius: 24px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(3, 5, 10, 0.08);
+  box-shadow:
+    0 14px 32px -14px rgba(3, 5, 10, 0.1),
+    0 2px 6px rgba(3, 5, 10, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.sspk-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(31, 59, 255, 0.28);
+  box-shadow:
+    0 22px 44px -14px rgba(31, 59, 255, 0.18),
+    0 6px 14px -4px rgba(3, 5, 10, 0.06),
+    inset 0 1px 0 #ffffff;
+}
+
+.sspk-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.sspk-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sspk-card:hover .sspk-img {
+  transform: scale(1.06);
+}
+
+/* Floating Apple Glass Name Bar inside Portrait */
+.sspk-glass-bar {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 20px rgba(3, 5, 10, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.sspk-card:hover .sspk-glass-bar {
+  background: rgba(255, 255, 255, 0.96);
+  transform: translateY(-2px);
+}
+
+.sspk-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sspk-role {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--blue);
+  margin-bottom: 1px;
+}
+
+.sspk-name {
+  font-family: var(--display);
+  font-size: 0.98rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sspk-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(31, 59, 255, 0.08);
+  color: var(--blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.sspk-card:hover .sspk-arrow {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #ffffff;
+  transform: translate(1px, -1px);
+}
+
+/* ─── Footer CTA ─── */
+.second-speakers-footer {
+  text-align: center;
+  margin-top: 1.35rem;
+  padding: 0 max(20px, 4vw);
+}
+
+.second-speakers-cta {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 32px;
+  border-radius: 99px;
+  font: 600 15px var(--text);
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--ink);
+  isolation: isolate;
+  transition: color 0.3s ease, box-shadow 0.4s ease, transform 0.25s ease;
+  box-shadow: 0 10px 24px -6px rgba(3, 5, 10, 0.24);
+}
+
+.second-speakers-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, var(--blue), var(--radiant) 55%, var(--cyan));
+  transform: translateY(101%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.second-speakers-cta:hover::before,
+.second-speakers-cta:focus-visible::before {
+  transform: none;
+}
+
+.second-speakers-cta:hover {
+  box-shadow: 0 12px 28px -6px rgba(31, 59, 255, 0.55);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+@media (max-width: 680px) {
+  .second-speakers-section {
+    padding: 1.75rem 0 2rem;
+  }
+
+  .sspk-card {
+    width: 215px;
+    height: 290px;
+  }
+}
+

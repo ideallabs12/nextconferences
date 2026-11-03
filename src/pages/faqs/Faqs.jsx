@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './faqs.css';
 import faqsData from './faqs.json';
+import { fetchFaqsFromSupabase } from '../../lib/supabase.js';
 
 const Faqs = () => {
+    const [faqsList, setFaqsList] = useState(faqsData.faqs || []);
     const [activeIndex, setActiveIndex] = useState(null);
+
+    useEffect(() => {
+        fetchFaqsFromSupabase()
+            .then(data => {
+                if (data && data.length > 0) setFaqsList(data);
+            })
+            .catch(() => {});
+    }, []);
 
     const toggleFaq = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
@@ -20,7 +30,7 @@ const Faqs = () => {
                 </div>
                 
                 <div className="faqs-list">
-                    {faqsData.faqs.map((faq, index) => (
+                    {faqsList.map((faq, index) => (
                         <div 
                             key={index} 
                             className={`faq-item ${activeIndex === index ? 'active' : ''}`}

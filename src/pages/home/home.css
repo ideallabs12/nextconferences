@@ -207,3 +207,593 @@
         display: none;
     }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FLOATING THEME TOGGLE SWITCH
+   ═══════════════════════════════════════════════════════════════════════ */
+.home-theme-toggle {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  background: rgba(6, 11, 22, 0.88);
+  color: #ffffff;
+}
+
+.home-theme-toggle:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 36px rgba(0, 210, 255, 0.3);
+  border-color: rgba(0, 210, 255, 0.6);
+  background: rgba(10, 18, 36, 0.95);
+}
+
+.home-page.light-mode .home-theme-toggle {
+  background: rgba(255, 255, 255, 0.92);
+  color: #03050a;
+  border: 1.5px solid rgba(3, 5, 10, 0.14);
+  box-shadow: 0 10px 30px rgba(3, 5, 10, 0.12);
+}
+
+.home-page.light-mode .home-theme-toggle:hover {
+  border-color: #1f3bff;
+  box-shadow: 0 14px 36px rgba(31, 59, 255, 0.2);
+  background: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LIGHT THEME OVERRIDES FOR PRIMARY HOME
+   ═══════════════════════════════════════════════════════════════════════ */
+.home-page.light-mode {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #03050a;
+  --text-secondary: #475569;
+  --border-glass: rgba(3, 5, 10, 0.08);
+
+  background-color: #ffffff;
+  color: #03050a;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.home-page.light-mode .text-gradient {
+  background: linear-gradient(135deg, #03050a 35%, #1f3bff 70%, #00d2ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* 1. HERO SECTION */
+.home-page.light-mode .conference-hero {
+  background-color: #05070b;
+  color: #03050a;
+}
+
+.home-page.light-mode .conference-hero .hero-background {
+  background: #05070b;
+}
+
+.home-page.light-mode .conference-hero .hero-image {
+  opacity: 1;
+  filter: none;
+}
+
+/* Outward triangular shape in bold dark color */
+.home-page.light-mode .conference-hero .hero-overlay-back {
+  width: 115vw;
+  height: 115vw;
+  left: -66vw;
+  top: calc(45vh - 57.5vw);
+  border-radius: 6vw;
+  transform: rotate(45deg);
+  background: #040914;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 40px -40px 100px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  opacity: 1;
+}
+
+/* Inner triangular shape in clean crisp white */
+.home-page.light-mode .conference-hero .hero-overlay-main {
+  width: 102vw;
+  height: 102vw;
+  left: -60vw;
+  top: calc(45vh - 51vw);
+  border-radius: 5vw;
+  transform: rotate(45deg);
+  background: #ffffff;
+  box-shadow: 25px -25px 70px rgba(0, 0, 0, 0.22);
+  z-index: 3;
+  opacity: 1;
+}
+
+.home-page.light-mode .conference-hero .hero-overlay-front {
+  display: none;
+}
+
+.home-page.light-mode .conference-hero .hero-content-wrapper {
+  z-index: 10;
+}
+
+.home-page.light-mode .conference-hero .hero-eyebrow {
+  color: #1f3bff;
+  font-weight: 700;
+}
+
+.home-page.light-mode .conference-hero .hero-main-title {
+  color: #03050a;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.home-page.light-mode .conference-hero .hero-highlight {
+  background: linear-gradient(100deg, #1f3bff 0%, #2f7bff 45%, #2ee6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  font-weight: 800;
+}
+
+.home-page.light-mode .conference-hero .hero-main-description {
+  color: #475569;
+  font-size: 1.18rem;
+  line-height: 1.65;
+  font-weight: 450;
+}
+
+.home-page.light-mode .conference-hero .hero-cta-button {
+  background: #03050a;
+  color: #ffffff;
+  border-color: #03050a;
+  box-shadow: 0 10px 25px rgba(3, 5, 10, 0.16);
+}
+
+.home-page.light-mode .conference-hero .hero-cta-button:hover {
+  background: linear-gradient(100deg, #1f3bff, #2ee6ff);
+  border-color: transparent;
+  box-shadow: 0 12px 30px rgba(31, 59, 255, 0.35);
+}
+
+/* 2. STAT BAR */
+.home-page.light-mode .stat-bar-container {
+  background: #ffffff;
+  border-top: 1px solid rgba(3, 5, 10, 0.06);
+  border-bottom: 1px solid rgba(3, 5, 10, 0.06);
+  padding: 2.5rem 0;
+}
+
+.home-page.light-mode .stat-value {
+  color: #03050a;
+  background: linear-gradient(135deg, #03050a 40%, #1f3bff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.home-page.light-mode .stat-label {
+  color: #475569;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+/* 3. UPCOMING CONFERENCES */
+.home-page.light-mode .upcoming-section {
+  --notched-card-surface: #f8fafc;
+  background-color: #f8fafc;
+  color: #03050a;
+  border-top: 1px solid rgba(3, 5, 10, 0.06);
+  border-bottom: 1px solid rgba(3, 5, 10, 0.06);
+}
+
+.home-page.light-mode .upcoming-eyebrow {
+  background: rgba(31, 59, 255, 0.08);
+  border: 1.5px solid rgba(31, 59, 255, 0.2);
+  color: #1f3bff;
+}
+
+.home-page.light-mode .upcoming-title {
+  color: #03050a;
+}
+
+.home-page.light-mode .upcoming-subtitle {
+  color: #475569;
+}
+
+.home-page.light-mode .notched-project-card {
+  color: #03050a;
+}
+
+.home-page.light-mode .notched-card-cover {
+  background-color: #e2e8f0;
+  box-shadow: 0 12px 30px rgba(3, 5, 10, 0.08);
+}
+
+.home-page.light-mode .notched-card-disc {
+  background-color: #03050a;
+  border: 1px solid rgba(3, 5, 10, 0.1);
+  color: #ffffff;
+}
+
+.home-page.light-mode .notched-project-card:hover .notched-card-disc,
+.home-page.light-mode .notched-project-card:focus-visible .notched-card-disc {
+  background-color: #1f3bff;
+  border-color: #1f3bff;
+  color: #ffffff;
+  box-shadow: 0 10px 25px -4px rgba(31, 59, 255, 0.5);
+}
+
+.home-page.light-mode .notched-card-title {
+  color: #03050a;
+  font-weight: 700;
+}
+
+.home-page.light-mode .notched-project-card:hover .notched-card-title {
+  color: #1f3bff;
+}
+
+.home-page.light-mode .notched-card-badge {
+  background: rgba(3, 5, 10, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.home-page.light-mode .notched-card-location-badge {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(3, 5, 10, 0.12);
+  color: #03050a;
+  box-shadow: 0 4px 14px rgba(3, 5, 10, 0.08);
+}
+
+.home-page.light-mode .upcoming-footer .btn-view-all {
+  background: #03050a;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 8px 24px rgba(3, 5, 10, 0.2);
+}
+
+.home-page.light-mode .upcoming-footer .btn-view-all:hover {
+  background: #1f3bff;
+  box-shadow: 0 10px 30px rgba(31, 59, 255, 0.35);
+}
+
+/* 4. WHY JOIN US — APPLE PRO BENTO */
+.home-page.light-mode .apple-why-section {
+  background: #ffffff;
+  border-top: 1px solid rgba(3, 5, 10, 0.06);
+  border-bottom: 1px solid rgba(3, 5, 10, 0.06);
+  color: #03050a;
+}
+
+.home-page.light-mode .apple-why-eyebrow {
+  color: #1f3bff;
+  background: rgba(31, 59, 255, 0.08);
+  border: 1.5px solid rgba(31, 59, 255, 0.22);
+  border-radius: 99px;
+  padding: 0.35rem 1rem;
+}
+
+.home-page.light-mode .apple-why-title {
+  color: #03050a;
+}
+
+.home-page.light-mode .apple-why-title-sub {
+  color: #64748b;
+}
+
+.home-page.light-mode .apple-why-lead {
+  color: #475569;
+}
+
+.home-page.light-mode .apple-pillar-card {
+  background: #ffffff;
+  border: 1px solid rgba(3, 5, 10, 0.08);
+  border-top: 1px solid rgba(3, 5, 10, 0.12);
+  box-shadow: 0 10px 30px rgba(3, 5, 10, 0.04);
+}
+
+.home-page.light-mode .apple-pillar-card:hover {
+  background: #ffffff;
+  border-color: rgba(31, 59, 255, 0.35);
+  border-top-color: var(--card-accent, #1f3bff);
+  box-shadow: 0 20px 40px rgba(31, 59, 255, 0.1);
+}
+
+.home-page.light-mode .apple-card-title,
+.home-page.light-mode .apple-pillar-title {
+  color: #03050a;
+}
+
+.home-page.light-mode .apple-pillar-card:hover .apple-card-title {
+  color: #1f3bff;
+}
+
+.home-page.light-mode .apple-card-desc,
+.home-page.light-mode .apple-pillar-desc {
+  color: #64748b;
+}
+
+.home-page.light-mode .apple-card-num {
+  color: #94a3b8;
+}
+
+.home-page.light-mode .apple-card-icon-pill {
+  background: rgba(3, 5, 10, 0.04);
+  border: 1px solid rgba(3, 5, 10, 0.08);
+  color: #03050a;
+}
+
+.home-page.light-mode .apple-card-badge {
+  color: #334155;
+}
+
+.home-page.light-mode .apple-stat-num {
+  color: #03050a;
+  background: linear-gradient(135deg, #03050a 40%, #1f3bff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-page.light-mode .apple-stat-lbl {
+  color: #475569;
+}
+
+/* 5. ABOUT BENTO GRID */
+.home-page.light-mode .about-bento-section {
+  background: #f8fafc;
+  color: #03050a;
+  border-top: 1px solid rgba(3, 5, 10, 0.06);
+  border-bottom: 1px solid rgba(3, 5, 10, 0.06);
+}
+
+.home-page.light-mode .bento-eyebrow {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1.5px solid rgba(139, 92, 246, 0.25);
+  color: #7c3aed;
+}
+
+.home-page.light-mode .bento-title {
+  color: #03050a;
+}
+
+.home-page.light-mode .bento-subtitle {
+  color: #475569;
+}
+
+.home-page.light-mode .card-large {
+  background: #03050a;
+  color: #ffffff;
+}
+
+.home-page.light-mode .card-stats {
+  background: #ffffff;
+  border: 1px solid rgba(3, 5, 10, 0.08);
+  box-shadow: 0 10px 30px rgba(3, 5, 10, 0.04);
+  color: #03050a;
+}
+
+.home-page.light-mode .card-stats .stats-eyebrow,
+.home-page.light-mode .bento-stat-label {
+  color: #64748b;
+}
+
+.home-page.light-mode .card-stats .stats-number,
+.home-page.light-mode .bento-stat-num {
+  color: #03050a;
+}
+
+.home-page.light-mode .card-stats .progress-bar-bg,
+.home-page.light-mode .progress-bar-container {
+  background: #e2e8f0;
+}
+
+.home-page.light-mode .card-stats .progress-bar-fill,
+.home-page.light-mode .progress-bar-fill {
+  background: linear-gradient(90deg, #10b981, #059669);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.home-page.light-mode .card-small {
+  background: #ffffff;
+  border: 1px solid rgba(3, 5, 10, 0.08);
+  box-shadow: 0 10px 30px rgba(3, 5, 10, 0.04);
+}
+
+.home-page.light-mode .card-small-title {
+  color: #03050a;
+}
+
+.home-page.light-mode .card-small-desc {
+  color: #64748b;
+}
+
+.home-page.light-mode .card-cta {
+  background: linear-gradient(135deg, #1f3bff 0%, #00d2ff 100%);
+  color: #ffffff;
+  box-shadow: 0 15px 35px rgba(31, 59, 255, 0.3);
+}
+
+.home-page.light-mode .card-cta .cta-title {
+  color: #ffffff;
+}
+
+.home-page.light-mode .card-cta .cta-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.home-page.light-mode .card-cta .cta-arrow {
+  color: #ffffff;
+}
+
+/* 6. HOME GALLERY */
+.home-page.light-mode .home-gallery-section {
+  background: #ffffff;
+  color: #03050a;
+  border-top: 1px solid rgba(3, 5, 10, 0.06);
+}
+
+.home-page.light-mode .gallery-eyebrow {
+  background: rgba(31, 59, 255, 0.08);
+  border: 1.5px solid rgba(31, 59, 255, 0.2);
+  color: #1f3bff;
+}
+
+.home-page.light-mode .gallery-title {
+  color: #03050a;
+}
+
+.home-page.light-mode .gallery-subtitle {
+  color: #475569;
+}
+
+.home-page.light-mode .coverflow-item,
+.home-page.light-mode .coverflow-card {
+  box-shadow: 0 20px 45px rgba(3, 5, 10, 0.12);
+  border: 1px solid rgba(3, 5, 10, 0.08);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.home-page.light-mode .home-gallery-footer .btn-view-all {
+  background: #03050a;
+  color: #ffffff;
+  border: 1px solid #03050a;
+  box-shadow: 0 8px 24px rgba(3, 5, 10, 0.2);
+}
+
+.home-page.light-mode .home-gallery-footer .btn-view-all:hover {
+  background: #1f3bff;
+  color: #ffffff;
+  border-color: #1f3bff;
+  box-shadow: 0 10px 30px rgba(31, 59, 255, 0.35);
+}
+
+/* 7. HOME SPEAKERS */
+.home-page.light-mode .home-speakers-section {
+  background: #f8fafc;
+  color: #03050a;
+  border-top: 1px solid rgba(3, 5, 10, 0.06);
+}
+
+.home-page.light-mode .speakers-eyebrow {
+  background: rgba(31, 59, 255, 0.08);
+  border: 1.5px solid rgba(31, 59, 255, 0.2);
+  color: #1f3bff;
+}
+
+.home-page.light-mode .speakers-title {
+  color: #03050a;
+}
+
+.home-page.light-mode .speakers-subtitle {
+  color: #475569;
+}
+
+.home-page.light-mode .speaker-card-marquee {
+  background: #ffffff;
+  border: 1px solid rgba(3, 5, 10, 0.08);
+  box-shadow: 0 12px 30px rgba(3, 5, 10, 0.06);
+}
+
+.home-page.light-mode .speaker-info-marquee {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0.88) 65%,
+    transparent 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.home-page.light-mode .speaker-name-marquee {
+  color: #03050a;
+}
+
+.home-page.light-mode .speaker-title-marquee {
+  color: #1f3bff;
+  font-weight: 600;
+}
+
+.home-page.light-mode .speaker-company-marquee {
+  color: #64748b;
+}
+
+.home-page.light-mode .home-speakers-footer .btn-view-all {
+  color: #ffffff;
+  background: #03050a;
+  border: none;
+  box-shadow: 0 8px 24px rgba(3, 5, 10, 0.2);
+}
+
+.home-page.light-mode .home-speakers-footer .btn-view-all:hover {
+  background: #1f3bff;
+  box-shadow: 0 10px 30px rgba(31, 59, 255, 0.35);
+}
+
+/* 8. TESTIMONIALS */
+.home-page.light-mode .testimonials-section {
+  background: #ffffff;
+  color: #03050a;
+  border-top: 1px solid rgba(3, 5, 10, 0.06);
+}
+
+.home-page.light-mode .testimonials-eyebrow {
+  background: rgba(31, 59, 255, 0.08);
+  border: 1.5px solid rgba(31, 59, 255, 0.2);
+  color: #1f3bff;
+}
+
+.home-page.light-mode .testimonials-title {
+  color: #03050a;
+}
+
+.home-page.light-mode .testimonials-subtitle {
+  color: #475569;
+}
+
+.home-page.light-mode .testimonial-card {
+  background: #ffffff;
+  border: 1px solid rgba(3, 5, 10, 0.08);
+  box-shadow: 0 10px 30px rgba(3, 5, 10, 0.05);
+}
+
+.home-page.light-mode .testimonial-card:hover {
+  border-color: rgba(31, 59, 255, 0.35);
+  box-shadow: 0 18px 45px rgba(31, 59, 255, 0.12);
+}
+
+.home-page.light-mode .testimonial-quote {
+  color: #334155;
+}
+
+.home-page.light-mode .testimonial-author {
+  background: rgba(3, 5, 10, 0.02);
+  border-top: 1px solid rgba(3, 5, 10, 0.06);
+}
+
+.home-page.light-mode .testimonial-name {
+  color: #03050a;
+}
+
+.home-page.light-mode .testimonial-role {
+  color: #64748b;
+}

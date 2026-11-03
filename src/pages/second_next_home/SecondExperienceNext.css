@@ -1,0 +1,265 @@
+.second-exp-section {
+  --paper: #ffffff;
+  --ink: #03050a;
+  --blue: #1f3bff;
+  --radiant: #2f7bff;
+  --cyan: #2ee6ff;
+  --u: min(1vw, 14.5px);
+  --display: 'Bricolage Grotesque', 'Arial Narrow', Impact, sans-serif;
+  --text: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  padding: 2rem max(20px, 4vw) 3rem;
+  position: relative;
+  color: var(--ink);
+  background-color: transparent;
+  font-family: var(--text);
+  overflow: visible;
+  isolation: isolate;
+  border-top: none;
+}
+
+/* Background: soft color mesh + fine grid matching Second Home */
+.second-exp-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  max-width: none;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 85%, transparent 100%);
+}
+
+.second-exp-bg::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(42% 46% at 50% 45%, rgba(46, 230, 255, 0.30), transparent 72%),
+    radial-gradient(40% 44% at 15% 75%, rgba(31, 59, 255, 0.16), transparent 70%),
+    radial-gradient(38% 42% at 85% 25%, rgba(47, 123, 255, 0.15), transparent 70%);
+  animation: secondExpDrift 24s ease-in-out infinite alternate;
+}
+
+.second-exp-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(3, 5, 10, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 5, 10, 0.055) 1px, transparent 1px);
+  background-size: calc(var(--u) * 4.2) calc(var(--u) * 4.2);
+  -webkit-mask: radial-gradient(78% 78% at 50% 50%, #000, transparent 88%);
+  mask: radial-gradient(78% 78% at 50% 50%, #000, transparent 88%);
+}
+
+@keyframes secondExpDrift {
+  to {
+    transform: translate3d(-3%, 2%, 0) scale(1.05);
+  }
+}
+
+.second-exp-section .home-gallery-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+}
+
+.second-exp-section .gallery-eyebrow {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: rgba(46, 230, 255, 0.12);
+  border: 1.5px solid rgba(31, 59, 255, 0.25);
+  color: var(--blue);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.2rem;
+}
+
+.second-exp-section .gallery-title {
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 90%;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.sh-exp-gradient {
+  background: linear-gradient(100deg, var(--blue) 0%, var(--radiant) 45%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.second-exp-section .gallery-subtitle {
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* 3D Coverflow Container (Exact same structure & geometry as HomeGallery) */
+.second-exp-section .coverflow-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 410px;
+  margin: 0 auto;
+  perspective: 1200px;
+  padding: 0.75rem 0;
+  overflow: hidden;
+}
+
+.second-exp-section .coverflow-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.second-exp-section .coverflow-item {
+  position: absolute;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease, z-index 0.6s;
+  cursor: pointer;
+  box-shadow: 0 20px 45px rgba(3, 5, 10, 0.16);
+  border: 1px solid rgba(3, 5, 10, 0.08);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.second-exp-section .coverflow-img {
+  height: 380px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Coverflow States */
+.second-exp-section .coverflow-active {
+  transform: translateX(0) translateZ(0) rotateY(0deg);
+  opacity: 1;
+  z-index: 10;
+}
+
+.second-exp-section .coverflow-prev {
+  transform: translateX(-45%) translateZ(-150px) rotateY(20deg);
+  opacity: 0.6;
+  z-index: 5;
+}
+
+.second-exp-section .coverflow-next {
+  transform: translateX(45%) translateZ(-150px) rotateY(-20deg);
+  opacity: 0.6;
+  z-index: 5;
+}
+
+.second-exp-section .coverflow-prev-outer {
+  transform: translateX(-85%) translateZ(-300px) rotateY(30deg);
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.second-exp-section .coverflow-next-outer {
+  transform: translateX(85%) translateZ(-300px) rotateY(-30deg);
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.second-exp-section .coverflow-hidden {
+  transform: translateX(0) translateZ(-500px);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Footer & Button */
+.second-exp-section .home-gallery-footer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.second-exp-cta {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 34px;
+  border-radius: 99px;
+  font: 600 15.5px var(--text);
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--ink);
+  isolation: isolate;
+  transition: color 0.3s ease, box-shadow 0.4s ease, transform 0.25s ease;
+  box-shadow: 0 10px 25px -6px rgba(3, 5, 10, 0.25);
+}
+
+.second-exp-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, var(--blue), var(--radiant) 55%, var(--cyan));
+  transform: translateY(101%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.second-exp-cta:hover::before,
+.second-exp-cta:focus-visible::before {
+  transform: none;
+}
+
+.second-exp-cta:hover {
+  box-shadow: 0 12px 32px -6px rgba(31, 59, 255, 0.55);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .second-exp-section .coverflow-item {
+    height: 280px;
+  }
+  .second-exp-section .coverflow-img {
+    height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .second-exp-section .coverflow-container {
+    height: 300px;
+  }
+
+  .second-exp-section .coverflow-item {
+    height: 200px;
+  }
+
+  .second-exp-section .coverflow-img {
+    height: 200px;
+  }
+
+  .second-exp-section .coverflow-prev {
+    transform: translateX(-40%) translateZ(-150px) rotateY(25deg);
+  }
+  .second-exp-section .coverflow-next {
+    transform: translateX(40%) translateZ(-150px) rotateY(-25deg);
+  }
+
+  .second-exp-section .coverflow-prev-outer,
+  .second-exp-section .coverflow-next-outer {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

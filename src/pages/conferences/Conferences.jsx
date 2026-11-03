@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import './conferences.css';
-import conferencesData from './conferences.json';
+import localConferencesData from './conferences.json';
+import { fetchConferencesFromSupabase, getConferenceImageUrl } from '../../lib/supabase.js';
 
 const CATEGORIES = [
     { id: 'all', label: 'All', emoji: '🌐' },
@@ -10,7 +11,7 @@ const CATEGORIES = [
     { id: 'women-leadership', label: "Women's Leadership", emoji: '👑' },
 ];
 
-const YEARS = ['All Years', '2026', '2027'];
+const YEARS = ['All Years', '2026', '2027', '2028'];
 
 function getCategory(title) {
     const t = title.toLowerCase();
@@ -27,22 +28,38 @@ function getYear(date) {
 }
 
 const Conferences = () => {
+    const [conferencesData, setConferencesData] = useState(localConferencesData);
     const [activeTab, setActiveTab] = useState('all');
     const [activeYear, setActiveYear] = useState('All Years');
     const [search, setSearch] = useState('');
 
+    useEffect(() => {
+        fetchConferencesFromSupabase()
+            .then(data => {
+                if (data && data.length > 0) setConferencesData(data);
+            })
+            .catch(() => {});
+    }, []);
+
     const filtered = useMemo(() => {
-        return conferencesData.filter(c => {
-            const matchCat = activeTab === 'all' || getCategory(c.title).includes(activeTab);
-            const matchYear = activeYear === 'All Years' || getYear(c.date) === activeYear;
-            const q = search.trim().toLowerCase();
-            const matchSearch = !q
-                || c.title.toLowerCase().includes(q)
-                || c.location.toLowerCase().includes(q)
-                || c.date.toLowerCase().includes(q);
-            return matchCat && matchYear && matchSearch;
-        });
-    }, [activeTab, activeYear, search]);
+        return conferencesData
+            .filter(c => {
+                const matchCat = activeTab === 'all' || getCategory(c.title).includes(activeTab);
+                const matchYear = activeYear === 'All Years' || getYear(c.date) === activeYear;
+                const q = search.trim().toLowerCase();
+                const matchSearch = !q
+                    || c.title.toLowerCase().includes(q)
+                    || c.location.toLowerCase().includes(q)
+                    || c.date.toLowerCase().includes(q);
+                return matchCat && matchYear && matchSearch;
+            })
+            .sort((a, b) => {
+                const orderA = typeof a.displayOrder === 'number' ? a.displayOrder : (typeof a.order === 'number' ? a.order : 999999);
+                const orderB = typeof b.displayOrder === 'number' ? b.displayOrder : (typeof b.order === 'number' ? b.order : 999999);
+                return orderA - orderB;
+            });
+    }, [conferencesData, activeTab, activeYear, search]);
+
 
     return (
         <div className="conferences-container">
@@ -111,9 +128,10 @@ const Conferences = () => {
                         <div key={conf.slug} className="conf-card" style={{ animationDelay: `${idx * 0.04}s` }}>
                             <div className="conf-card-image-side">
                                 <img
-                                    src={`/conferences_imgs/${conf.image}`}
+                                    src={getConferenceImageUrl(conf)}
                                     alt={conf.title}
                                     className="conf-card-image"
+                                    onError={(e) => { e.target.onerror = null; e.target.src = `/conferences_imgs/${conf.image}`; }}
                                 />
                                 <div className="conf-card-image-overlay" />
                             </div>

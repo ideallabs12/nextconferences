@@ -1,0 +1,715 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SECOND HOME — UNIFIED FULL-PAGE CANVAS
+   Continuous background mesh + architectural grid with zero section seams
+   Includes Apple-grade Dark Mode System with glowing glass depth
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.second-home-page {
+  --u: min(1vw, 14.5px);
+  --paper: #ffffff;
+  --ink: #03050a;
+  --ink-secondary: #475569;
+  --blue: #1f3bff;
+  --radiant: #2f7bff;
+  --cyan: #2ee6ff;
+  --card-glass: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(3, 5, 10, 0.08);
+
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  isolation: isolate;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Continuous full-page ambient colour mesh (Light Mode) */
+.second-home-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(45% 14% at 82% 6%, rgba(46, 230, 255, 0.34), transparent 75%),
+    radial-gradient(42% 14% at 68% 15%, rgba(31, 59, 255, 0.16), transparent 75%),
+    radial-gradient(46% 16% at 84% 28%, rgba(46, 230, 255, 0.24), transparent 75%),
+    radial-gradient(44% 16% at 16% 36%, rgba(31, 59, 255, 0.14), transparent 75%),
+    radial-gradient(46% 18% at 20% 52%, rgba(46, 230, 255, 0.26), transparent 75%),
+    radial-gradient(44% 18% at 82% 62%, rgba(31, 59, 255, 0.16), transparent 75%),
+    radial-gradient(45% 16% at 18% 76%, rgba(46, 230, 255, 0.24), transparent 75%),
+    radial-gradient(44% 16% at 80% 88%, rgba(31, 59, 255, 0.15), transparent 75%),
+    radial-gradient(48% 14% at 50% 95%, rgba(46, 230, 255, 0.22), transparent 75%);
+  transition: background 0.5s ease;
+}
+
+/* Continuous full-page architectural fine grid (Light Mode) */
+.second-home-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(3, 5, 10, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 5, 10, 0.045) 1px, transparent 1px);
+  background-size: calc(var(--u) * 4.2) calc(var(--u) * 4.2);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.85) 12%,
+    rgba(0, 0, 0, 0.85) 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.85) 12%,
+    rgba(0, 0, 0, 0.85) 88%,
+    transparent 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FLOATING APPLE GLASS THEME TOGGLE (BOTTOM-RIGHT)
+   ═══════════════════════════════════════════════════════════════════════ */
+.second-home-float-toggle {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.86);
+  color: #03050a;
+  border: 1px solid rgba(3, 5, 10, 0.12);
+  box-shadow:
+    0 12px 32px -6px rgba(3, 5, 10, 0.14),
+    0 2px 6px rgba(3, 5, 10, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.second-home-float-toggle:hover {
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(31, 59, 255, 0.45);
+  box-shadow:
+    0 16px 40px -8px rgba(31, 59, 255, 0.28),
+    inset 0 1px 0 #ffffff;
+}
+
+.second-home-float-toggle:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.sh-float-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f3bff;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.sh-float-text {
+  pointer-events: none;
+}
+
+.second-home-float-toggle:hover .sh-float-icon {
+  transform: rotate(15deg) scale(1.1);
+}
+
+@media (max-width: 640px) {
+  .second-home-float-toggle {
+    bottom: 20px;
+    right: 18px;
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 999px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   APPLE-GRADE DARK MODE SYSTEM (VISIONOS OBSIDIAN + NEON CYAN ACCENTS)
+   ═══════════════════════════════════════════════════════════════════════ */
+.second-home-page.dark-mode,
+.second-home-page.dark-mode .second-hero,
+.second-home-page.dark-mode .second-why-section,
+.second-home-page.dark-mode .second-upcoming-section,
+.second-home-page.dark-mode .second-about-section,
+.second-home-page.dark-mode .second-exp-section,
+.second-home-page.dark-mode .second-speakers-section,
+.second-home-page.dark-mode .second-testi-section,
+.second-home-page.dark-mode .second-footer {
+  --paper: #050814;
+  --ink: #f8fafc;
+  --ink-secondary: #94a3b8;
+  --card-glass: rgba(11, 18, 35, 0.78);
+  --card-border: rgba(255, 255, 255, 0.09);
+
+  background-color: #050814;
+  color: #f8fafc;
+}
+
+/* Dark Mode Mesh: Glowing deep nebula mesh with intense cyan & cobalt cores */
+.second-home-page.dark-mode::before {
+  background:
+    radial-gradient(45% 15% at 82% 6%, rgba(46, 230, 255, 0.28), transparent 75%),
+    radial-gradient(42% 16% at 68% 15%, rgba(31, 59, 255, 0.35), transparent 75%),
+    radial-gradient(46% 16% at 84% 28%, rgba(46, 230, 255, 0.22), transparent 75%),
+    radial-gradient(44% 18% at 16% 36%, rgba(31, 59, 255, 0.32), transparent 75%),
+    radial-gradient(46% 18% at 20% 52%, rgba(46, 230, 255, 0.25), transparent 75%),
+    radial-gradient(44% 18% at 82% 62%, rgba(31, 59, 255, 0.30), transparent 75%),
+    radial-gradient(45% 16% at 18% 76%, rgba(46, 230, 255, 0.22), transparent 75%),
+    radial-gradient(44% 16% at 80% 88%, rgba(31, 59, 255, 0.32), transparent 75%),
+    radial-gradient(48% 14% at 50% 95%, rgba(46, 230, 255, 0.26), transparent 75%);
+}
+
+/* Dark Mode Grid: Crisp, subtle blueprint lines */
+.second-home-page.dark-mode::after {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+}
+
+/* Dark Mode Floating Theme Toggle */
+.second-home-page.dark-mode .second-home-float-toggle {
+  background: rgba(11, 18, 35, 0.88);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 16px 36px -8px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(46, 230, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.second-home-page.dark-mode .second-home-float-toggle:hover {
+  border-color: rgba(46, 230, 255, 0.55);
+  box-shadow:
+    0 18px 44px -8px rgba(46, 230, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.second-home-page.dark-mode .sh-float-icon {
+  color: #2ee6ff;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   1. HERO SECTION (DARK MODE)
+   ─────────────────────────────────────────────────────────────────────────── */
+.second-home-page.dark-mode .second-hero {
+  --ink: #f8fafc;
+  --paper: #050814;
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .sh-brand svg rect {
+  fill: #060b19;
+  stroke: rgba(255, 255, 255, 0.14);
+}
+
+.second-home-page.dark-mode .sh-links a {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .sh-menu-btn {
+  background: rgba(11, 18, 35, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Luminous Glyph: NEXT starts with pure white brilliance to electric cyan */
+.second-home-page.dark-mode .sh-l1 .sh-text-glyph {
+  background: linear-gradient(
+    95deg,
+    #ffffff 0%,
+    #ffffff 42%,
+    #2f7bff 68%,
+    #22b8f8 88%,
+    #2ee6ff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.second-home-page.dark-mode .sh-l2 {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .sh-l3 .sh-text-glyph {
+  color: #ffffff;
+}
+
+.second-home-page.dark-mode .second-hero-desc {
+  color: #94a3b8;
+}
+
+/* Primary Button in Dark Mode: Crisp white pill that contrasts against dark canvas */
+.second-home-page.dark-mode .sh-btn {
+  background: #ffffff;
+  color: #03050a;
+  box-shadow: 0 10px 25px -6px rgba(255, 255, 255, 0.22);
+}
+
+.second-home-page.dark-mode .sh-btn:hover {
+  background: linear-gradient(100deg, var(--blue), var(--radiant) 55%, var(--cyan));
+  color: #ffffff;
+  box-shadow: 0 12px 32px -6px rgba(31, 59, 255, 0.65);
+}
+
+/* Liquid Glass Button in Dark Mode */
+.second-home-page.dark-mode .liquid-glass-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.second-home-page.dark-mode .liquid-glass-btn__rim {
+  box-shadow:
+    0 0 8px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    inset 3px 3px 0.5px -3px rgba(255, 255, 255, 0.55),
+    inset -3px -3px 0.5px -3px rgba(46, 230, 255, 0.4),
+    inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.45),
+    inset -1px -1px 1px -0.5px rgba(31, 59, 255, 0.4),
+    inset 0 0 6px 6px rgba(255, 255, 255, 0.06),
+    0 0 14px rgba(46, 230, 255, 0.2);
+}
+
+/* Hero Floating Telemetry Cards */
+.second-home-page.dark-mode .hcs-float-card {
+  background: rgba(11, 18, 35, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 16px 36px -8px rgba(0, 0, 0, 0.65),
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.second-home-page.dark-mode .hcs-float-val {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .hcs-float-sub {
+  color: #94a3b8;
+}
+
+.second-home-page.dark-mode .hcs-float-eyebrow {
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .hcs-av {
+  border-color: #0b1223;
+}
+
+.second-home-page.dark-mode .hcs-notch {
+  background: #060a14;
+  border-color: rgba(46, 230, 255, 0.45);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   2. WHY JOIN US (DARK MODE)
+   ─────────────────────────────────────────────────────────────────────────── */
+.second-home-page.dark-mode .second-why-section {
+  --ink: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-why-eyebrow {
+  background: rgba(46, 230, 255, 0.12);
+  border-color: rgba(46, 230, 255, 0.35);
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .second-why-title {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-why-subtitle {
+  color: #94a3b8;
+}
+
+.second-home-page.dark-mode .second-why-card {
+  background: rgba(11, 18, 35, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 16px 36px -14px rgba(0, 0, 0, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.second-home-page.dark-mode .second-why-card:hover {
+  background: rgba(15, 25, 48, 0.9);
+  border-color: rgba(46, 230, 255, 0.38);
+  box-shadow:
+    0 24px 50px -14px rgba(31, 59, 255, 0.35),
+    0 4px 14px rgba(46, 230, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.second-home-page.dark-mode .second-why-card-title {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-why-card:hover .second-why-card-title {
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .second-why-card-desc {
+  color: #94a3b8;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   3. OUR FUTURE CONFERENCES (DARK MODE)
+   ─────────────────────────────────────────────────────────────────────────── */
+.second-home-page.dark-mode .second-upcoming-section {
+  --ink: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-upcoming-eyebrow {
+  background: rgba(46, 230, 255, 0.12);
+  border-color: rgba(46, 230, 255, 0.35);
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .second-upcoming-title {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-upcoming-subtitle {
+  color: #94a3b8;
+}
+
+.second-home-page.dark-mode .notched-project-card.is-second-dark-theme .notched-card-cover {
+  background-color: #0b1223;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+}
+
+.second-home-page.dark-mode .notched-project-card.is-second-dark-theme .notched-card-disc {
+  background-color: #101935;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.second-home-page.dark-mode .notched-project-card.is-second-dark-theme:hover .notched-card-disc {
+  background-color: #1f3bff;
+  border-color: #2ee6ff;
+  box-shadow: 0 8px 24px rgba(46, 230, 255, 0.45);
+}
+
+.second-home-page.dark-mode .notched-project-card.is-second-dark-theme .notched-card-title {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .notched-project-card.is-second-dark-theme:hover .notched-card-title {
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .notched-project-card.is-second-dark-theme .notched-card-location-badge {
+  background: rgba(6, 11, 24, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f8fafc;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.second-home-page.dark-mode .second-upcoming-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   4. ABOUT NEXT (DARK MODE)
+   ─────────────────────────────────────────────────────────────────────────── */
+.second-home-page.dark-mode .second-about-section {
+  --ink: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-about-eyebrow {
+  background: rgba(46, 230, 255, 0.12);
+  border-color: rgba(46, 230, 255, 0.35);
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .second-about-title {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-about-subtitle {
+  color: #94a3b8;
+}
+
+.second-home-page.dark-mode .san-card {
+  background: rgba(11, 18, 35, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 16px 36px -14px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.second-home-page.dark-mode .san-card:hover {
+  border-color: rgba(46, 230, 255, 0.38);
+  box-shadow:
+    0 22px 46px -14px rgba(31, 59, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.second-home-page.dark-mode .san-pill-badge {
+  background: rgba(46, 230, 255, 0.1);
+  border-color: rgba(46, 230, 255, 0.28);
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .san-heading-large {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .san-large-desc {
+  color: #94a3b8;
+}
+
+.second-home-page.dark-mode .san-card--stats {
+  background: linear-gradient(
+    145deg,
+    rgba(15, 25, 48, 0.95) 0%,
+    rgba(9, 15, 30, 0.96) 100%
+  );
+  border-color: rgba(46, 230, 255, 0.22);
+}
+
+.second-home-page.dark-mode .san-stats-eyebrow {
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .san-stats-number {
+  background: linear-gradient(110deg, #ffffff 0%, #2ee6ff 55%, #1f3bff 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.second-home-page.dark-mode .san-progress-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.second-home-page.dark-mode .san-gauge-track {
+  stroke: rgba(255, 255, 255, 0.16);
+}
+
+.second-home-page.dark-mode .san-card--cta {
+  background: linear-gradient(
+    120deg,
+    rgba(16, 26, 52, 0.92) 0%,
+    rgba(10, 18, 38, 0.95) 100%
+  );
+  border-color: rgba(46, 230, 255, 0.22);
+  color: #ffffff;
+}
+
+.second-home-page.dark-mode .san-cta-title {
+  color: #ffffff;
+}
+
+.second-home-page.dark-mode .san-cta-desc {
+  color: #94a3b8;
+}
+
+.second-home-page.dark-mode .san-cta-tag {
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .san-cta-action {
+  background: #1f3bff;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(31, 59, 255, 0.5);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   5. EXPERIENCE NEXT (DARK MODE)
+   ─────────────────────────────────────────────────────────────────────────── */
+.second-home-page.dark-mode .second-exp-section {
+  --ink: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-exp-section .gallery-eyebrow {
+  background: rgba(46, 230, 255, 0.12);
+  border-color: rgba(46, 230, 255, 0.35);
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .second-exp-section .gallery-title {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-exp-section .gallery-subtitle {
+  color: #94a3b8;
+}
+
+.second-home-page.dark-mode .second-exp-section .coverflow-item {
+  background: rgba(11, 18, 35, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+
+.second-home-page.dark-mode .second-exp-dock {
+  background: rgba(11, 18, 35, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+}
+
+.second-home-page.dark-mode .sexp-nav-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.second-home-page.dark-mode .sexp-nav-btn:hover {
+  background: #1f3bff;
+}
+
+.second-home-page.dark-mode .sexp-dot {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.second-home-page.dark-mode .second-exp-cta {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   6. PREVIOUS SPEAKERS (DARK MODE)
+   ─────────────────────────────────────────────────────────────────────────── */
+.second-home-page.dark-mode .second-speakers-section {
+  --ink: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-speakers-eyebrow {
+  background: rgba(46, 230, 255, 0.12);
+  border-color: rgba(46, 230, 255, 0.35);
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .second-speakers-title {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-speakers-subtitle {
+  color: #94a3b8;
+}
+
+.second-home-page.dark-mode .sspk-card {
+  background: rgba(11, 18, 35, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 16px 36px -12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.second-home-page.dark-mode .sspk-card:hover {
+  border-color: rgba(46, 230, 255, 0.38);
+  box-shadow:
+    0 24px 50px -12px rgba(31, 59, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.second-home-page.dark-mode .sspk-glass-bar {
+  background: rgba(6, 11, 24, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.second-home-page.dark-mode .sspk-card:hover .sspk-glass-bar {
+  background: rgba(8, 14, 30, 0.96);
+}
+
+.second-home-page.dark-mode .sspk-name {
+  color: #ffffff;
+}
+
+.second-home-page.dark-mode .sspk-role {
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .sspk-arrow {
+  background: rgba(46, 230, 255, 0.14);
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .second-speakers-cta {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   7. WHAT THEY SAY (DARK MODE)
+   ─────────────────────────────────────────────────────────────────────────── */
+.second-home-page.dark-mode .second-testi-section {
+  --ink: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-testi-eyebrow {
+  background: rgba(46, 230, 255, 0.12);
+  border-color: rgba(46, 230, 255, 0.35);
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .second-testi-title {
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .second-testi-subtitle {
+  color: #94a3b8;
+}
+
+.second-home-page.dark-mode .stesti-card {
+  background: rgba(11, 18, 35, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 16px 36px -12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.second-home-page.dark-mode .stesti-card:hover {
+  background: rgba(15, 25, 48, 0.9);
+  border-color: rgba(46, 230, 255, 0.38);
+  box-shadow:
+    0 24px 50px -14px rgba(31, 59, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.second-home-page.dark-mode .stesti-quote {
+  color: #cbd5e1;
+}
+
+.second-home-page.dark-mode .stesti-name {
+  color: #ffffff;
+}
+
+.second-home-page.dark-mode .stesti-role {
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .stesti-author {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.second-home-page.dark-mode .stesti-avatar {
+  box-shadow: 0 4px 14px rgba(46, 230, 255, 0.35);
+}

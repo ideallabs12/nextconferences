@@ -31,6 +31,26 @@
     flex: 1 1 400px;
 }
 
+.footer-logo-link {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    text-decoration: none;
+}
+
+.footer-logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.35));
+    transition: all 0.3s ease;
+}
+
+.footer-logo-img:hover {
+    filter: drop-shadow(0 0 14px rgba(0, 210, 255, 0.7));
+    transform: scale(1.04);
+}
+
 .footer-cta-text {
     font-size: clamp(2rem, 3vw, 3.5rem);
     font-weight: 900;

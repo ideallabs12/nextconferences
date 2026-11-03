@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Sparkles, ArrowRight, BookOpen, Calendar, MapPin } from 'lucide-react';
-import conferencesData from './conferences.json';
+import localConferencesData from './conferences.json';
 import defaultPackages from './packages.json';
 import ConferencePackages from './ConferencePackages.jsx';
+import { fetchConferencesFromSupabase, getConferenceImageUrl } from '../../lib/supabase.js';
 import './conferenceDetail.css';
 
 const ConferenceDetail = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
+    const [conferencesData, setConferencesData] = useState(localConferencesData);
+
+    useEffect(() => {
+        fetchConferencesFromSupabase()
+            .then(data => {
+                if (data && data.length > 0) setConferencesData(data);
+            })
+            .catch(() => {});
+    }, []);
+
     const conference = conferencesData.find(c => c.slug === slug);
 
     // Get packages from conference or fallback to defaultPackages
@@ -66,10 +77,10 @@ const ConferenceDetail = () => {
                 <div className="conference-detail-hero">
                     <div className="conference-detail-image-wrapper">
                         <img 
-                            src={`/conferences_imgs/${conference.image}`} 
+                            src={getConferenceImageUrl(conference)} 
                             alt={conference.title} 
                             className="conference-detail-image"
-                            onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80'; }}
+                            onError={(e) => { e.target.onerror = null; e.target.src = `/conferences_imgs/${conference.image}`; }}
                         />
                     </div>
                     <div className="conference-detail-info">

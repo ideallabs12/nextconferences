@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import speakersData from '../pages/speakers/speakers.json';
+import localSpeakersData from '../pages/speakers/speakers.json';
+import { fetchSpeakersFromSupabase, getSpeakerImageUrl, getSpeakerSlug } from '../lib/supabase.js';
 import './HomeSpeakers.css';
 
 const HomeSpeakers = () => {
+    const [speakersData, setSpeakersData] = useState(localSpeakersData);
+
+    useEffect(() => {
+        fetchSpeakersFromSupabase()
+            .then(data => {
+                if (data && data.length > 0) setSpeakersData(data);
+            })
+            .catch(() => {});
+    }, []);
+
     // For an infinite marquee effect, we can duplicate the array
     const marqueeSpeakers = [...speakersData, ...speakersData];
 
@@ -21,20 +32,28 @@ const HomeSpeakers = () => {
             <div className="marquee-container">
                 <div className="marquee-track">
                     {marqueeSpeakers.map((speaker, index) => (
-                        <div key={`${speaker.id}-${index}`} className="speaker-card-marquee">
+                        <Link
+                            key={`${speaker.id}-${index}`}
+                            to={`/speakers/${getSpeakerSlug(speaker)}`}
+                            className="speaker-card-marquee"
+                        >
                             <div className="speaker-image-wrapper">
                                 <img 
-                                    src={speaker.image} 
+                                    src={getSpeakerImageUrl(speaker)} 
                                     alt={speaker.name} 
                                     className="speaker-image-marquee"
                                     loading="lazy"
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        const filename = (speaker.image || '').split('/').pop();
+                                        if (filename) e.target.src = `/speakers_imgs/${filename}`;
+                                    }}
                                 />
                             </div>
                             <div className="speaker-info-marquee">
                                 <h3 className="speaker-name-marquee">{speaker.name}</h3>
-                                <p className="speaker-title-marquee">{speaker.description}</p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

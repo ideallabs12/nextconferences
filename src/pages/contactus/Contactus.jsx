@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import { Mail, Phone, Headphones, ArrowRight } from "lucide-react";
+import { Mail, Phone, Headphones, ArrowRight, CheckCircle2 } from "lucide-react";
 import * as d3 from "d3";
 import { feature } from "topojson-client";
+import { submitContactMessage } from "../../lib/supabase.js";
 import './contactus.css';
 
 const CONTACT_LINKS = [
@@ -293,6 +294,40 @@ function GlobeWireframe({
 }
 
 export default function ContactUs() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    company: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (submitStatus) setSubmitStatus(null);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.fullName.trim() || !formData.email.trim() || !formData.message.trim()) {
+      return;
+    }
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    try {
+      await submitContactMessage(formData);
+      setSubmitStatus("success");
+      setFormData({ fullName: "", company: "", email: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="contactus-container">
       <div className="contact-wrapper">
@@ -323,7 +358,7 @@ export default function ContactUs() {
           </div>
 
           {/* Form Column */}
-          <div className="contact-form-col">
+          <form className="contact-form-col" onSubmit={handleSubmit}>
             <div>
               <h3 className="form-header-title">Send a message</h3>
               <p className="form-header-desc">
@@ -333,30 +368,74 @@ export default function ContactUs() {
 
             <div className="form-row">
               <div className="form-group">
-                <label className="form-label">Full Name</label>
-                <input type="text" placeholder="John Doe" className="form-input" />
+                <label className="form-label">Full Name *</label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  className="form-input"
+                  required
+                />
               </div>
               <div className="form-group">
                 <label className="form-label">Company</label>
-                <input type="text" placeholder="NEXT Innovations" className="form-input" />
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  placeholder="NEXT Innovations"
+                  className="form-input"
+                />
               </div>
             </div>
 
             <div className="form-group">
-              <label className="form-label">Email Address</label>
-              <input type="email" placeholder="john@example.com" className="form-input" />
+              <label className="form-label">Email Address *</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="john@example.com"
+                className="form-input"
+                required
+              />
             </div>
 
             <div className="form-group">
-              <label className="form-label">Message</label>
-              <textarea placeholder="Type your message here..." rows="4" className="form-textarea"></textarea>
+              <label className="form-label">Message *</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Type your message here..."
+                rows="4"
+                className="form-textarea"
+                required
+              ></textarea>
             </div>
 
-            <button className="submit-btn">
-              Submit Message
+            {submitStatus === "success" && (
+              <div style={{ color: "#34d399", display: "flex", alignItems: "center", gap: "8px", fontSize: "0.95rem" }}>
+                <CheckCircle2 size={18} />
+                <span>Thank you! Your message has been sent successfully.</span>
+              </div>
+            )}
+
+            {submitStatus === "error" && (
+              <div style={{ color: "#f87171", fontSize: "0.95rem" }}>
+                Could not send message right now. Please try again.
+              </div>
+            )}
+
+            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Submit Message"}
               <ArrowRight size={16} />
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
