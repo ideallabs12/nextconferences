@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, useId } from 'react';
+import { createPortal } from 'react-dom';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   Calendar,
@@ -454,6 +455,7 @@ export default function HeroConferenceStack() {
   const filesRef = useRef(null);
   const hitRef = useRef(null);
   const keyRef = useRef(null);
+  const passCardRef = useRef(null);
 
   const [conferencesData, setConferencesData] = useState(localConferencesData);
   const [open, setOpen] = useState(false);
@@ -568,9 +570,10 @@ export default function HeroConferenceStack() {
     };
   }, []);
 
-  // Close fan or extracted pass on Escape or outside click
+  // Close fan or extracted pass on Escape or clicking outside anywhere on the screen
   useEffect(() => {
     if (!open && !selectedConf) return;
+
     const onKey = (e) => {
       if (e.key === 'Escape') {
         if (selectedConf) {
@@ -581,9 +584,32 @@ export default function HeroConferenceStack() {
         }
       }
     };
+
+    const onPointerDown = (e) => {
+      if (selectedConf && passCardRef.current && !passCardRef.current.contains(e.target)) {
+        setSelectedConf(null);
+      }
+    };
+
+    // Small delay so opening click doesn't instantly dismiss
+    const timer = setTimeout(() => {
+      window.addEventListener('pointerdown', onPointerDown);
+    }, 60);
+
     document.addEventListener('keydown', onKey);
+
+    const prevOverflow = document.body.style.overflow;
+    if (selectedConf) {
+      document.body.style.overflow = 'hidden';
+    }
+
     return () => {
+      clearTimeout(timer);
+      window.removeEventListener('pointerdown', onPointerDown);
       document.removeEventListener('keydown', onKey);
+      if (selectedConf) {
+        document.body.style.overflow = prevOverflow;
+      }
     };
   }, [open, selectedConf]);
 
@@ -916,8 +942,8 @@ export default function HeroConferenceStack() {
         </div>
       </div>
 
-      {/* ─── Extracted Professional Conference Pass Card (Pulls Out of Folder on Click) ─── */}
-      {selectedConf && (
+      {/* ─── Extracted Professional Conference Pass Card (Rendered via Body Portal) ─── */}
+      {selectedConf && typeof document !== 'undefined' && createPortal(
         <div
           className="hcs-pass-backdrop"
           onClick={() => setSelectedConf(null)}
@@ -926,6 +952,7 @@ export default function HeroConferenceStack() {
           aria-label={`${selectedConf.shortTitle} Conference Pass`}
         >
           <div
+            ref={passCardRef}
             className="hcs-pass-card"
             onClick={(e) => e.stopPropagation()}
           >
@@ -1052,7 +1079,8 @@ export default function HeroConferenceStack() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
@@ -1751,13 +1779,20 @@ canvas.gf-art[data-ready] { opacity: 1; filter: none; }
    EXTRACTED PROFESSIONAL CONFERENCE PASS (PULLS OUT OF FOLDER WITH QR CODE)
    ═══════════════════════════════════════════════════════════════════════════ */
 .hcs-pass-backdrop {
-  position: absolute;
-  inset: -30px -20px;
-  z-index: 40;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: hcsBackdropIn 0.28s ease forwards;
+  padding: 20px;
+  background: rgba(3, 5, 10, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  animation: hcsBackdropIn 0.24s ease forwards;
 }
 
 @keyframes hcsBackdropIn {
@@ -1766,20 +1801,32 @@ canvas.gf-art[data-ready] { opacity: 1; filter: none; }
 }
 
 .hcs-pass-card {
-  width: 390px;
+  position: relative;
+  width: 395px;
   max-width: 94vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  cursor: default;
   border-radius: 24px;
   background: #060a14;
   color: #ffffff;
   border: 1px solid rgba(46, 230, 255, 0.35);
   box-shadow:
-    0 32px 80px -12px rgba(3, 5, 10, 0.78),
+    0 32px 80px -12px rgba(3, 5, 10, 0.85),
     0 0 0 1px rgba(255, 255, 255, 0.1),
     0 0 50px -10px rgba(31, 59, 255, 0.55);
-  overflow: hidden;
   font-family: 'Instrument Sans', system-ui, sans-serif;
   transform-origin: 50% 85%;
-  animation: hcsCardPullOut 0.58s cubic-bezier(0.22, 1.28, 0.36, 1) forwards;
+  animation: hcsCardPullOut 0.48s cubic-bezier(0.22, 1.28, 0.36, 1) forwards;
+}
+
+.hcs-pass-card::-webkit-scrollbar {
+  width: 5px;
+}
+
+.hcs-pass-card::-webkit-scrollbar-thumb {
+  background: rgba(46, 230, 255, 0.35);
+  border-radius: 99px;
 }
 
 @keyframes hcsCardPullOut {

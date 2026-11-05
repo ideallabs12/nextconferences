@@ -29,6 +29,17 @@ const prefersReduced = () =>
   !!window.matchMedia &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const isSpeakerRoute = (pathname) => {
+  if (!pathname) return false;
+  const p = strip(pathname).toLowerCase();
+  return (
+    p === '/speakers' ||
+    p.startsWith('/speakers/') ||
+    p === '/speaker' ||
+    p.startsWith('/speaker/')
+  );
+};
+
 const scrollTop = () => {
   try {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -129,6 +140,11 @@ export default function TransitionRoutes({ children, names }) {
     go('idle');
     // The user navigated again while we were revealing: go straight on.
     if (strip(next.pathname) !== strip(cur.pathname)) {
+      if (isSpeakerRoute(next.pathname)) {
+        commit(next, true);
+        setStatus(`${pageName(next.pathname, namesRef.current)} page loaded`);
+        return;
+      }
       api.current.begin();
       return;
     }
@@ -144,11 +160,14 @@ export default function TransitionRoutes({ children, names }) {
 
     const pathChanged = strip(location.pathname) !== strip(cur.pathname);
 
-    // Reduced motion: swap instantly, no overlay.
-    if (prefersReduced()) {
+    // Disable page transition for reduced motion OR any speaker route (speakers list & individual speaker pages)
+    const isTargetSpeaker = isSpeakerRoute(location.pathname);
+    const shouldSkipAnimation = prefersReduced() || isTargetSpeaker;
+
+    if (shouldSkipAnimation) {
       clearTimeout(timer.current);
       if (phaseRef.current !== 'idle') go('idle');
-      if (location.key !== cur.key) {
+      if (location.key !== cur.key || pathChanged) {
         commit(location, pathChanged);
         if (pathChanged) {
           setStatus(`${pageName(location.pathname, namesRef.current)} page loaded`);
