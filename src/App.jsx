@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, useLocation, Navigate } from 'react-router-dom';
-import TransitionRoutes from './components/TransitionRoutes.jsx';
+import TransitionRoutes from './components/TransitionRoutesOld.jsx';
+// Note: The letters & alphabet storm animation is preserved in:
+// import TransitionRoutes from './components/TransitionRoutesPoster.jsx';
 
 const PAGE_NAMES = {
   '/': 'Home',

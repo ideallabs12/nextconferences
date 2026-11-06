@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
 import SecondHero from './SecondHero.jsx';
 import SecondWhyJoinUs from './SecondWhyJoinUs.jsx';
 import SecondUpcomingConferences from './SecondUpcomingConferences.jsx';
@@ -70,26 +69,6 @@ const SecondHome = () => {
         isDarkMode ? 'dark-mode' : 'light-mode'
       }`}
     >
-      {/* Floating Apple Glass Theme Switch */}
-      <button
-        type="button"
-        className="second-home-float-toggle"
-        onClick={toggleTheme}
-        aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-        title={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-      >
-        <span className="sh-float-icon">
-          {isDarkMode ? (
-            <Sun size={15} strokeWidth={2.4} />
-          ) : (
-            <Moon size={15} strokeWidth={2.4} />
-          )}
-        </span>
-        <span className="sh-float-text">
-          {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-        </span>
-      </button>
-
       <SecondHero isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <SecondWhyJoinUs />
       <SecondUpcomingConferences isDarkMode={isDarkMode} />

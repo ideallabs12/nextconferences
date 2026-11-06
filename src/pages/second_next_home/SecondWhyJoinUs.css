@@ -285,29 +285,425 @@
   transform: translateY(-4px) scale(1.04);
 }
 
-.sw-float-main,
-.sw-float-slow,
-.sw-float-delayed,
-.sw-float-fast {
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+/* ═══════════════════════════════════════════════════════════════════════
+   BESPOKE 3D VISUAL ANIMATIONS
+   1. Balls Orbiting (Global Network)
+   2. Cards Stacking & Unstacking (Real Insights)
+   3. Diamond Rotating in Spotlight (Visibility)
+   4. Rings Circular Movement (Lasting Impact)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. BALLS ORBITING ─── */
+.sw-center-hero-ball {
   transform-box: fill-box;
   transform-origin: center;
+  animation: swHeroBallFloat 4s ease-in-out infinite;
 }
 
-.second-why-card:hover .sw-float-main {
-  transform: translateY(-5px) scale(1.03);
+@keyframes swHeroBallFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.025);
+  }
 }
 
-.second-why-card:hover .sw-float-slow {
-  transform: translate(-4px, -3px) rotate(-3deg);
+.sw-orbit-ring-dashed {
+  animation: swOrbitDash 22s linear infinite;
 }
 
-.second-why-card:hover .sw-float-delayed {
-  transform: translate(4px, -5px) rotate(4deg);
+@keyframes swOrbitDash {
+  to {
+    stroke-dashoffset: -120;
+  }
 }
 
-.second-why-card:hover .sw-float-fast {
-  transform: translateY(-7px) scale(1.08);
+.sw-orbiting-ball {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Obsidian sphere orbiting along tilted ellipse */
+.sw-orbiting-ball--obsidian {
+  animation: swOrbitObsidian 8s cubic-bezier(0.42, 0.05, 0.58, 0.95) infinite;
+}
+
+@keyframes swOrbitObsidian {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  15% {
+    transform: translate(44px, 18px) scale(1.12);
+  }
+  30% {
+    transform: translate(96px, 14px) scale(1.18);
+  }
+  50% {
+    transform: translate(146px, -22px) scale(0.96);
+  }
+  70% {
+    transform: translate(114px, -50px) scale(0.82);
+  }
+  85% {
+    transform: translate(42px, -36px) scale(0.85);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* Cyan sphere orbiting in counter-harmony */
+.sw-orbiting-ball--cyan {
+  animation: swOrbitCyan 8s cubic-bezier(0.42, 0.05, 0.58, 0.95) infinite;
+}
+
+@keyframes swOrbitCyan {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  20% {
+    transform: translate(-38px, -32px) scale(0.84);
+  }
+  40% {
+    transform: translate(-112px, -20px) scale(0.86);
+  }
+  55% {
+    transform: translate(-146px, 18px) scale(1.02);
+  }
+  75% {
+    transform: translate(-94px, 42px) scale(1.16);
+  }
+  90% {
+    transform: translate(-32px, 24px) scale(1.10);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* Foreground Pearl node orbiting faster */
+.sw-orbiting-ball--pearl {
+  animation: swOrbitPearl 5s ease-in-out infinite;
+}
+
+@keyframes swOrbitPearl {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  25% {
+    transform: translate(-58px, 14px) scale(1.18);
+  }
+  50% {
+    transform: translate(-106px, -30px) scale(0.84);
+  }
+  75% {
+    transform: translate(-42px, -50px) scale(0.80);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* Upper satellite mini ball */
+.sw-orbiting-ball--mini {
+  animation: swOrbitMini 6.5s ease-in-out infinite;
+}
+
+@keyframes swOrbitMini {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  30% {
+    transform: translate(62px, -16px) scale(0.85);
+  }
+  60% {
+    transform: translate(112px, 30px) scale(1.22);
+  }
+  85% {
+    transform: translate(44px, 42px) scale(1.1);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* ─── 2. CARDS STACKING & UNSTACKING ─── */
+.sw-stack-card {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.sw-stack-card--back {
+  animation: swStackBack 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes swStackBack {
+  0%, 100% {
+    /* Unstacked / Fanned Out */
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  18% {
+    /* Anticipation stretch */
+    transform: translate(-5px, -3px) rotate(-2deg);
+  }
+  36%, 56% {
+    /* Stacking together into single crisp deck */
+    transform: translate(28px, 18px) rotate(11.5deg);
+  }
+  72% {
+    /* Unstacking slide out */
+    transform: translate(-6px, -4px) rotate(-2deg);
+  }
+  86% {
+    /* Settling back to fanned view */
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+.sw-stack-card--mid {
+  animation: swStackMid 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes swStackMid {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  36%, 56% {
+    /* Compact center deck state */
+    transform: translate(2px, 0px) scale(0.975);
+  }
+  72% {
+    transform: translate(0px, -4px) scale(1.03);
+  }
+  86% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.sw-stack-card--front {
+  animation: swStackFront 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes swStackFront {
+  0%, 100% {
+    /* Unstacked / Fanned Out */
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  18% {
+    /* Anticipation stretch */
+    transform: translate(5px, 3px) rotate(2deg);
+  }
+  36%, 56% {
+    /* Stacking together into single crisp deck */
+    transform: translate(-25px, -18px) rotate(-8deg);
+  }
+  72% {
+    /* Unstacking slide out */
+    transform: translate(6px, 4px) rotate(2deg);
+  }
+  86% {
+    /* Settling back to fanned view */
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+/* Staggered bar charts pulsing when unstacked */
+.sw-bar-anim {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: swBarPulse 3.5s ease-in-out infinite alternate;
+}
+
+.sw-bar-anim--1 { animation-delay: 0.1s; }
+.sw-bar-anim--2 { animation-delay: 0.35s; }
+.sw-bar-anim--3 { animation-delay: 0.6s; }
+.sw-bar-anim--4 { animation-delay: 0.85s; }
+
+@keyframes swBarPulse {
+  0% { transform: scaleY(0.68); }
+  100% { transform: scaleY(1.15); }
+}
+
+/* Precision wave dot pulse */
+.sw-pulse-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: swDotPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes swDotPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+/* ─── 3. DIAMOND ROTATING ─── */
+.sw-diamond-spinner {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: swDiamondSpin 5.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  filter: drop-shadow(0 8px 18px rgba(46, 230, 255, 0.4));
+}
+
+@keyframes swDiamondSpin {
+  0% {
+    transform: translateY(0px) rotateY(0deg) scaleX(1);
+  }
+  25% {
+    transform: translateY(-8px) rotateY(90deg) scaleX(0.22);
+  }
+  50% {
+    transform: translateY(0px) rotateY(180deg) scaleX(1);
+  }
+  75% {
+    transform: translateY(-8px) rotateY(270deg) scaleX(0.22);
+  }
+  100% {
+    transform: translateY(0px) rotateY(360deg) scaleX(1);
+  }
+}
+
+.sw-spotlight-beam {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: swBeamShimmer 4s ease-in-out infinite;
+}
+
+@keyframes swBeamShimmer {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scaleX(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.05);
+  }
+}
+
+.sw-stage-ring {
+  animation: swStageGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes swStageGlow {
+  0% { opacity: 0.4; stroke-width: 1.5; }
+  100% { opacity: 0.95; stroke-width: 2.8; }
+}
+
+.sw-sparkles-orbit {
+  transform-box: fill-box;
+  transform-origin: 140px 95px;
+  animation: swSparklesSpin 9s linear infinite;
+}
+
+@keyframes swSparklesSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ─── 4. RINGS CIRCULAR MOVEMENT ─── */
+.sw-rings-circular-system {
+  transform-box: fill-box;
+  transform-origin: 171px 116px;
+  animation: swSystemCircular 7.5s linear infinite;
+  will-change: transform;
+}
+
+@keyframes swSystemCircular {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(6px, -7px) rotate(3deg);
+  }
+  50% {
+    transform: translate(0px, -11px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-6px, -6px) rotate(-3deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+.sw-torus-group--blue {
+  transform-box: fill-box;
+  transform-origin: 134px 116px;
+  animation: swTorusBlueRoll 6s ease-in-out infinite;
+}
+
+@keyframes swTorusBlueRoll {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(8px, -4px) rotate(8deg);
+  }
+}
+
+.sw-torus-group--obsidian {
+  transform-box: fill-box;
+  transform-origin: 208px 118px;
+  animation: swTorusObsidianRoll 6s ease-in-out infinite;
+}
+
+@keyframes swTorusObsidianRoll {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-8px, 4px) rotate(-8deg);
+  }
+}
+
+.sw-core-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: swCorePulse 3s ease-in-out infinite;
+}
+
+@keyframes swCorePulse {
+  0%, 100% {
+    transform: scale(0.9) translate(0, 0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.3) translate(2px, -3px);
+    opacity: 1;
+  }
+}
+
+.sw-rings-shadow-breathe {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: swShadowBreathe 7.5s ease-in-out infinite;
+}
+
+@keyframes swShadowBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.16;
+  }
+  50% {
+    transform: scale(1.08, 0.95);
+    opacity: 0.22;
+  }
+}
+
+/* Hover Acceleration & Delight */
+.second-why-card:hover .sw-orbiting-ball--obsidian,
+.second-why-card:hover .sw-orbiting-ball--cyan {
+  animation-duration: 5s;
+}
+
+.second-why-card:hover .sw-diamond-spinner {
+  filter: drop-shadow(0 12px 26px rgba(46, 230, 255, 0.7));
+}
+
+.second-why-card:hover .sw-rings-circular-system {
+  animation-duration: 5s;
 }
 
 /* ─── Responsive Breakpoints ─── */
@@ -351,7 +747,27 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .second-why-bg::before {
-    animation: none;
+  .second-why-bg::before,
+  .sw-center-hero-ball,
+  .sw-orbit-ring-dashed,
+  .sw-orbiting-ball--obsidian,
+  .sw-orbiting-ball--cyan,
+  .sw-orbiting-ball--pearl,
+  .sw-orbiting-ball--mini,
+  .sw-stack-card--back,
+  .sw-stack-card--mid,
+  .sw-stack-card--front,
+  .sw-bar-anim,
+  .sw-pulse-dot,
+  .sw-diamond-spinner,
+  .sw-spotlight-beam,
+  .sw-stage-ring,
+  .sw-sparkles-orbit,
+  .sw-rings-circular-system,
+  .sw-torus-group--blue,
+  .sw-torus-group--obsidian,
+  .sw-core-spark,
+  .sw-rings-shadow-breathe {
+    animation: none !important;
   }
 }

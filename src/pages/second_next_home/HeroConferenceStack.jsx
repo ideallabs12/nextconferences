@@ -521,7 +521,8 @@ export default function HeroConferenceStack() {
   useEffect(() => {
     const updateWidth = () => {
       const vw = window.innerWidth;
-      if (vw < 480) setContainerWidth(Math.min(340, vw - 40));
+      if (vw < 360) setContainerWidth(Math.min(270, vw - 24));
+      else if (vw < 480) setContainerWidth(Math.min(340, vw - 40));
       else if (vw < 820) setContainerWidth(390);
       else if (vw < 1200) setContainerWidth(410);
       else setContainerWidth(445);
@@ -2177,15 +2178,16 @@ canvas.gf-art[data-ready] { opacity: 1; filter: none; }
     min-height: 410px;
     padding: 12px 0 20px;
     width: 100%;
-    overflow: visible;
+    max-width: 100%;
+    overflow: hidden;
   }
   .gf-root {
     margin: 0 auto;
     display: block;
   }
   .hcs-orbital-rings {
-    width: 330px;
-    height: 330px;
+    width: 310px;
+    height: 310px;
   }
   .hcs-float-card {
     padding: 7px 12px;
@@ -2232,19 +2234,56 @@ canvas.gf-art[data-ready] { opacity: 1; filter: none; }
 
 @media (max-width: 390px) {
   .hcs-wrapper {
-    min-height: 385px;
+    min-height: 375px;
+  }
+  .hcs-orbital-rings {
+    width: 275px;
+    height: 275px;
+  }
+  .hcs-float-card {
+    padding: 5px 8px;
+    gap: 6px;
+    border-radius: 12px;
+  }
+  .hcs-avatar-stack .hcs-av {
+    width: 20px;
+    height: 20px;
+    font-size: 7.5px;
+    margin-left: -5px;
   }
   .hcs-float-topleft {
     left: 2px;
-    top: -12px;
+    top: -10px;
+  }
+  .hcs-float-topleft .hcs-float-val {
+    font-size: 10.5px;
+  }
+  .hcs-float-topleft .hcs-float-sub {
+    font-size: 8px;
   }
   .hcs-float-topright {
     right: 2px;
-    top: 24px;
+    top: 22px;
+  }
+  .hcs-float-topright .hcs-float-eyebrow {
+    font-size: 7.5px;
+  }
+  .hcs-float-topright .hcs-float-val {
+    font-size: 10px;
   }
   .hcs-float-bottomleft {
     left: 2px;
-    bottom: -14px;
+    bottom: -12px;
+  }
+  .hcs-float-bottomleft .hcs-float-val {
+    font-size: 10px;
+  }
+  .hcs-float-bottomleft .hcs-float-sub {
+    font-size: 8px;
+  }
+  .hcs-pedestal-glow {
+    width: 230px;
+    height: 26px;
   }
 }
 

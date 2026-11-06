@@ -75,6 +75,7 @@ function VisualNetworkOrbs() {
           stroke="url(#sw-orbit-ring)"
           strokeWidth="2.2"
           strokeDasharray="6 6"
+          className="sw-orbit-ring-dashed"
         />
 
         {/* Solid Glass Connection Arc */}
@@ -88,8 +89,8 @@ function VisualNetworkOrbs() {
           strokeWidth="3"
         />
 
-        {/* Left Obsidian Sphere */}
-        <g className="sw-float-slow">
+        {/* Left Obsidian Sphere (Orbiting) */}
+        <g className="sw-orbiting-ball sw-orbiting-ball--obsidian">
           <circle cx="82" cy="134" r="32" fill="url(#sw-orb-obsidian)" />
           <ellipse
             cx="71"
@@ -103,7 +104,7 @@ function VisualNetworkOrbs() {
         </g>
 
         {/* Center Hero Cobalt Sphere */}
-        <g className="sw-float-main">
+        <g className="sw-center-hero-ball">
           <circle cx="172" cy="108" r="52" fill="url(#sw-orb-cobalt)" />
           {/* Specular studio softbox reflection */}
           <ellipse
@@ -118,8 +119,8 @@ function VisualNetworkOrbs() {
           <circle cx="142" cy="96" r="3.5" fill="#ffffff" fillOpacity="0.45" />
         </g>
 
-        {/* Right Cyan Glass Sphere */}
-        <g className="sw-float-delayed">
+        {/* Right Cyan Glass Sphere (Orbiting) */}
+        <g className="sw-orbiting-ball sw-orbiting-ball--cyan">
           <circle cx="256" cy="94" r="36" fill="url(#sw-orb-cyan)" />
           <ellipse
             cx="244"
@@ -132,14 +133,14 @@ function VisualNetworkOrbs() {
           />
         </g>
 
-        {/* Foreground Pearl Node */}
-        <g className="sw-float-fast">
+        {/* Foreground Pearl Node (Orbiting) */}
+        <g className="sw-orbiting-ball sw-orbiting-ball--pearl">
           <circle cx="222" cy="162" r="18" fill="url(#sw-orb-pearl)" />
           <circle cx="216" cy="156" r="4.5" fill="#ffffff" fillOpacity="0.9" />
         </g>
 
-        {/* Top Mini Satellite */}
-        <circle cx="112" cy="60" r="10" fill="url(#sw-orb-cyan)" />
+        {/* Top Mini Satellite (Orbiting) */}
+        <circle className="sw-orbiting-ball sw-orbiting-ball--mini" cx="112" cy="60" r="10" fill="url(#sw-orb-cyan)" />
       </svg>
     </div>
   );
@@ -183,8 +184,8 @@ function VisualInsightPrisms() {
 
         <ellipse cx="140" cy="196" rx="96" ry="14" fill="url(#sw-prism-shadow)" />
 
-        {/* Back Obsidian 3D Tile */}
-        <g className="sw-float-slow">
+        {/* Back Obsidian 3D Tile (Stacking & Unstacking) */}
+        <g className="sw-stack-card sw-stack-card--back">
           <rect
             x="56"
             y="38"
@@ -207,8 +208,8 @@ function VisualInsightPrisms() {
           />
         </g>
 
-        {/* Middle Radiant Blue 3D Prism */}
-        <g className="sw-float-main">
+        {/* Middle Radiant Blue 3D Prism (Stacking & Unstacking) */}
+        <g className="sw-stack-card sw-stack-card--mid">
           <rect
             x="84"
             y="58"
@@ -218,15 +219,15 @@ function VisualInsightPrisms() {
             transform="rotate(-3 146 104)"
             fill="url(#sw-slab-mid)"
           />
-          {/* Rising 3D Bar Graph inside middle slab */}
-          <rect x="108" y="112" width="12" height="22" rx="6" fill="#ffffff" fillOpacity="0.5" />
-          <rect x="128" y="98" width="12" height="36" rx="6" fill="#ffffff" fillOpacity="0.75" />
-          <rect x="148" y="82" width="12" height="52" rx="6" fill="#ffffff" />
-          <rect x="168" y="72" width="12" height="62" rx="6" fill="#2ee6ff" />
+          {/* Rising 3D Bar Graph inside middle slab with staggered pulse */}
+          <rect className="sw-bar-anim sw-bar-anim--1" x="108" y="112" width="12" height="22" rx="6" fill="#ffffff" fillOpacity="0.5" />
+          <rect className="sw-bar-anim sw-bar-anim--2" x="128" y="98" width="12" height="36" rx="6" fill="#ffffff" fillOpacity="0.75" />
+          <rect className="sw-bar-anim sw-bar-anim--3" x="148" y="82" width="12" height="52" rx="6" fill="#ffffff" />
+          <rect className="sw-bar-anim sw-bar-anim--4" x="168" y="72" width="12" height="62" rx="6" fill="#2ee6ff" />
         </g>
 
-        {/* Front Frosted Glass Lens Slab */}
-        <g className="sw-float-delayed">
+        {/* Front Frosted Glass Lens Slab (Stacking & Unstacking) */}
+        <g className="sw-stack-card sw-stack-card--front">
           <rect
             x="106"
             y="88"
@@ -245,7 +246,7 @@ function VisualInsightPrisms() {
             strokeWidth="4"
             strokeLinecap="round"
           />
-          <circle cx="212" cy="106" r="6" fill="#2ee6ff" stroke="#1f3bff" strokeWidth="2.5" />
+          <circle className="sw-pulse-dot" cx="212" cy="106" r="6" fill="#2ee6ff" stroke="#1f3bff" strokeWidth="2.5" />
         </g>
       </svg>
     </div>
@@ -293,12 +294,13 @@ function VisualSpotlightCrystal() {
         </defs>
 
         {/* Volumetric Light Beam */}
-        <polygon points="94,174 186,174 226,26 54,26" fill="url(#sw-beam-cone)" />
+        <polygon className="sw-spotlight-beam" points="94,174 186,174 226,26 54,26" fill="url(#sw-beam-cone)" />
 
         {/* 3D Stage Base Disc */}
         <ellipse cx="140" cy="182" rx="76" ry="18" fill="#03050a" fillOpacity="0.12" />
         <ellipse cx="140" cy="174" rx="64" ry="15" fill="url(#sw-stage-disc)" />
         <ellipse
+          className="sw-stage-ring"
           cx="140"
           cy="171"
           rx="48"
@@ -309,8 +311,8 @@ function VisualSpotlightCrystal() {
           strokeWidth="1.5"
         />
 
-        {/* Floating 3D Faceted Diamond / Prism in the Spotlight */}
-        <g className="sw-float-main">
+        {/* Rotating 3D Faceted Diamond in the Spotlight */}
+        <g className="sw-diamond-spinner">
           {/* Upper Left Facet */}
           <polygon points="140,38 92,98 140,114" fill="url(#sw-crystal-left)" />
           {/* Upper Right Facet */}
@@ -334,8 +336,8 @@ function VisualSpotlightCrystal() {
           />
         </g>
 
-        {/* Floating Sparkle Accents */}
-        <g className="sw-float-fast">
+        {/* Orbiting Sparkle Accents */}
+        <g className="sw-sparkles-orbit">
           <circle cx="76" cy="66" r="5" fill="#2ee6ff" />
           <circle cx="204" cy="58" r="6.5" fill="#1f3bff" />
           <circle cx="196" cy="128" r="4" fill="#2ee6ff" />
@@ -381,67 +383,67 @@ function VisualOpportunityRings() {
           </linearGradient>
         </defs>
 
-        <ellipse cx="170" cy="212" rx="112" ry="15" fill="url(#sw-rings-shadow)" />
+        <ellipse className="sw-rings-shadow-breathe" cx="170" cy="212" rx="112" ry="15" fill="url(#sw-rings-shadow)" />
 
-        {/* Left 3D Torus Ring (Electric Blue -> Cyan) */}
-        <g className="sw-float-main">
-          <ellipse
-            cx="134"
-            cy="116"
-            rx="68"
-            ry="48"
-            transform="rotate(-24 134 116)"
-            stroke="url(#sw-torus-blue)"
-            strokeWidth="22"
-          />
-          <ellipse
-            cx="134"
-            cy="116"
-            rx="68"
-            ry="48"
-            transform="rotate(-24 134 116)"
-            stroke="url(#sw-torus-highlight)"
-            strokeWidth="4"
-          />
-        </g>
+        {/* Circular Precession System for Interlocking Rings */}
+        <g className="sw-rings-circular-system">
+          {/* Left 3D Torus Ring (Electric Blue -> Cyan) with overpass clip */}
+          <g className="sw-torus-group sw-torus-group--blue">
+            <ellipse
+              cx="134"
+              cy="116"
+              rx="68"
+              ry="48"
+              transform="rotate(-24 134 116)"
+              stroke="url(#sw-torus-blue)"
+              strokeWidth="22"
+            />
+            <ellipse
+              cx="134"
+              cy="116"
+              rx="68"
+              ry="48"
+              transform="rotate(-24 134 116)"
+              stroke="url(#sw-torus-highlight)"
+              strokeWidth="4"
+            />
+            {/* Interlock Overpass Clip moves with blue ring */}
+            <path
+              d="M 156 76 A 68 48 -24 0 1 196 114"
+              stroke="url(#sw-torus-blue)"
+              strokeWidth="22"
+              strokeLinecap="round"
+            />
+          </g>
 
-        {/* Right Interlocking 3D Torus Ring (Obsidian Chrome) */}
-        <g className="sw-float-delayed">
-          <ellipse
-            cx="208"
-            cy="118"
-            rx="68"
-            ry="48"
-            transform="rotate(24 208 118)"
-            stroke="url(#sw-torus-obsidian)"
-            strokeWidth="22"
-          />
-          <ellipse
-            cx="208"
-            cy="118"
-            rx="68"
-            ry="48"
-            transform="rotate(24 208 118)"
-            stroke="#ffffff"
-            strokeOpacity="0.35"
-            strokeWidth="3"
-          />
-        </g>
+          {/* Right Interlocking 3D Torus Ring (Obsidian Chrome) */}
+          <g className="sw-torus-group sw-torus-group--obsidian">
+            <ellipse
+              cx="208"
+              cy="118"
+              rx="68"
+              ry="48"
+              transform="rotate(24 208 118)"
+              stroke="url(#sw-torus-obsidian)"
+              strokeWidth="22"
+            />
+            <ellipse
+              cx="208"
+              cy="118"
+              rx="68"
+              ry="48"
+              transform="rotate(24 208 118)"
+              stroke="#ffffff"
+              strokeOpacity="0.35"
+              strokeWidth="3"
+            />
+          </g>
 
-        {/* Interlock Overpass Clip so rings physically weave */}
-        <g className="sw-float-main">
-          <path
-            d="M 156 76 A 68 48 -24 0 1 196 114"
-            stroke="url(#sw-torus-blue)"
-            strokeWidth="22"
-            strokeLinecap="round"
-          />
-        </g>
-
-        {/* Floating Radiant Core Spark */}
-        <g className="sw-float-fast">
-          <circle cx="171" cy="116" r="12" fill="#2ee6ff" />
-          <circle cx="168" cy="113" r="4" fill="#ffffff" />
+          {/* Floating Radiant Core Spark */}
+          <g className="sw-core-spark">
+            <circle cx="171" cy="116" r="12" fill="#2ee6ff" />
+            <circle cx="168" cy="113" r="4" fill="#ffffff" />
+          </g>
         </g>
       </svg>
     </div>

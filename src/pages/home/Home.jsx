@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
 import ConferenceHero from '../../components/ConferenceHero';
 import StatBar from '../../components/StatBar';
 import ConferenceFeatures from '../../components/ConferenceFeatures';
@@ -40,26 +39,6 @@ const Home = () => {
 
   return (
     <div className={`home-page ${isLightMode ? 'light-mode' : ''}`}>
-      {/* Floating Theme Option */}
-      <button
-        className="home-theme-toggle"
-        onClick={toggleTheme}
-        aria-label={`Switch to ${isLightMode ? 'dark' : 'light'} theme`}
-        title={`Switch to ${isLightMode ? 'dark' : 'light'} theme`}
-      >
-        {isLightMode ? (
-          <>
-            <Moon size={16} />
-            <span>Dark Theme</span>
-          </>
-        ) : (
-          <>
-            <Sun size={16} />
-            <span>Light Theme</span>
-          </>
-        )}
-      </button>
-
       <ConferenceHero />
 
       <StatBar />
