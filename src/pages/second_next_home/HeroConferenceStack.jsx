@@ -2294,6 +2294,6 @@ canvas.gf-art[data-ready] { opacity: 1; filter: none; }
     transition-delay: 0s !important;
     animation: none !important;
   }
-  .gf-tilt { transform: none; }
+  .gf-tilt { transform: none; } 
 }
 `;
