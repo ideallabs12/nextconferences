@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchGalleryFromSupabase, getGalleryImageUrl } from '../lib/supabase.js';
+import { LiquidButton } from './ui/LiquidGlassButton.jsx';
 import './HomeGallery.css';
 
 const defaultImages = [
@@ -93,7 +94,9 @@ const HomeGallery = () => {
       </div>
       
       <div className="home-gallery-footer">
-          <Link to="/gallery" className="btn-view-all">View Full Gallery ➔</Link>
+          <LiquidButton variant="slide" as={Link} to="/gallery">
+            View Full Gallery ➔
+          </LiquidButton>
       </div>
     </section>
   );

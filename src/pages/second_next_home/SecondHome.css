@@ -227,6 +227,17 @@
   color: #f8fafc;
 }
 
+.second-home-page.dark-mode .sh-nav {
+  --ink: #f8fafc;
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .sh-nav::before {
+  background: rgba(5, 8, 20, 0.84);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
 .second-home-page.dark-mode .sh-brand svg rect {
   fill: #060b19;
   stroke: rgba(255, 255, 255, 0.14);
@@ -234,6 +245,26 @@
 
 .second-home-page.dark-mode .sh-links a {
   color: #f8fafc;
+}
+
+.second-home-page.dark-mode .sh-nav-theme-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #f8fafc;
+}
+
+.second-home-page.dark-mode .sh-nav-theme-btn:hover {
+  background: rgba(46, 230, 255, 0.14);
+  border-color: rgba(46, 230, 255, 0.45);
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .sh-nav-theme-icon {
+  color: #2ee6ff;
+}
+
+.second-home-page.dark-mode .sh-burger-line {
+  background-color: #f8fafc;
 }
 
 .second-home-page.dark-mode .sh-menu-btn {
@@ -416,7 +447,7 @@
 }
 
 .second-home-page.dark-mode .notched-project-card.is-second-dark-theme:hover .notched-card-disc {
-  background-color: #1f3bff;
+  background-color: #101935;
   border-color: #2ee6ff;
   box-shadow: 0 8px 24px rgba(46, 230, 255, 0.45);
 }

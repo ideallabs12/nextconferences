@@ -76,7 +76,7 @@ export default function SecondSpeakers() {
       </div>
 
       <div className="second-speakers-footer">
-        <LiquidButton as={Link} to="/speakers">
+        <LiquidButton variant="slide" as={Link} to="/speakers">
           View All Speakers ➔
         </LiquidButton>
       </div>

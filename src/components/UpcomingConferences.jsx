@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import localConferencesData from '../../conferences/conferences.json';
 import { fetchConferencesFromSupabase, getConferenceImageUrl } from '../lib/supabase.js';
 import { NotchedProjectCard } from './ui/NotchedProjectCard.jsx';
+import { LiquidButton } from './ui/LiquidGlassButton.jsx';
 import './UpcomingConferences.css';
 
 const UpcomingConferences = () => {
@@ -63,7 +64,9 @@ const UpcomingConferences = () => {
             </div>
             
             <div className="upcoming-footer">
-                <Link to="/conferences" className="btn-view-all">Explore All Conferences ➔</Link>
+                <LiquidButton variant="slide" as={Link} to="/conferences">
+                    Explore All Conferences ➔
+                </LiquidButton>
             </div>
         </section>
     );

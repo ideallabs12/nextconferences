@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import localSpeakersData from '../pages/speakers/speakers.json';
 import { fetchSpeakersFromSupabase, getSpeakerImageUrl, getSpeakerSlug } from '../lib/supabase.js';
+import { LiquidButton } from './ui/LiquidGlassButton.jsx';
 import './HomeSpeakers.css';
 
 const HomeSpeakers = () => {
@@ -59,7 +60,9 @@ const HomeSpeakers = () => {
             </div>
 
             <div className="home-speakers-footer">
-                <Link to="/speakers" className="btn-view-all">View All Speakers ➔</Link>
+                <LiquidButton variant="slide" as={Link} to="/speakers">
+                    View All Speakers ➔
+                </LiquidButton>
             </div>
         </section>
     );

@@ -20,6 +20,8 @@ const PAGE_NAMES = {
   '/privacypolicy': 'Privacy Policy',
   '/termsandconditions': 'Terms & Conditions',
   '/register': 'Register',
+  '/cms': 'CMS Portal',
+  '/admin': 'CMS Portal',
 };
 
 import Home from './pages/home/Home.jsx';
@@ -30,6 +32,7 @@ import SpeakerDetail from './pages/speakers/SpeakerDetail.jsx';
 import Gallery from './pages/gallery/Gallery.jsx';
 import ContactUs from './pages/contactus/Contactus.jsx';
 import AboutUs from './pages/aboutus/Aboutus.jsx';
+import CmsPortal from './pages/cms/CmsPortal.jsx';
 
 import ConferenceDetail from './pages/conferences/ConferenceDetail.jsx';
 import Register from './pages/register/Register.jsx';
@@ -50,9 +53,16 @@ import Footer from './components/Footer.jsx';
 
 function AppContent() {
   const location = useLocation();
+  const isCms =
+    location.pathname.startsWith('/cms') ||
+    location.pathname.startsWith('/admin');
   const isSecondHome =
     location.pathname === '/second-home' ||
     location.pathname === '/second_next_home';
+
+  if (isCms) {
+    return <CmsPortal />;
+  }
 
   return (
     <div className={`app-container ${isSecondHome ? 'is-second-home-layout' : ''}`}>
@@ -85,6 +95,8 @@ function AppContent() {
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route path="/cms" element={<CmsPortal />} />
+          <Route path="/admin" element={<CmsPortal />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </TransitionRoutes>
       </main>

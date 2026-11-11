@@ -473,7 +473,7 @@ export default function HeroConferenceStack() {
       .then((data) => {
         if (data && data.length > 0) setConferencesData(data);
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   // Build ordered list of flagship conferences

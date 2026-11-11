@@ -69,11 +69,8 @@ const SecondHero = ({ isDarkMode = false, toggleTheme }) => {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="second-hero" id="second-hero">
-      {/* Background soft colour mesh + fine grid */}
-      <div className="second-hero-bg" aria-hidden="true" />
-
-      {/* Second Home's Dedicated Nav */}
+    <>
+      {/* Second Home's Dedicated Fixed Nav */}
       <nav className="sh-nav" aria-label="Main">
         <Link to="/second-home" className="sh-brand" aria-label="NEXT Premier League Conferences, home">
           <svg viewBox="0 0 40 40" aria-hidden="true">
@@ -172,7 +169,11 @@ const SecondHero = ({ isDarkMode = false, toggleTheme }) => {
         </div>
       </nav>
 
-      {/* Hero Content */}
+      <header className="second-hero" id="second-hero">
+        {/* Background soft colour mesh + fine grid */}
+        <div className="second-hero-bg" aria-hidden="true" />
+
+        {/* Hero Content */}
       <div className="second-hero-main">
         <div className="second-hero-copy">
           <h1 className="second-hero-title">
@@ -211,6 +212,7 @@ const SecondHero = ({ isDarkMode = false, toggleTheme }) => {
         </div>
       </div>
     </header>
+    </>
   );
 };
 

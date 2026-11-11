@@ -239,7 +239,157 @@ const LIQUID_GLASS_CSS = `
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
+}
+
+/* ─── Variant: Left-to-Right Sliding Stream + Kinetic Relay Arrow ─── */
+.liquid-glass-btn.liquid-glass-btn--slide {
+  padding: 0 10px 0 28px;
+}
+
+.liquid-glass-btn__slide-stream {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 118%;
+  transform: translate3d(-105%, 0, 0);
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  display: flex;
+  align-items: stretch;
+  pointer-events: none;
+}
+
+.liquid-glass-btn--slide:hover .liquid-glass-btn__slide-stream,
+.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__slide-stream {
+  transform: translate3d(0%, 0, 0);
+}
+
+.liquid-glass-btn__slide-body {
+  flex: 1;
+  background: linear-gradient(90deg, #1f3bff 0%, #2f7bff 55%, #2ee6ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sweeping diagonal light sheen travelling left-to-right */
+.liquid-glass-btn__slide-sheen {
+  position: absolute;
+  top: -25%;
+  bottom: -25%;
+  left: -35%;
+  width: 30%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  transform: skewX(-24deg) translate3d(0, 0, 0);
+  transition: transform 780ms cubic-bezier(0.22, 1, 0.36, 1) 70ms;
+}
+
+.liquid-glass-btn--slide:hover .liquid-glass-btn__slide-sheen,
+.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__slide-sheen {
+  transform: skewX(-24deg) translate3d(480%, 0, 0);
+}
+
+/* Curved leading wave crest on the right edge of the sliding stream */
+.liquid-glass-btn__slide-crest {
+  width: 34px;
+  height: 100%;
+  flex-shrink: 0;
+  margin-left: -2px;
+  display: block;
+  filter: drop-shadow(6px 0 12px rgba(46, 230, 255, 0.65));
+}
+
+.liquid-glass-btn__slide-label {
+  display: inline-block;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.liquid-glass-btn--slide:hover .liquid-glass-btn__slide-label,
+.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__slide-label {
+  transform: translateX(4px);
+}
+
+/* Kinetic Circular Arrow Pill on the right of Slide Button */
+.liquid-glass-btn__arrow-disc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background: rgba(3, 5, 10, 0.08);
+  border: 1px solid rgba(3, 5, 10, 0.1);
+  color: inherit;
+  overflow: hidden;
+  position: relative;
+  transition:
+    background 380ms ease,
+    border-color 380ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 380ms ease;
+}
+
+.second-home-page.dark-mode .liquid-glass-btn__arrow-disc,
+.home-page:not(.light-mode) .liquid-glass-btn__arrow-disc {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.home-page:not(.light-mode) .liquid-glass-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.liquid-glass-btn--slide:hover .liquid-glass-btn__arrow-disc,
+.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__arrow-disc {
+  background: rgba(255, 255, 255, 0.26);
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: translateX(3px) scale(1.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+.liquid-glass-btn__arrow-track {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.liquid-glass-btn__arrow-icon {
+  position: absolute;
+  font-size: 15px;
+  line-height: 1;
+  transition: transform 440ms cubic-bezier(0.22, 1, 0.36, 1), opacity 320ms ease;
+}
+
+.liquid-glass-btn__arrow-icon--primary {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.liquid-glass-btn__arrow-icon--clone {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+.liquid-glass-btn--slide:hover .liquid-glass-btn__arrow-icon--primary,
+.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__arrow-icon--primary {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.liquid-glass-btn--slide:hover .liquid-glass-btn__arrow-icon--clone,
+.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__arrow-icon--clone {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .liquid-glass-svg-defs {
@@ -338,6 +488,12 @@ export const LiquidButton = forwardRef(
   ) => {
     const uid = useId().replace(/:/g, '');
     const sizeClass = `liquid-glass-btn--${size || 'xxl'}`;
+    const isSlide = variant === 'slide';
+
+    let labelContent = children;
+    if (isSlide && typeof children === 'string') {
+      labelContent = children.replace(/\s*[➔→]\s*$/, '');
+    }
 
     return (
       <>
@@ -345,56 +501,95 @@ export const LiquidButton = forwardRef(
         <Comp
           ref={ref}
           data-slot="button"
-          className={`liquid-glass-btn ${sizeClass} ${className}`.trim()}
+          className={`liquid-glass-btn ${sizeClass} ${isSlide ? 'liquid-glass-btn--slide' : ''} ${className}`.trim()}
           {...props}
         >
           <div className="liquid-glass-btn__refraction" />
 
-          {/* Rising Liquid Fill Tank with Dual Sloshing Waves & Bubbles */}
-          <div className="liquid-glass-btn__tank" aria-hidden="true">
-            <div className="liquid-glass-btn__liquid">
-              {/* Back Wave */}
-              <svg
-                className="liquid-glass-btn__wave liquid-glass-btn__wave--back"
-                viewBox="0 0 240 24"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M0,12 C30,24 60,0 120,12 C180,24 210,0 240,12 L240,24 L0,24 Z"
-                  fill="#2ee6ff"
-                />
-              </svg>
-
-              {/* Front Wave */}
-              <svg
-                className="liquid-glass-btn__wave liquid-glass-btn__wave--front"
-                viewBox="0 0 240 24"
-                preserveAspectRatio="none"
-              >
-                <defs>
-                  <linearGradient id={`lq-grad-${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#1f3bff" />
-                    <stop offset="55%" stopColor="#2f7bff" />
-                    <stop offset="100%" stopColor="#2ee6ff" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M0,12 C40,0 80,24 120,12 C160,0 200,24 240,12 L240,24 L0,24 Z"
-                  fill={`url(#lq-grad-${uid})`}
-                />
-              </svg>
-
-              {/* Solid Liquid Body */}
-              <div className="liquid-glass-btn__body">
-                <span className="liquid-glass-btn__bubble liquid-glass-btn__bubble--1" />
-                <span className="liquid-glass-btn__bubble liquid-glass-btn__bubble--2" />
-                <span className="liquid-glass-btn__bubble liquid-glass-btn__bubble--3" />
+          {isSlide ? (
+            /* Left-to-Right Sliding Stream Tank */
+            <div className="liquid-glass-btn__tank" aria-hidden="true">
+              <div className="liquid-glass-btn__slide-stream">
+                <div className="liquid-glass-btn__slide-body">
+                  <span className="liquid-glass-btn__slide-sheen" />
+                </div>
+                <svg
+                  className="liquid-glass-btn__slide-crest"
+                  viewBox="0 0 34 100"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M0,0 C22,16 34,32 34,50 C34,68 22,84 0,100 L0,0 Z"
+                    fill="#2ee6ff"
+                  />
+                </svg>
               </div>
             </div>
-          </div>
+          ) : (
+            /* Rising Liquid Fill Tank with Dual Sloshing Waves & Bubbles */
+            <div className="liquid-glass-btn__tank" aria-hidden="true">
+              <div className="liquid-glass-btn__liquid">
+                {/* Back Wave */}
+                <svg
+                  className="liquid-glass-btn__wave liquid-glass-btn__wave--back"
+                  viewBox="0 0 240 24"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M0,12 C30,24 60,0 120,12 C180,24 210,0 240,12 L240,24 L0,24 Z"
+                    fill="#2ee6ff"
+                  />
+                </svg>
+
+                {/* Front Wave */}
+                <svg
+                  className="liquid-glass-btn__wave liquid-glass-btn__wave--front"
+                  viewBox="0 0 240 24"
+                  preserveAspectRatio="none"
+                >
+                  <defs>
+                    <linearGradient id={`lq-grad-${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1f3bff" />
+                      <stop offset="55%" stopColor="#2f7bff" />
+                      <stop offset="100%" stopColor="#2ee6ff" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M0,12 C40,0 80,24 120,12 C160,0 200,24 240,12 L240,24 L0,24 Z"
+                    fill={`url(#lq-grad-${uid})`}
+                  />
+                </svg>
+
+                {/* Solid Liquid Body */}
+                <div className="liquid-glass-btn__body">
+                  <span className="liquid-glass-btn__bubble liquid-glass-btn__bubble--1" />
+                  <span className="liquid-glass-btn__bubble liquid-glass-btn__bubble--2" />
+                  <span className="liquid-glass-btn__bubble liquid-glass-btn__bubble--3" />
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="liquid-glass-btn__rim" />
-          <div className="liquid-glass-btn__content">{children}</div>
+          <div className="liquid-glass-btn__content">
+            {isSlide ? (
+              <>
+                <span className="liquid-glass-btn__slide-label">{labelContent}</span>
+                <span className="liquid-glass-btn__arrow-disc" aria-hidden="true">
+                  <span className="liquid-glass-btn__arrow-track">
+                    <span className="liquid-glass-btn__arrow-icon liquid-glass-btn__arrow-icon--clone">
+                      ➔
+                    </span>
+                    <span className="liquid-glass-btn__arrow-icon liquid-glass-btn__arrow-icon--primary">
+                      ➔
+                    </span>
+                  </span>
+                </span>
+              </>
+            ) : (
+              children
+            )}
+          </div>
           <GlassFilter />
         </Comp>
       </>

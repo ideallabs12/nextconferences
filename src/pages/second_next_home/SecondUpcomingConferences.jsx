@@ -80,7 +80,7 @@ const SecondUpcomingConferences = ({ isDarkMode = false }) => {
         </div>
 
         <div className="second-upcoming-footer">
-          <LiquidButton as={Link} to="/conferences">
+          <LiquidButton variant="slide" as={Link} to="/conferences">
             Explore All Conferences ➔
           </LiquidButton>
         </div>

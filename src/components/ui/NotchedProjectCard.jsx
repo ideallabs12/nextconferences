@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import './NotchedProjectCard.css';
@@ -26,6 +26,7 @@ export function NotchedProjectCard({
   className = '',
   style = {},
 }) {
+  const uid = useId().replace(/:/g, '');
   const effectiveDim = typeof dim === 'number' ? dim : (screen ? 0.45 : 0);
   const isInternal = typeof href === 'string' && href.startsWith('/');
   const Wrapper = isInternal ? Link : 'a';
@@ -109,7 +110,7 @@ export function NotchedProjectCard({
           />
         ))}
 
-        {/* the arrow, nested in the notch */}
+        {/* the arrow disc, nested in the notch with rising liquid fill animation */}
         <span
           aria-hidden="true"
           className="notched-card-disc"
@@ -118,6 +119,52 @@ export function NotchedProjectCard({
             height: DISC,
           }}
         >
+          {/* Rising Liquid Fill Tank with Dual Sloshing Waves & Bubbles */}
+          <span className="notched-disc-tank">
+            <span className="notched-disc-liquid">
+              {/* Back Wave */}
+              <svg
+                className="notched-disc-wave notched-disc-wave--back"
+                viewBox="0 0 160 22"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0,11 C20,22 40,0 80,11 C120,22 140,0 160,11 L160,22 L0,22 Z"
+                  fill="#2ee6ff"
+                />
+              </svg>
+
+              {/* Front Wave */}
+              <svg
+                className="notched-disc-wave notched-disc-wave--front"
+                viewBox="0 0 160 22"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient id={`nd-lq-${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#1f3bff" />
+                    <stop offset="55%" stopColor="#2f7bff" />
+                    <stop offset="100%" stopColor="#2ee6ff" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M0,11 C26,0 54,22 80,11 C106,0 134,22 160,11 L160,22 L0,22 Z"
+                  fill={`url(#nd-lq-${uid})`}
+                />
+              </svg>
+
+              {/* Solid Liquid Body */}
+              <span className="notched-disc-body">
+                <span className="notched-disc-bubble notched-disc-bubble--1" />
+                <span className="notched-disc-bubble notched-disc-bubble--2" />
+                <span className="notched-disc-bubble notched-disc-bubble--3" />
+              </span>
+            </span>
+          </span>
+
+          {/* Glass Rim Overlay */}
+          <span className="notched-disc-rim" />
+
           <ArrowUpRight className="notched-card-arrow" />
         </span>
       </div>

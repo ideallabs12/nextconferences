@@ -103,7 +103,7 @@ const SecondExperienceNext = () => {
       </div>
 
       <div className="home-gallery-footer">
-        <LiquidButton as={Link} to="/gallery">
+        <LiquidButton variant="slide" as={Link} to="/gallery">
           View Full Gallery ➔
         </LiquidButton>
       </div>

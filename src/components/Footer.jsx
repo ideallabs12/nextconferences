@@ -105,7 +105,10 @@ const Footer = () => {
 
         <div className="footer-copyright">
           <p>&copy; {new Date().getFullYear()} NEXT Conferences. All rights reserved.</p>
-          <p className="footer-credits">Designed for the Future</p>
+          <div className="footer-copyright-links">
+            <Link to="/cms" className="footer-cms-pill-link" title="CMS Admin Portal">CMS Portal</Link>
+            <span className="footer-credits">Designed for the Future</span>
+          </div>
         </div>
 
       </div>
