@@ -242,9 +242,24 @@ const LIQUID_GLASS_CSS = `
   gap: 12px;
 }
 
-/* ─── Variant: Left-to-Right Sliding Stream + Kinetic Relay Arrow ─── */
+/* ─── Variant: Smooth Left-to-Right Liquid Wave Flow (Zero Edge Flicker) ─── */
 .liquid-glass-btn.liquid-glass-btn--slide {
   padding: 0 10px 0 28px;
+  transform: none !important;
+  transition:
+    color 550ms cubic-bezier(0.37, 0, 0.2, 1),
+    box-shadow 550ms cubic-bezier(0.37, 0, 0.2, 1);
+}
+
+.liquid-glass-btn.liquid-glass-btn--slide:hover,
+.liquid-glass-btn.liquid-glass-btn--slide:focus-visible {
+  transform: none !important;
+  color: #ffffff;
+  box-shadow: 0 12px 30px -8px rgba(31, 59, 255, 0.5);
+}
+
+.liquid-glass-btn.liquid-glass-btn--slide:active {
+  transform: scale(0.985) !important;
 }
 
 .liquid-glass-btn__slide-stream {
@@ -252,9 +267,9 @@ const LIQUID_GLASS_CSS = `
   top: 0;
   bottom: 0;
   left: 0;
-  width: 118%;
-  transform: translate3d(-105%, 0, 0);
-  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  width: 122%;
+  transform: translate3d(-106%, 0, 0);
+  transition: transform 950ms cubic-bezier(0.37, 0, 0.2, 1);
   will-change: transform;
   display: flex;
   align-items: stretch;
@@ -268,54 +283,62 @@ const LIQUID_GLASS_CSS = `
 
 .liquid-glass-btn__slide-body {
   flex: 1;
-  background: linear-gradient(90deg, #1f3bff 0%, #2f7bff 55%, #2ee6ff 100%);
+  background: linear-gradient(90deg, #1f3bff 0%, #2f7bff 58%, #2ee6ff 100%);
   position: relative;
   overflow: hidden;
 }
 
-/* Sweeping diagonal light sheen travelling left-to-right */
-.liquid-glass-btn__slide-sheen {
-  position: absolute;
-  top: -25%;
-  bottom: -25%;
-  left: -35%;
-  width: 30%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.5) 50%,
-    transparent 100%
-  );
-  transform: skewX(-24deg) translate3d(0, 0, 0);
-  transition: transform 780ms cubic-bezier(0.22, 1, 0.36, 1) 70ms;
-}
-
-.liquid-glass-btn--slide:hover .liquid-glass-btn__slide-sheen,
-.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__slide-sheen {
-  transform: skewX(-24deg) translate3d(480%, 0, 0);
-}
-
-/* Curved leading wave crest on the right edge of the sliding stream */
-.liquid-glass-btn__slide-crest {
-  width: 34px;
+/* Dual undulating vertical wave crests at the leading right edge of the stream */
+.liquid-glass-btn__slide-waves {
+  position: relative;
+  width: 28px;
   height: 100%;
   flex-shrink: 0;
-  margin-left: -2px;
+  margin-left: -1px;
+  overflow: hidden;
+}
+
+.liquid-glass-btn__slide-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 200%;
   display: block;
-  filter: drop-shadow(6px 0 12px rgba(46, 230, 255, 0.65));
+}
+
+.liquid-glass-btn__slide-wave--back {
+  left: 2px;
+  opacity: 0.72;
+  animation: liquidSlideWaveBack 2.4s linear infinite;
+}
+
+.liquid-glass-btn__slide-wave--front {
+  left: 0;
+  animation: liquidSlideWaveFront 1.65s linear infinite;
+}
+
+@keyframes liquidSlideWaveFront {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes liquidSlideWaveBack {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
 }
 
 .liquid-glass-btn__slide-label {
   display: inline-block;
-  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 650ms cubic-bezier(0.37, 0, 0.2, 1);
 }
 
 .liquid-glass-btn--slide:hover .liquid-glass-btn__slide-label,
 .liquid-glass-btn--slide:focus-visible .liquid-glass-btn__slide-label {
-  transform: translateX(4px);
+  transform: translateX(2px);
 }
 
-/* Kinetic Circular Arrow Pill on the right of Slide Button */
+/* Smooth Circular Arrow Disc on the right of Slide Button */
 .liquid-glass-btn__arrow-disc {
   display: inline-flex;
   align-items: center;
@@ -329,10 +352,9 @@ const LIQUID_GLASS_CSS = `
   overflow: hidden;
   position: relative;
   transition:
-    background 380ms ease,
-    border-color 380ms ease,
-    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 380ms ease;
+    background 600ms cubic-bezier(0.37, 0, 0.2, 1),
+    border-color 600ms cubic-bezier(0.37, 0, 0.2, 1),
+    box-shadow 600ms cubic-bezier(0.37, 0, 0.2, 1);
 }
 
 .second-home-page.dark-mode .liquid-glass-btn__arrow-disc,
@@ -348,48 +370,25 @@ const LIQUID_GLASS_CSS = `
 
 .liquid-glass-btn--slide:hover .liquid-glass-btn__arrow-disc,
 .liquid-glass-btn--slide:focus-visible .liquid-glass-btn__arrow-disc {
-  background: rgba(255, 255, 255, 0.26);
-  border-color: rgba(255, 255, 255, 0.55);
-  transform: translateX(3px) scale(1.06);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow:
+    inset 1.5px 1.5px 1px -0.5px rgba(255, 255, 255, 0.75),
+    0 4px 14px rgba(0, 0, 0, 0.18);
 }
 
-.liquid-glass-btn__arrow-track {
+.liquid-glass-btn__arrow-icon-smooth {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  width: 18px;
-  height: 18px;
-}
-
-.liquid-glass-btn__arrow-icon {
-  position: absolute;
   font-size: 15px;
   line-height: 1;
-  transition: transform 440ms cubic-bezier(0.22, 1, 0.36, 1), opacity 320ms ease;
+  transition: transform 600ms cubic-bezier(0.37, 0, 0.2, 1);
 }
 
-.liquid-glass-btn__arrow-icon--primary {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.liquid-glass-btn__arrow-icon--clone {
-  transform: translateX(-20px);
-  opacity: 0;
-}
-
-.liquid-glass-btn--slide:hover .liquid-glass-btn__arrow-icon--primary,
-.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__arrow-icon--primary {
-  transform: translateX(20px);
-  opacity: 0;
-}
-
-.liquid-glass-btn--slide:hover .liquid-glass-btn__arrow-icon--clone,
-.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__arrow-icon--clone {
-  transform: translateX(0);
-  opacity: 1;
+.liquid-glass-btn--slide:hover .liquid-glass-btn__arrow-icon-smooth,
+.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__arrow-icon-smooth {
+  transform: translateX(3px);
 }
 
 .liquid-glass-svg-defs {
@@ -507,22 +506,34 @@ export const LiquidButton = forwardRef(
           <div className="liquid-glass-btn__refraction" />
 
           {isSlide ? (
-            /* Left-to-Right Sliding Stream Tank */
+            /* Smooth Left-to-Right Dual-Wave Liquid Flow */
             <div className="liquid-glass-btn__tank" aria-hidden="true">
               <div className="liquid-glass-btn__slide-stream">
-                <div className="liquid-glass-btn__slide-body">
-                  <span className="liquid-glass-btn__slide-sheen" />
+                <div className="liquid-glass-btn__slide-body" />
+                <div className="liquid-glass-btn__slide-waves">
+                  {/* Back Vertical Wave */}
+                  <svg
+                    className="liquid-glass-btn__slide-wave liquid-glass-btn__slide-wave--back"
+                    viewBox="0 0 28 160"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M14,0 C28,20 0,40 14,80 C28,120 0,140 14,160 L0,160 L0,0 Z"
+                      fill="#2ee6ff"
+                    />
+                  </svg>
+                  {/* Front Vertical Wave */}
+                  <svg
+                    className="liquid-glass-btn__slide-wave liquid-glass-btn__slide-wave--front"
+                    viewBox="0 0 28 160"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M14,0 C0,26 28,54 14,80 C0,106 28,134 14,160 L0,160 L0,0 Z"
+                      fill="#2ee6ff"
+                    />
+                  </svg>
                 </div>
-                <svg
-                  className="liquid-glass-btn__slide-crest"
-                  viewBox="0 0 34 100"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0,0 C22,16 34,32 34,50 C34,68 22,84 0,100 L0,0 Z"
-                    fill="#2ee6ff"
-                  />
-                </svg>
               </div>
             </div>
           ) : (
@@ -576,14 +587,7 @@ export const LiquidButton = forwardRef(
               <>
                 <span className="liquid-glass-btn__slide-label">{labelContent}</span>
                 <span className="liquid-glass-btn__arrow-disc" aria-hidden="true">
-                  <span className="liquid-glass-btn__arrow-track">
-                    <span className="liquid-glass-btn__arrow-icon liquid-glass-btn__arrow-icon--clone">
-                      ➔
-                    </span>
-                    <span className="liquid-glass-btn__arrow-icon liquid-glass-btn__arrow-icon--primary">
-                      ➔
-                    </span>
-                  </span>
+                  <span className="liquid-glass-btn__arrow-icon-smooth">➔</span>
                 </span>
               </>
             ) : (
