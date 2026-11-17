@@ -109,11 +109,20 @@ const LIQUID_GLASS_CSS = `
   top: -20px;
   opacity: 0.65;
   animation: liquidWaveSlideBack 2.4s linear infinite;
+  animation-play-state: paused;
 }
 
 .liquid-glass-btn__wave--front {
   top: -18px;
   animation: liquidWaveSlideFront 1.65s linear infinite;
+  animation-play-state: paused;
+}
+
+.liquid-glass-btn:hover .liquid-glass-btn__wave--back,
+.liquid-glass-btn:focus-visible .liquid-glass-btn__wave--back,
+.liquid-glass-btn:hover .liquid-glass-btn__wave--front,
+.liquid-glass-btn:focus-visible .liquid-glass-btn__wave--front {
+  animation-play-state: running;
 }
 
 @keyframes liquidWaveSlideFront {
@@ -228,8 +237,8 @@ const LIQUID_GLASS_CSS = `
   overflow: hidden;
   border-radius: 9999px;
   pointer-events: none;
-  backdrop-filter: url("#container-glass") blur(6px) saturate(160%);
-  -webkit-backdrop-filter: url("#container-glass") blur(6px) saturate(160%);
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
 }
 
 .liquid-glass-btn__content {
@@ -311,11 +320,20 @@ const LIQUID_GLASS_CSS = `
   left: 2px;
   opacity: 0.72;
   animation: liquidSlideWaveBack 2.4s linear infinite;
+  animation-play-state: paused;
 }
 
 .liquid-glass-btn__slide-wave--front {
   left: 0;
   animation: liquidSlideWaveFront 1.65s linear infinite;
+  animation-play-state: paused;
+}
+
+.liquid-glass-btn--slide:hover .liquid-glass-btn__slide-wave--back,
+.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__slide-wave--back,
+.liquid-glass-btn--slide:hover .liquid-glass-btn__slide-wave--front,
+.liquid-glass-btn--slide:focus-visible .liquid-glass-btn__slide-wave--front {
+  animation-play-state: running;
 }
 
 @keyframes liquidSlideWaveFront {
@@ -594,7 +612,6 @@ export const LiquidButton = forwardRef(
               children
             )}
           </div>
-          <GlassFilter />
         </Comp>
       </>
     );

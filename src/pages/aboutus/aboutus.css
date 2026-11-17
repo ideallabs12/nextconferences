@@ -8,9 +8,7 @@
     min-height: 100vh;
     padding: 6.5rem 2rem 5rem;
     box-sizing: border-box;
-    background-color: rgba(10, 15, 26, 0.5);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background-color: rgba(10, 15, 26, 0.55);
     color: #ffffff;
     overflow-x: hidden;
 }

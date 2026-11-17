@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import './conferences.css';
-import localConferencesData from './conferences.json';
+import localConferencesData from '../../../conferences/conferences.json';
 import { fetchConferencesFromSupabase, getConferenceImageUrl } from '../../lib/supabase.js';
 
 const CATEGORIES = [

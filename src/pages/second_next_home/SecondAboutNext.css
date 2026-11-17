@@ -42,12 +42,11 @@
 .second-about-bg::before {
   content: "";
   position: absolute;
-  inset: -20%;
+  inset: -10%;
   background:
     radial-gradient(40% 44% at 16% 26%, rgba(46, 230, 255, 0.32), transparent 70%),
     radial-gradient(42% 46% at 84% 72%, rgba(31, 59, 255, 0.18), transparent 70%),
     radial-gradient(36% 40% at 50% 85%, rgba(47, 123, 255, 0.12), transparent 70%);
-  animation: secondAboutDrift 24s ease-in-out infinite alternate;
 }
 
 .second-about-bg::after {

@@ -13,7 +13,7 @@ const ConferenceHero = ({
   date = "APR 24–26, 2025",
   location = "LONDON, UK",
   attendees = "5,000+ ATTENDEES",
-  backgroundImage = "/images/hero_background.png"
+  backgroundImage = "/images/hero_background.jpg"
 }) => {
   return (
     <section className="conference-hero">
@@ -21,7 +21,9 @@ const ConferenceHero = ({
         <img 
             src={backgroundImage} 
             className="hero-image" 
-            alt="Conference Background" 
+            alt="Conference Background"
+            decoding="async"
+            fetchPriority="high"
         />
         <div className="hero-overlay hero-overlay-back" />
         <div className="hero-overlay hero-overlay-main" />

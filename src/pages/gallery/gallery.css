@@ -1,9 +1,7 @@
 .gallery-page {
     width: 100%;
     min-height: 100vh;
-    background-color: rgba(10, 15, 26, 0.5);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background-color: rgba(10, 15, 26, 0.55);
     padding: 8rem 2rem 5rem;
     color: #ffffff;
 }

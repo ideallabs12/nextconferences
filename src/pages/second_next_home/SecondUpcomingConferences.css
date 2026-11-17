@@ -38,12 +38,11 @@
 .second-upcoming-bg::before {
   content: "";
   position: absolute;
-  inset: -20%;
+  inset: -10%;
   background:
     radial-gradient(42% 46% at 18% 30%, rgba(46, 230, 255, 0.35), transparent 70%),
     radial-gradient(44% 48% at 85% 70%, rgba(31, 59, 255, 0.22), transparent 70%),
     radial-gradient(36% 42% at 50% 90%, rgba(47, 123, 255, 0.15), transparent 70%);
-  animation: secondUpcomingDrift 24s ease-in-out infinite alternate;
 }
 
 .second-upcoming-bg::after {

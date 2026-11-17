@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Sparkles, ArrowRight, BookOpen, Calendar, MapPin } from 'lucide-react';
-import localConferencesData from './conferences.json';
+import localConferencesData from '../../../conferences/conferences.json';
 import defaultPackages from './packages.json';
 import ConferencePackages from './ConferencePackages.jsx';
 import { fetchConferencesFromSupabase, getConferenceImageUrl } from '../../lib/supabase.js';

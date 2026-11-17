@@ -6,9 +6,7 @@
 .committee-page {
     padding: 6.5rem 2rem 5rem;
     min-height: 100vh;
-    background-color: rgba(10, 15, 26, 0.5);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background-color: rgba(10, 15, 26, 0.55);
     color: #ffffff;
     box-sizing: border-box;
     width: 100%;

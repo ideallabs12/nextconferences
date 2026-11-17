@@ -74,15 +74,19 @@ const PILLARS = [
 
 const ApplePillarCard = ({ pillar }) => {
   const cardRef = useRef(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const rafRef = useRef(0);
 
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+    const el = cardRef.current;
+    if (!el) return;
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0;
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty('--spot-x', `${clientX - rect.left}px`);
+      el.style.setProperty('--spot-y', `${clientY - rect.top}px`);
     });
   };
 
@@ -93,23 +97,13 @@ const ApplePillarCard = ({ pillar }) => {
       ref={cardRef}
       className="apple-pillar-card"
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       style={{
         '--card-glow': pillar.glow,
         '--card-accent': pillar.accent,
       }}
     >
-      {/* Dynamic Specular Spotlight Following Cursor */}
-      {isHovered && (
-        <div
-          className="apple-card-spotlight"
-          style={{
-            left: `${mousePos.x}px`,
-            top: `${mousePos.y}px`,
-          }}
-        />
-      )}
+      {/* Dynamic Specular Spotlight Following Cursor (CSS-driven, zero React re-renders) */}
+      <div className="apple-card-spotlight" />
 
       {/* Atmospheric Ambient Glow behind card */}
       <div className="apple-card-ambient" />

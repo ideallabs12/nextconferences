@@ -48,6 +48,8 @@ export function NotchedProjectCard({
           <img
             src={image}
             alt={screen ? '' : imageAlt || title}
+            loading="lazy"
+            decoding="async"
             onError={onImageError}
             className={`notched-card-img ${!screen ? 'zoom-on-hover' : ''}`}
           />

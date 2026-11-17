@@ -6,6 +6,7 @@ import {
   fetchConferencesFromSupabase,
   fetchSpeakersFromSupabase,
   fetchMagazinesFromSupabase,
+  clearSupabaseCache,
 } from './supabase.js';
 
 import localConferences from '../../conferences/conferences.json';
@@ -116,6 +117,7 @@ export async function saveConferences(conferencesList) {
     }
   }
 
+  clearSupabaseCache();
   return { success: localSaved || supabaseSaved, localSaved, supabaseSaved, error };
 }
 
@@ -174,6 +176,7 @@ export async function saveSpeakers(speakersList) {
     }
   }
 
+  clearSupabaseCache();
   return { success: localSaved || supabaseSaved, localSaved, supabaseSaved, error };
 }
 
@@ -242,6 +245,7 @@ export async function saveMagazines(magazinesList) {
     }
   }
 
+  clearSupabaseCache();
   return { success: localSaved || supabaseSaved, localSaved, supabaseSaved, error };
 }
 

@@ -637,7 +637,7 @@ export default function HeroConferenceStack() {
   }, [hovered, open, selectedConf, cycleNextCard]);
 
   const k = containerWidth / W;
-  const density = Math.min(1.5, Math.max(1, typeof window === 'undefined' ? 1 : window.devicePixelRatio || 1)) * k;
+  const density = Math.min(0.85, k);
 
   const start = Math.max(0, deck.length - MAX_VISIBLE);
   const visible = deck.slice(start);
@@ -1102,17 +1102,16 @@ const HCS_CSS = `
 
 .hcs-ambient-glow {
   position: absolute;
-  width: 96%;
-  height: 88%;
-  top: 6%;
+  width: 108%;
+  height: 98%;
+  top: 1%;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(46, 230, 255, 0.38) 0%,
-    rgba(31, 59, 255, 0.22) 48%,
-    transparent 74%
+    rgba(46, 230, 255, 0.32) 0%,
+    rgba(31, 59, 255, 0.18) 42%,
+    transparent 72%
   );
-  filter: blur(36px);
   pointer-events: none;
   z-index: -2;
 }

@@ -4,8 +4,6 @@
     color: #ffffff;
     /* Blend seamlessly into the sections above/below */
     background: linear-gradient(180deg, rgba(5, 11, 26, 0.4) 0%, rgba(3, 7, 18, 0.1) 50%, rgba(5, 11, 26, 0.4) 100%);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 

@@ -204,11 +204,20 @@
   top: -17px;
   opacity: 0.7;
   animation: notchedDiscWaveBack 2.2s linear infinite;
+  animation-play-state: paused;
 }
 
 .notched-disc-wave--front {
   top: -15px;
   animation: notchedDiscWaveFront 1.5s linear infinite;
+  animation-play-state: paused;
+}
+
+.notched-project-card:hover .notched-disc-wave--back,
+.notched-project-card:focus-visible .notched-disc-wave--back,
+.notched-project-card:hover .notched-disc-wave--front,
+.notched-project-card:focus-visible .notched-disc-wave--front {
+  animation-play-state: running;
 }
 
 @keyframes notchedDiscWaveFront {

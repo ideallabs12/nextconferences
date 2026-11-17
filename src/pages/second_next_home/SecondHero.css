@@ -51,12 +51,11 @@
 .second-hero-bg::before {
   content: "";
   position: absolute;
-  inset: -20%;
+  inset: -10%;
   background:
     radial-gradient(38% 42% at 82% 28%, rgba(46, 230, 255, 0.38), transparent 70%),
     radial-gradient(40% 45% at 68% 78%, rgba(31, 59, 255, 0.20), transparent 70%),
     radial-gradient(34% 40% at 6% 100%, rgba(47, 123, 255, 0.14), transparent 70%);
-  animation: secondHeroDrift 22s ease-in-out infinite alternate;
 }
 
 .second-hero-bg::after {

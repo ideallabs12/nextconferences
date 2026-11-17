@@ -8,7 +8,13 @@ const ProceduralGroundBackground = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext('webgl');
+    const gl = canvas.getContext('webgl', {
+      alpha: false,
+      antialias: false,
+      depth: false,
+      stencil: false,
+      powerPreference: 'low-power',
+    });
     if (!gl) return;
 
     const vsSource = `
@@ -19,7 +25,7 @@ const ProceduralGroundBackground = () => {
     `;
 
     const fsSource = `
-      precision highp float;
+      precision mediump float;
       uniform float u_time;
       uniform vec2 u_resolution;
 
@@ -55,12 +61,15 @@ const ProceduralGroundBackground = () => {
         vec3 neonColor = vec3(0.6, 0.2, 1.0);     // Neon Purple
         
         // Composite
-        vec3 finalColor = mix(baseColor, accentColor, n * 0.8); // Slightly boosted accent
-        finalColor += topoLine * neonColor * depth * 1.5; // Massive boost to the neon lines
+        vec3 finalColor = mix(baseColor, accentColor, n * 0.8);
+        finalColor += topoLine * neonColor * depth * 1.5;
         
         // Horizon Fog / Fade
         float fade = smoothstep(0.1, -1.0, uv.y);
         finalColor *= (1.0 - length(uv) * 0.45) * (1.0 - fade);
+
+        // Bake contrast(1.3) brightness(1.2) directly in shader (zero CSS filter overhead)
+        finalColor = clamp((finalColor - 0.5) * 1.3 + 0.5, 0.0, 1.0) * 1.2;
 
         gl_FragColor = vec4(finalColor, 1.0);
       }
@@ -74,8 +83,10 @@ const ProceduralGroundBackground = () => {
     };
 
     const program = gl.createProgram();
-    gl.attachShader(program, createShader(gl, gl.VERTEX_SHADER, vsSource));
-    gl.attachShader(program, createShader(gl, gl.FRAGMENT_SHADER, fsSource));
+    const vs = createShader(gl, gl.VERTEX_SHADER, vsSource);
+    const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
     gl.linkProgram(program);
     gl.useProgram(program);
 
@@ -93,35 +104,53 @@ const ProceduralGroundBackground = () => {
     const timeLoc = gl.getUniformLocation(program, "u_time");
     const resLoc = gl.getUniformLocation(program, "u_resolution");
 
-    let animationFrameId;
-    const render = (time) => {
-      const { innerWidth: width, innerHeight: height } = window;
+    const SCALE = 0.55;
+    let width = Math.max(1, Math.round(window.innerWidth * SCALE));
+    let height = Math.max(1, Math.round(window.innerHeight * SCALE));
+    canvas.width = width;
+    canvas.height = height;
+    gl.viewport(0, 0, width, height);
+
+    const handleResize = () => {
+      width = Math.max(1, Math.round(window.innerWidth * SCALE));
+      height = Math.max(1, Math.round(window.innerHeight * SCALE));
       if (canvas.width !== width || canvas.height !== height) {
         canvas.width = width;
         canvas.height = height;
         gl.viewport(0, 0, width, height);
       }
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+
+    let animationFrameId;
+    let lastFrameTime = 0;
+
+    const render = (time) => {
+      animationFrameId = requestAnimationFrame(render);
+      if (document.hidden) return;
+      if (time - lastFrameTime < 32) return; // Smooth ~30fps cap for slow ambient ground
+      lastFrameTime = time;
 
       gl.uniform1f(timeLoc, time * 0.001);
       gl.uniform2f(resLoc, width, height);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
-      animationFrameId = requestAnimationFrame(render);
     };
 
     animationFrameId = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', handleResize);
+      gl.deleteBuffer(buffer);
+      gl.deleteProgram(program);
+      gl.deleteShader(vs);
+      gl.deleteShader(fs);
     };
   }, []);
 
   return (
     <div className="procedural-bg-container">
-      <canvas
-        ref={canvasRef}
-        className="procedural-canvas"
-        style={{ filter: 'contrast(1.3) brightness(1.2)' }}
-      />
+      <canvas ref={canvasRef} className="procedural-canvas" />
     </div>
   );
 };

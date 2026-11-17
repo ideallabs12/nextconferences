@@ -81,6 +81,8 @@ const HomeGallery = () => {
                   className="coverflow-img"
                   src={src}
                   alt={`gallery-${idx}`}
+                  loading="lazy"
+                  decoding="async"
                   onError={(e) => {
                     e.target.onerror = null;
                     const filename = src.split('/').pop();
