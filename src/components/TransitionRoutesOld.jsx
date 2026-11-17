@@ -9,20 +9,20 @@
  * Drop-in replacement for react-router's <Routes>. Keep your <Route> lines.
  * Only opacity and transform are animated. No images, no dependencies.
  */
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Routes, useLocation } from 'react-router-dom';
 
 /* ───────────────────────── Timings (milliseconds) ─────────────────────────
    IN_MS   : light sweeps in and covers the screen
    HOLD_MS : screen is covered, new page is swapped in, name is shown
    OUT_MS  : light sweeps out and reveals the new page
-   Total = IN + HOLD + OUT (about 2.3 seconds by default)                    */
-export const IN_MS = 800;
-export const HOLD_MS = 650;
-export const OUT_MS = 850;
+   Total = IN + HOLD + OUT (about 2.0 seconds)                               */
+export const IN_MS = 750;
+export const HOLD_MS = 500;
+export const OUT_MS = 750;
 
 /* ───────────────────────────── Helpers ───────────────────────────── */
-const strip = (p) => (p.length > 1 ? p.replace(/\/+$/, '') : p) || '/';
+const strip = (p) => (p && p.length > 1 ? p.replace(/\/+$/, '') : p) || '/';
 
 const prefersReduced = () =>
   typeof window !== 'undefined' &&
@@ -36,17 +36,6 @@ const isIndividualSpeakerRoute = (pathname) => {
     (p.startsWith('/speakers/') && p !== '/speakers') ||
     (p.startsWith('/speaker/') && p !== '/speaker')
   );
-};
-
-// Tracks visited routes in the current session (resets on full browser reload / refresh)
-const visitedRoutes = new Set();
-const normalizePath = (p) => {
-  const s = strip(p || '').toLowerCase();
-  if (s === '/second_next_home') return '/second-home';
-  if (s === '/conference') return '/conferences';
-  if (s === '/speaker') return '/speakers';
-  if (s === '/magazine') return '/magazines';
-  return s;
 };
 
 const scrollTop = () => {
@@ -99,6 +88,7 @@ export default function TransitionRoutes({ children, names }) {
   const scrollRef = useRef(false);
   const namesRef = useRef(names);
   const timer = useRef(0);
+  const isFirstMount = useRef(true);
   const api = useRef({});
 
   namesRef.current = names;
@@ -123,6 +113,7 @@ export default function TransitionRoutes({ children, names }) {
   }, [shown]);
 
   api.current.begin = () => {
+    clearTimeout(timer.current);
     const name = pageName(latest.current.pathname, namesRef.current);
     setRun((r) => r + 1);
     setLabel(name);
@@ -143,21 +134,17 @@ export default function TransitionRoutes({ children, names }) {
     }, IN_MS);
   };
 
-  const isFirstMount = useRef(true);
-
   api.current.finish = () => {
     const next = latest.current;
     const cur = shownRef.current;
     go('idle');
     // The user navigated again while we were revealing: go straight on.
     if (strip(next.pathname) !== strip(cur.pathname)) {
-      const normNext = normalizePath(next.pathname);
-      if (isIndividualSpeakerRoute(next.pathname) || visitedRoutes.has(normNext)) {
+      if (isIndividualSpeakerRoute(next.pathname)) {
         commit(next, true);
         setStatus(`${pageName(next.pathname, namesRef.current)} page loaded`);
         return;
       }
-      visitedRoutes.add(normNext);
       api.current.begin();
       return;
     }
@@ -169,83 +156,49 @@ export default function TransitionRoutes({ children, names }) {
   useEffect(() => {
     latest.current = location;
     const cur = shownRef.current;
-    const normPath = normalizePath(location.pathname);
-    const isIndividualSpeaker = isIndividualSpeakerRoute(location.pathname);
 
-    // Initial site load: play animation for the first page visited in this session
+    // Do not animate on initial site mount
     if (isFirstMount.current) {
       isFirstMount.current = false;
-      if (!prefersReduced() && !isIndividualSpeaker && !visitedRoutes.has(normPath)) {
-        visitedRoutes.add(normPath);
-        api.current.begin();
-        return;
-      }
-      visitedRoutes.add(normPath);
       return;
     }
 
-    if (location.key === cur.key && phaseRef.current === 'idle') return;
+    const curPath = strip(cur.pathname);
+    const newPath = strip(location.pathname);
+    const pathChanged = newPath !== curPath;
 
-    const pathChanged = strip(location.pathname) !== strip(cur.pathname);
+    if (!pathChanged) {
+      if (location.key !== cur.key) commit(location, false);
+      return;
+    }
 
     // Disable page transition for reduced motion OR individual speaker routes
-    const shouldSkipAnimation = prefersReduced() || isIndividualSpeaker;
+    const shouldSkipAnimation = prefersReduced() || isIndividualSpeakerRoute(location.pathname);
 
     if (shouldSkipAnimation) {
       clearTimeout(timer.current);
       if (phaseRef.current !== 'idle') go('idle');
-      if (location.key !== cur.key || pathChanged) {
-        commit(location, pathChanged);
-        if (pathChanged) {
-          setStatus(`${pageName(location.pathname, namesRef.current)} page loaded`);
-        }
-      }
+      commit(location, true);
+      setStatus(`${pageName(location.pathname, namesRef.current)} page loaded`);
       return;
     }
-
-    // If this page was already visited in this session without reloading (refresh), STOP animation!
-    const alreadyVisited = visitedRoutes.has(normPath);
-    if (alreadyVisited) {
-      clearTimeout(timer.current);
-      if (phaseRef.current !== 'idle') go('idle');
-      if (location.key !== cur.key || pathChanged) {
-        commit(location, pathChanged);
-        if (pathChanged) {
-          setStatus(`${pageName(location.pathname, namesRef.current)} page loaded`);
-        }
-      }
-      return;
-    }
-
-    // First time opening this page in this session:
-    visitedRoutes.add(normPath);
 
     const p = phaseRef.current;
     if (p === 'idle') {
-      if (!pathChanged) {
-        commit(location, false); // only hash or search changed: no animation
-        return;
-      }
       api.current.begin();
     } else if (p === 'in') {
-      if (!pathChanged) {
-        commit(location, false); // only hash or search changed: no animation
-        return;
-      }
-      api.current.begin();
-    } else if (p === 'in') {
-      // Swap happens at the end of "in" with the latest location.
+      // Transition already sweeping in: just update the destination label and latest target
       const name = pageName(location.pathname, namesRef.current);
       setLabel(name);
       setStatus(`Loading ${name}`);
     } else if (p === 'hold') {
-      // Still covered: swap again, no need to restart the animation.
+      // Screen is already dark: commit the new location immediately
       commit(location, true);
       const name = pageName(location.pathname, namesRef.current);
       setLabel(name);
       setStatus(`Loading ${name}`);
     }
-    // p === 'out': picked up by finish().
+    // p === 'out': picked up cleanly by finish().
   }, [location]);
 
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -257,7 +210,9 @@ export default function TransitionRoutes({ children, names }) {
     <>
       <style>{CSS}</style>
 
-      <Routes location={shown}>{children}</Routes>
+      <Suspense fallback={null}>
+        <Routes location={shown}>{children}</Routes>
+      </Suspense>
 
       <div className="nx-sr" role="status" aria-live="polite" aria-atomic="true">
         {status}

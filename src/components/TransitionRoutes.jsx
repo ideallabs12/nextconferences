@@ -9,34 +9,32 @@
  * Drop-in replacement for react-router's <Routes>. Keep your <Route> lines.
  * Only opacity and transform are animated. No images, no dependencies.
  */
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Routes, useLocation } from 'react-router-dom';
 
 /* ───────────────────────── Timings (milliseconds) ─────────────────────────
    IN_MS   : light sweeps in and covers the screen
    HOLD_MS : screen is covered, new page is swapped in, name is shown
    OUT_MS  : light sweeps out and reveals the new page
-   Total = IN + HOLD + OUT (about 2.3 seconds by default)                    */
-export const IN_MS = 800;
-export const HOLD_MS = 650;
-export const OUT_MS = 850;
+   Total = IN + HOLD + OUT (about 2.0 seconds)                               */
+export const IN_MS = 750;
+export const HOLD_MS = 500;
+export const OUT_MS = 750;
 
 /* ───────────────────────────── Helpers ───────────────────────────── */
-const strip = (p) => (p.length > 1 ? p.replace(/\/+$/, '') : p) || '/';
+const strip = (p) => (p && p.length > 1 ? p.replace(/\/+$/, '') : p) || '/';
 
 const prefersReduced = () =>
   typeof window !== 'undefined' &&
   !!window.matchMedia &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const isSpeakerRoute = (pathname) => {
+const isIndividualSpeakerRoute = (pathname) => {
   if (!pathname) return false;
   const p = strip(pathname).toLowerCase();
   return (
-    p === '/speakers' ||
-    p.startsWith('/speakers/') ||
-    p === '/speaker' ||
-    p.startsWith('/speaker/')
+    (p.startsWith('/speakers/') && p !== '/speakers') ||
+    (p.startsWith('/speaker/') && p !== '/speaker')
   );
 };
 
@@ -90,6 +88,7 @@ export default function TransitionRoutes({ children, names }) {
   const scrollRef = useRef(false);
   const namesRef = useRef(names);
   const timer = useRef(0);
+  const isFirstMount = useRef(true);
   const api = useRef({});
 
   namesRef.current = names;
@@ -114,6 +113,7 @@ export default function TransitionRoutes({ children, names }) {
   }, [shown]);
 
   api.current.begin = () => {
+    clearTimeout(timer.current);
     const name = pageName(latest.current.pathname, namesRef.current);
     setRun((r) => r + 1);
     setLabel(name);
@@ -140,7 +140,7 @@ export default function TransitionRoutes({ children, names }) {
     go('idle');
     // The user navigated again while we were revealing: go straight on.
     if (strip(next.pathname) !== strip(cur.pathname)) {
-      if (isSpeakerRoute(next.pathname)) {
+      if (isIndividualSpeakerRoute(next.pathname)) {
         commit(next, true);
         setStatus(`${pageName(next.pathname, namesRef.current)} page loaded`);
         return;
@@ -156,32 +156,35 @@ export default function TransitionRoutes({ children, names }) {
   useEffect(() => {
     latest.current = location;
     const cur = shownRef.current;
-    if (location.key === cur.key && phaseRef.current === 'idle') return;
 
-    const pathChanged = strip(location.pathname) !== strip(cur.pathname);
+    // Do not animate on initial site mount
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
 
-    // Disable page transition for reduced motion OR any speaker route (speakers list & individual speaker pages)
-    const isTargetSpeaker = isSpeakerRoute(location.pathname);
-    const shouldSkipAnimation = prefersReduced() || isTargetSpeaker;
+    const curPath = strip(cur.pathname);
+    const newPath = strip(location.pathname);
+    const pathChanged = newPath !== curPath;
+
+    if (!pathChanged) {
+      if (location.key !== cur.key) commit(location, false);
+      return;
+    }
+
+    // Disable page transition for reduced motion OR individual speaker detail routes
+    const shouldSkipAnimation = prefersReduced() || isIndividualSpeakerRoute(location.pathname);
 
     if (shouldSkipAnimation) {
       clearTimeout(timer.current);
       if (phaseRef.current !== 'idle') go('idle');
-      if (location.key !== cur.key || pathChanged) {
-        commit(location, pathChanged);
-        if (pathChanged) {
-          setStatus(`${pageName(location.pathname, namesRef.current)} page loaded`);
-        }
-      }
+      commit(location, true);
+      setStatus(`${pageName(location.pathname, namesRef.current)} page loaded`);
       return;
     }
 
     const p = phaseRef.current;
     if (p === 'idle') {
-      if (!pathChanged) {
-        commit(location, false); // only hash or search changed: no animation
-        return;
-      }
       api.current.begin();
     } else if (p === 'in') {
       // Swap happens at the end of "in" with the latest location.
@@ -189,13 +192,13 @@ export default function TransitionRoutes({ children, names }) {
       setLabel(name);
       setStatus(`Loading ${name}`);
     } else if (p === 'hold') {
-      // Still covered: swap again, no need to restart the animation.
+      // Still covered: swap immediately, no need to restart the animation.
       commit(location, true);
       const name = pageName(location.pathname, namesRef.current);
       setLabel(name);
       setStatus(`Loading ${name}`);
     }
-    // p === 'out': picked up by finish().
+    // p === 'out': picked up cleanly by finish().
   }, [location]);
 
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -207,7 +210,9 @@ export default function TransitionRoutes({ children, names }) {
     <>
       <style>{CSS}</style>
 
-      <Routes location={shown}>{children}</Routes>
+      <Suspense fallback={null}>
+        <Routes location={shown}>{children}</Routes>
+      </Suspense>
 
       <div className="nx-sr" role="status" aria-live="polite" aria-atomic="true">
         {status}

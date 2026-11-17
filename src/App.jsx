@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Route, useLocation, Navigate } from 'react-router-dom';
-import TransitionRoutes from './components/TransitionRoutesOld.jsx';
+import TransitionRoutes from './components/TransitionRoutes.jsx';
 // Note: The letters & alphabet storm animation is preserved in:
 // import TransitionRoutes from './components/TransitionRoutesPoster.jsx';
 
@@ -90,38 +90,36 @@ function AppContent() {
       {!isSecondHome && <ProceduralGroundBackground />}
       {!isSecondHome && <Navbar />}
       <main className="main-content">
-        <Suspense fallback={null}>
-          <TransitionRoutes names={PAGE_NAMES}>
-            <Route path="/" element={<Home />} />
-            <Route path="/second-home" element={<SecondHome />} />
-            <Route path="/second_next_home" element={<SecondHome />} />
-            <Route path="/conferences" element={<Conferences />} />
-            <Route path="/conference" element={<Navigate to="/conferences" replace />} />
-            <Route path="/conference/:slug" element={<ConferenceDetail />} />
-            <Route path="/conference/:slug/register" element={<Register />} />
-            <Route path="/register/:slug" element={<Register />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/speakers" element={<Speakers />} />
-            <Route path="/speaker" element={<Navigate to="/speakers" replace />} />
-            <Route path="/speakers/:slug" element={<SpeakerDetail />} />
-            <Route path="/speaker/:slug" element={<SpeakerDetail />} />
-            <Route path="/magazines" element={<Magazines />} />
-            <Route path="/magazine" element={<Navigate to="/magazines" replace />} />
-            <Route path="/magazine/:id" element={<MagazineDetail />} />
-            <Route path="/magazines/:id" element={<MagazineDetail />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contactus" element={<ContactUs />} />
-            <Route path="/aboutus" element={<AboutUs />} />
+        <TransitionRoutes names={PAGE_NAMES}>
+          <Route path="/" element={<Home />} />
+          <Route path="/second-home" element={<SecondHome />} />
+          <Route path="/second_next_home" element={<SecondHome />} />
+          <Route path="/conferences" element={<Conferences />} />
+          <Route path="/conference" element={<Navigate to="/conferences" replace />} />
+          <Route path="/conference/:slug" element={<ConferenceDetail />} />
+          <Route path="/conference/:slug/register" element={<Register />} />
+          <Route path="/register/:slug" element={<Register />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/speakers" element={<Speakers />} />
+          <Route path="/speaker" element={<Navigate to="/speakers" replace />} />
+          <Route path="/speakers/:slug" element={<SpeakerDetail />} />
+          <Route path="/speaker/:slug" element={<SpeakerDetail />} />
+          <Route path="/magazines" element={<Magazines />} />
+          <Route path="/magazine" element={<Navigate to="/magazines" replace />} />
+          <Route path="/magazine/:id" element={<MagazineDetail />} />
+          <Route path="/magazines/:id" element={<MagazineDetail />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/aboutus" element={<AboutUs />} />
 
-            <Route path="/committee" element={<Committee />} />
-            <Route path="/faqs" element={<FAQs />} />
-            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-            <Route path="/termsandconditions" element={<TermsAndConditions />} />
-            <Route path="/cms" element={<CmsPortal />} />
-            <Route path="/admin" element={<CmsPortal />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </TransitionRoutes>
-        </Suspense>
+          <Route path="/committee" element={<Committee />} />
+          <Route path="/faqs" element={<FAQs />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route path="/cms" element={<CmsPortal />} />
+          <Route path="/admin" element={<CmsPortal />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </TransitionRoutes>
       </main>
       {!isSecondHome && <Footer />}
     </div>
